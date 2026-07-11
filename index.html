@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Walaa Mansouri — Full-Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="style.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+</head>
+
+<body class="dark">
+
+  <div class="orbs">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
+  </div>
+
+  <nav class="pillnav">
+    <button class="link" onclick="scrollToId('about')">About</button>
+    <button class="link" onclick="scrollToId('services')">Services</button>
+    <button class="link" onclick="scrollToId('work')">Work</button>
+    <button class="link" onclick="scrollToId('Research')">Research</button>
+
+    <button class="link" onclick="scrollToId('contact')">Contact</button>
+    <div class="navdivider"></div>
+    <button class="themebtn" id="themeToggle" aria-label="Toggle theme"></button>
+  </nav>
+
+  <main>
+    <div class="grid">
+
+      <!-- Hero -->
+      <div class="hero-card gradborder-wrap">
+        <div class="gradborder" style="height:100%;">
+          <div class="glass tilt"
+            style="padding:36px;display:flex;flex-direction:column;justify-content:space-between;min-height:340px;">
+            <div>
+              <div class="eyebrow">Full-Stack Developer · Paris</div>
+              <h1 class="fdisplay"><span class="grad-text">Walaa<br>Mansouri</span></h1>
+              <p class="sub">Building fast, modern websites for real businesses.</p>
+            </div>
+            <div class="hero-actions">
+              <button class="btn-primary" onclick="scrollToId('contact')">Let's build your site <i
+                  data-lucide="arrow-right" width="14" height="14"></i></button>
+              <a class="btn-ghost" href="mailto:walaa.mansouri@etu.u-paris.fr"><i data-lucide="mail" width="14"
+                  height="14"></i> Get a quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Status -->
+      <div class="status-card">
+        <div class="glass tilt"
+          style="padding:24px;height:100%;display:flex;flex-direction:column;justify-content:space-between;">
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <div class="dot-wrap">
+              <div class="dot-core"></div>
+              <div class="dot-ring"></div>
+            </div>
+            <div>
+              <div class="fdisplay" style="font-weight:600;font-size:14px;margin-bottom:2px;">Available for work</div>
+              <div class="muted" style="font-size:12px;">Open to new client projects</div>
+            </div>
+          </div>
+          <div style="margin-top:16px;">
+            <div class="eyebrow" style="margin-bottom:6px;">Languages</div>
+            <div class="skillwrap">
+              <span class="chip">French</span><span class="chip">English</span><span class="chip">Arabic</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="loc-card">
+        <div class="glass tilt"
+          style="padding:24px;height:100%;display:flex;flex-direction:column;justify-content:space-between;">
+          <div>
+            <div class="eyebrow" style="display:flex;align-items:center;gap:6px;margin-bottom:10px;"><i
+                data-lucide="map-pin" width="11" height="11"></i> Location</div>
+            <div class="fdisplay" style="font-weight:700;font-size:19px;">Paris, France</div>
+            <div class="muted fmono" style="font-size:11px;">CET / UTC+1</div>
+          </div>
+          <div class="muted" style="margin-top:16px;font-size:12px;line-height:1.5;">Université Paris Cité · Computer
+            Science</div>
+        </div>
+      </div>
+
+      <!-- About -->
+      <div class="about-card" id="about">
+        <div class="glass" style="padding:28px;height:100%;">
+          <div class="eyebrow" style="margin-bottom:14px;">About me</div>
+          <p class="lead">CS student at Université Paris Cité — top 5 of 148 — but rankings don't close projects.
+            Results do.</p>
+          <p>Self-taught full-stack developer. Real internship. Real shipped code. My work at Sirius Net meant building
+            a multilingual production site with a live AI chatbot — not a demo.</p>
+          <p>I write clean code and design for outcomes. Hire me when you need a site that works hard for your business.
+          </p>
+        </div>
+      </div>
+
+      <!-- Skills / Services -->
+      <div class="skills-card" id="services">
+        <div class="glass" style="padding:28px;height:100%;">
+          <div class="eyebrow" style="margin-bottom:18px;">Tech stack</div>
+          <div class="skillwrap" id="skillsWrap"></div>
+          <div class="divider">
+            <div class="eyebrow" style="margin-bottom:14px;">Services</div>
+            <div class="svc-grid" id="svcGrid"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Achievements -->
+      <div class="ach-card">
+        <div class="glass tilt"
+          style="padding:24px;height:100%;display:flex;flex-direction:column;gap:10px;min-height:160px;">
+          <div class="ach-big grad-text"><span class="counter" data-to="5" data-pre="Top " data-suf="">0</span></div>
+          <div class="eyebrow">of 148 students</div>
+          <div class="ach-body">Ranked among the highest in a competitive CS program at Université Paris Cité.</div>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="glass tilt"
+          style="padding:24px;height:100%;display:flex;flex-direction:column;gap:10px;min-height:160px;">
+          <div class="ach-big grad-text"><span class="counter" data-to="1" data-pre="#" data-suf=" pick">0</span></div>
+          <div class="eyebrow">research selection</div>
+          <div class="ach-body">Chosen for a cryptography research project — rare for a first-year student.</div>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="glass tilt"
+          style="padding:24px;height:100%;display:flex;flex-direction:column;gap:10px;min-height:160px;">
+          <div class="ach-big grad-text"><span class="counter" data-to="58" data-pre="" data-suf=" pg">0</span></div>
+          <div class="eyebrow">technical report</div>
+          <div class="ach-body">Authored a deep-dive on RSA security and real-world cryptographic systems.</div>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="glass tilt"
+          style="padding:24px;height:100%;display:flex;flex-direction:column;gap:10px;min-height:160px;">
+          <div class="ach-big grad-text"><span class="counter" data-to="1" data-pre="" data-suf=" site">0</span></div>
+          <div class="eyebrow">shipped with AI</div>
+          <div class="ach-body">Launched a bilingual SEO-optimized site with a live Gemini AI chatbot.</div>
+        </div>
+      </div>
+
+      <!-- Experience -->
+      <div class="exp-card" id="work">
+        <div class="glass" style="padding:28px;height:100%;">
+          <div class="eyebrow" style="margin-bottom:20px;">Experience</div>
+          <div id="expList"></div>
+        </div>
+      </div>
+
+      <!-- Quick facts -->
+      <div class="qf-stack">
+        <div class="glass" style="padding:24px;">
+          <div class="eyebrow" style="margin-bottom:10px;">Research</div>
+          <p class="fdisplay" style="font-weight:600;font-size:15px;margin:0 0 8px;">RSA Security &amp; Cryptography</p>
+          <p class="muted" style="font-size:12px;line-height:1.6;margin:0 0 14px;">Selected for an exclusive university
+            cryptography research project — rare for a first-year student. Delivered a 58-page technical report on RSA
+            vulnerabilities.</p>
+          <div style="display:flex;gap:8px;">
+            <span class="chip">Cryptography</span><span class="chip"
+              style="background:rgba(99,102,241,.12);color:#818cf8;border-color:rgba(99,102,241,.2);">RSA</span>
+          </div>
+        </div>
+        <div class="glass"
+          style="padding:24px;background:linear-gradient(135deg,rgba(139,92,246,.1) 0%,rgba(99,102,241,.08) 100%);">
+          <div class="eyebrow" style="margin-bottom:10px;color:#a78bfa;">Featured project</div>
+          <p class="fdisplay" style="font-weight:600;font-size:15px;margin:0 0 8px;">Bilingual AI-powered website</p>
+          <p class="muted" style="font-size:12px;line-height:1.6;margin:0 0 14px;">SEO-optimized, bilingual (FR/EN)
+            business site with a live Gemini AI chatbot. Shipped to production at Sirius Net.</p>
+          <div
+            style="display:flex;align-items:center;gap:6px;font-size:12px;color:#a78bfa;font-family:var(--font-mono);">
+            <i data-lucide="external-link" width="11" height="11"></i> Live in production
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div class="contact-card" id="contact">
+        <div class="gradborder">
+          <div class="glass" style="padding:32px;">
+            <div
+              style="position:absolute;top:-60px;left:10%;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.2),transparent 70%);pointer-events:none;">
+            </div>
+            <div
+              style="position:absolute;bottom:-40px;right:5%;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,121,249,.15),transparent 70%);pointer-events:none;">
+            </div>
+            <div class="contact-grid">
+              <div>
+                <div class="eyebrow" style="margin-bottom:14px;">Contact</div>
+                <h2><span class="grad-text">Ready to build?</span></h2>
+                <p>Tell me what you need, who it's for, and when you want it live. I'll reply with a free quote and a
+                  clear plan.</p>
+                <a href="mailto:walaa.mansouri@etu.u-paris.fr" class="btn-primary"><i data-lucide="mail" width="14"
+                    height="14"></i> Get a free quote <i data-lucide="arrow-right" width="13" height="13"></i></a>
+              </div>
+              <div class="facts">
+                <div class="fact">
+                  <div class="flabel">Email</div>
+                  <div class="fvalue">walaa.mansouri
+                    @etu.u-paris.fr</div>
+                </div>
+                <div class="fact">
+                  <div class="flabel">Location</div>
+                  <div class="fvalue">Paris,
+                    France</div>
+                </div>
+                <div class="fact">
+                  <div class="flabel">Languages</div>
+                  <div class="fvalue">FR · EN
+                    · AR</div>
+                </div>
+                <div class="fact">
+                  <div class="flabel">Availability</div>
+                  <div class="fvalue">Open to
+                    projects</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Walaa Mansouri</span>
+    <span>Full-Stack Developer · Paris</span>
+  </footer>
+
+  <script>
+    // theme toggle
+    const body = document.body;
+    const themeBtn = document.getElementById('themeToggle');
+    function paintThemeIcon() {
+      const dark = body.classList.contains('dark');
+      themeBtn.innerHTML = dark ? '<i data-lucide="sun" width="13" height="13"></i>' : '<i data-lucide="moon" width="13" height="13"></i>';
+      lucide.createIcons();
+    }
+    themeBtn.addEventListener('click', () => { body.classList.toggle('dark'); paintThemeIcon(); });
+
+    function scrollToId(id) { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); }
+
+    // skills
+    const SKILLS = [
+      { name: "React", bg: "rgba(97,218,251,0.15)", fg: "#61daff" },
+      { name: "JavaScript", bg: "rgba(247,223,30,0.12)", fg: "#f7df1e" },
+      { name: "Python", bg: "rgba(55,118,171,0.15)", fg: "#4b8bbe" },
+      { name: "PHP", bg: "rgba(119,123,180,0.15)", fg: "#8892be" },
+      { name: "SQL", bg: "rgba(0,144,200,0.15)", fg: "#00aad4" },
+      { name: "HTML/CSS", bg: "rgba(228,77,38,0.12)", fg: "#e44d26" },
+      { name: "Git", bg: "rgba(240,80,50,0.12)", fg: "#f05033" },
+      { name: "Gemini API", bg: "rgba(66,133,244,0.12)", fg: "#4285f4" },
+      { name: "Figma", bg: "rgba(162,89,255,0.15)", fg: "#a259ff" },
+    ];
+    const skillsWrap = document.getElementById('skillsWrap');
+    SKILLS.forEach(s => {
+      const el = document.createElement('span');
+      el.className = 'skillchip';
+      el.textContent = s.name;
+      el.style.background = s.bg; el.style.color = s.fg; el.style.border = `1px solid ${s.fg}30`;
+      skillsWrap.appendChild(el);
+    });
+
+    // services
+    const SERVICES = [
+      { icon: "code-2", title: "Design & Dev", desc: "Full websites from design to deployment." },
+      { icon: "zap", title: "Landing Pages", desc: "Conversion-focused single-page experiences." },
+      { icon: "message-square", title: "AI Chatbots", desc: "Gemini & OpenAI integrations, production-ready." },
+      { icon: "globe", title: "Bilingual (FR/EN)", desc: "Localised for French and English markets." },
+      { icon: "search", title: "SEO", desc: "Structured, semantic, fast and discoverable." },
+    ];
+    const svcGrid = document.getElementById('svcGrid');
+    SERVICES.forEach(s => {
+      const el = document.createElement('div');
+      el.className = 'svc-item';
+      el.innerHTML = `<i data-lucide="${s.icon}" width="14" height="14" style="color:#a78bfa"></i><div class="title">${s.title}</div><div class="desc">${s.desc}</div>`;
+      svcGrid.appendChild(el);
+    });
+
+    // experience
+    const EXPERIENCE = [
+      { role: "Web Dev Intern", org: "Sirius Net", period: "2024", points: ["Responsive multilingual site — design to production.", "Gemini AI chatbot integrated, shipped to real users.", "Clean code reviewed and merged by senior team."] },
+      { role: "Tutor", org: "Independent", period: "Ongoing", points: ["Programming & math tutoring.", "Complex ideas made practical and clear.", "Trust built through structured guidance."] },
+      { role: "Sales Advisor", org: "Retail", period: "2023", points: ["Client communication under pressure.", "Listening and delivering what clients need.", "Vague requests turned into concrete outcomes."] },
+    ];
+    const expList = document.getElementById('expList');
+    EXPERIENCE.forEach(exp => {
+      const row = document.createElement('div');
+      row.className = 'xp-row';
+      row.innerHTML = `
+      <div class="xp-head">
+        <div><div class="xp-role">${exp.role}</div><div class="xp-org">${exp.org}</div></div>
+        <span class="xp-period">${exp.period}</span>
+      </div>
+      <ul class="xp-points">${exp.points.map(p => `<li><i data-lucide="chevron-right" width="11" height="11"></i>${p}</li>`).join('')}</ul>
+    `;
+      expList.appendChild(row);
+    });
+
+    lucide.createIcons();
+    paintThemeIcon();
+
+    // counters
+    document.querySelectorAll('.counter').forEach(el => {
+      const to = parseInt(el.dataset.to, 10);
+      const pre = el.dataset.pre || '';
+      const suf = el.dataset.suf || '';
+      const obs = new IntersectionObserver(([entry]) => {
+        if (!entry.isIntersecting) return;
+        obs.disconnect();
+        const start = performance.now(), dur = 1300;
+        function tick(now) {
+          const t = Math.min((now - start) / dur, 1);
+          const val = Math.round((1 - Math.pow(1 - t, 3)) * to);
+          el.textContent = pre + val + suf;
+          if (t < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }, { rootMargin: '-50px' });
+      obs.observe(el);
+    });
+
+    // tilt effect
+    document.querySelectorAll('.tilt').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const rx = ((e.clientY - r.top) / r.height - 0.5) * 11;
+        const ry = -((e.clientX - r.left) / r.width - 0.5) * 11;
+        card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(8px)`;
+        card.style.transitionDuration = '0.1s';
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+        card.style.transitionDuration = '0.5s';
+      });
+    });
+
+    // reveal animations on scroll for cards (simple stagger already via CSS on load, add scroll-in for below-the-fold)
+  </script>
+
+</body>
+
+</html>
