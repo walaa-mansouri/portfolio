@@ -62,28 +62,39 @@
     </div>
   </div>
 
+  <section class="hero-full">
+    <div class="hero-marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span data-i18n="hero.marquee">Full-Stack Developer</span>
+        <span data-i18n="hero.marquee">Full-Stack Developer</span>
+        <span data-i18n="hero.marquee">Full-Stack Developer</span>
+        <span data-i18n="hero.marquee">Full-Stack Developer</span>
+        <span data-i18n="hero.marquee">Full-Stack Developer</span>
+        <span data-i18n="hero.marquee">Full-Stack Developer</span>
+        <span data-i18n="hero.marquee">Full-Stack Developer</span>
+        <span data-i18n="hero.marquee">Full-Stack Developer</span>
+      </div>
+    </div>
+    <div class="hero-content">
+      <div class="eyebrow" data-i18n="hero.eyebrow">Full-Stack Developer · Paris</div>
+      <h1 class="fdisplay"><span class="grad-text">Walaa<br>Mansouri</span></h1>
+      <p class="sub" data-i18n="hero.sub">Building fast, modern websites for real businesses.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="scrollToId('contact')"><span data-i18n="hero.cta1">Let's build your site</span> <i
+            data-lucide="arrow-right" width="14" height="14"></i></button>
+        <a class="btn-ghost" href="mailto:walaa.mansouri@etu.u-paris.fr"><i data-lucide="mail" width="14"
+            height="14"></i> <span data-i18n="hero.cta2">Get a quote</span></a>
+      </div>
+    </div>
+    <img class="hero-illustration" src="hero-illustration.png" alt="Illustrated portrait of Walaa Mansouri">
+    <div class="scroll-cue">
+      <span data-i18n="hero.scroll">Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
   <main>
     <div class="grid">
-
-      <!-- Hero -->
-      <div class="hero-card gradborder-wrap">
-        <div class="gradborder" style="height:100%;">
-          <div class="glass tilt"
-            style="padding:36px;display:flex;flex-direction:column;justify-content:space-between;min-height:340px;">
-            <div>
-              <div class="eyebrow" data-i18n="hero.eyebrow">Full-Stack Developer · Paris</div>
-              <h1 class="fdisplay"><span class="grad-text">Walaa<br>Mansouri</span></h1>
-              <p class="sub" data-i18n="hero.sub">Building fast, modern websites for real businesses.</p>
-            </div>
-            <div class="hero-actions">
-              <button class="btn-primary" onclick="scrollToId('contact')"><span data-i18n="hero.cta1">Let's build your site</span> <i
-                  data-lucide="arrow-right" width="14" height="14"></i></button>
-              <a class="btn-ghost" href="mailto:walaa.mansouri@etu.u-paris.fr"><i data-lucide="mail" width="14"
-                  height="14"></i> <span data-i18n="hero.cta2">Get a quote</span></a>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <!-- Status -->
       <div class="status-card reveal">
@@ -313,7 +324,9 @@
           eyebrow: "Full-Stack Developer · Paris",
           sub: "Building fast, modern websites for real businesses.",
           cta1: "Let's build your site",
-          cta2: "Get a quote"
+          cta2: "Get a quote",
+          marquee: "Full-Stack Developer",
+          scroll: "Scroll"
         },
         status: { available: "Available for work", availableSub: "Open to new client projects", languages: "Languages", french: "French", english: "English", arabic: "Arabic" },
         loc: { label: "Location", value: "Paris, France", note: "Université Paris Cité · Computer Science" },
@@ -368,7 +381,9 @@
           eyebrow: "Développeuse Full-Stack · Paris",
           sub: "Je crée des sites web rapides et modernes pour de vraies entreprises.",
           cta1: "Construisons votre site",
-          cta2: "Devis gratuit"
+          cta2: "Devis gratuit",
+          marquee: "Développeuse Full-Stack",
+          scroll: "Défiler"
         },
         status: { available: "Disponible pour des missions", availableSub: "Ouverte à de nouveaux projets clients", languages: "Langues", french: "Français", english: "Anglais", arabic: "Arabe" },
         loc: { label: "Localisation", value: "Paris, France", note: "Université Paris Cité · Informatique" },
@@ -423,7 +438,9 @@
           eyebrow: "مطوّرة Full-Stack · باريس",
           sub: "أصمم مواقع ويب سريعة وحديثة لشركات حقيقية.",
           cta1: "لنبنِ موقعك",
-          cta2: "اطلب عرض سعر"
+          cta2: "اطلب عرض سعر",
+          marquee: "مطوّرة Full-Stack",
+          scroll: "مرّر"
         },
         status: { available: "متاحة للعمل", availableSub: "منفتحة على مشاريع عملاء جدد", languages: "اللغات", french: "الفرنسية", english: "الإنجليزية", arabic: "العربية" },
         loc: { label: "الموقع", value: "باريس، فرنسا", note: "جامعة باريس سيتيه · علوم حاسوب" },
