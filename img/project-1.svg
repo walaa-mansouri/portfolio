@@ -1,0 +1,38 @@
+<svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="pbg1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1428"/>
+      <stop offset="100%" stop-color="#0d0c14"/>
+    </linearGradient>
+    <linearGradient id="pgrad1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#e879f9"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="300" fill="url(#pbg1)"/>
+  <!-- browser frame -->
+  <rect x="20" y="24" width="440" height="252" rx="10" fill="#141018" stroke="#2a2438" stroke-width="1.5"/>
+  <rect x="20" y="24" width="440" height="30" rx="10" fill="#1c1826"/>
+  <circle cx="38" cy="39" r="4.5" fill="#e8797a"/>
+  <circle cx="54" cy="39" r="4.5" fill="#e8c877"/>
+  <circle cx="70" cy="39" r="4.5" fill="#7fd28c"/>
+  <rect x="150" y="32" width="200" height="14" rx="7" fill="#26202f"/>
+  <!-- content -->
+  <rect x="46" y="80" width="150" height="12" rx="6" fill="url(#pgrad1)" opacity="0.8"/>
+  <rect x="46" y="102" width="230" height="22" rx="4" fill="#e9e7ef" opacity="0.9"/>
+  <rect x="46" y="132" width="190" height="10" rx="5" fill="#77728a"/>
+  <rect x="46" y="150" width="150" height="10" rx="5" fill="#77728a"/>
+  <rect x="46" y="176" width="120" height="34" rx="17" fill="url(#pgrad1)"/>
+  <text x="106" y="198" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="12" fill="#0d0c14">Contact us</text>
+  <!-- decorative image block -->
+  <rect x="300" y="80" width="134" height="150" rx="12" fill="#201a2c" stroke="#332b45" stroke-width="1"/>
+  <circle cx="367" cy="140" r="26" fill="url(#pgrad1)" opacity="0.5"/>
+  <rect x="318" y="182" width="98" height="8" rx="4" fill="#3a3348"/>
+  <rect x="318" y="198" width="70" height="8" rx="4" fill="#3a3348"/>
+  <g font-family="monospace" font-size="10" fill="#8b7fae">
+    <rect x="46" y="240" width="52" height="18" rx="9" fill="#211c2c" stroke="#3a3348"/>
+    <text x="72" y="252" text-anchor="middle">FR</text>
+    <rect x="104" y="240" width="52" height="18" rx="9" fill="#3a3348"/>
+    <text x="130" y="252" text-anchor="middle" fill="#e9e7ef">EN</text>
+  </g>
+</svg>

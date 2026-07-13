@@ -1090,6 +1090,15 @@
       color: var(--muted-foreground);
   }
 
+  #about,
+  #services,
+  #work,
+  #projects,
+  #research,
+  #contact {
+      scroll-margin-top: 84px;
+  }
+
   footer span:last-child {
       opacity: .4;
   }
@@ -1108,165 +1117,115 @@
       font-weight: 600;
   }
 
-  /* ================= RESEARCH TRIGGER (clickable card) ================= */
-  .research-trigger {
-      appearance: none;
-      -webkit-appearance: none;
-      display: block;
-      width: 100%;
-      text-align: left;
-      cursor: pointer;
-      padding: 24px;
-      font: inherit;
-      color: inherit;
-  }
-
-  html[dir="rtl"] .research-trigger {
-      text-align: right;
-  }
-
-  .research-trigger:hover {
-      border-color: rgba(167, 139, 250, .4);
-      box-shadow: 0 0 48px rgba(139, 92, 246, .16);
-  }
-
-  .research-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 11px;
-      letter-spacing: .05em;
-      color: #a78bfa;
-      white-space: nowrap;
-  }
-
-  /* ================= PROJECTS ================= */
-  .project-card {
+  /* ================= SHOWCASE CARDS (Projects + Research, matched sizing) ================= */
+  .showcase-card {
       grid-column: span 12;
   }
 
-  .project-grid {
-      display: grid;
-      gap: 28px;
-      align-items: center;
-  }
-
-  @media(min-width:900px) {
-      .project-grid {
-          grid-template-columns: 1.1fr 0.9fr;
-      }
-  }
-
-  .project-title {
+  .showcase-title {
       font-weight: 700;
-      font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+      font-size: clamp(1.2rem, 2.6vw, 1.6rem);
       line-height: 1.25;
       margin: 0 0 12px;
   }
 
-  .project-desc {
-      font-size: 13px;
+  .showcase-desc {
+      font-size: 13.5px;
       line-height: 1.7;
       margin: 0 0 18px;
-      max-width: 480px;
+      max-width: 620px;
   }
 
-  .project-tags {
+  .showcase-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 22px;
+      margin-bottom: 24px;
   }
 
-  .project-link {
+  .showcase-cta {
       display: inline-flex;
+      margin-top: 24px;
   }
 
-  .project-preview {
+  /* Scrollable 3-image gallery, shared by Projects & Research */
+  .gallery-wrap {
+      position: relative;
+  }
+
+  .gallery-track {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(167, 139, 250, .4) transparent;
+      padding-bottom: 6px;
+      margin: 0 -4px;
+      padding-left: 4px;
+      padding-right: 4px;
+  }
+
+  .gallery-track::-webkit-scrollbar {
+      height: 6px;
+  }
+
+  .gallery-track::-webkit-scrollbar-thumb {
+      background: rgba(167, 139, 250, .35);
+      border-radius: 999px;
+  }
+
+  .gallery-img {
+      scroll-snap-align: start;
+      flex: 0 0 auto;
+      width: min(340px, 78vw);
+      height: 210px;
       border-radius: 14px;
-      overflow: hidden;
+      object-fit: cover;
       border: 1px solid var(--glass-border);
-      background: linear-gradient(160deg, rgba(139, 92, 246, .1), rgba(232, 121, 249, .06));
+      background: #0d0c14;
+      transition: transform .3s ease, border-color .3s ease;
   }
 
-  .browser-chrome {
-      display: flex;
-      gap: 6px;
-      padding: 12px 14px;
-      border-bottom: 1px solid var(--glass-border);
+  .gallery-img:hover {
+      transform: translateY(-3px);
+      border-color: rgba(167, 139, 250, .4);
   }
 
-  .browser-chrome span {
-      width: 8px;
-      height: 8px;
+  .gallery-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, .18);
-  }
-
-  .browser-chrome span:first-child {
-      background: #e8797a;
-  }
-
-  .browser-chrome span:nth-child(2) {
-      background: #e8c877;
-  }
-
-  .browser-chrome span:nth-child(3) {
-      background: #7fd28c;
-  }
-
-  .browser-body {
-      padding: 22px 20px 26px;
-  }
-
-  .bb-line {
-      height: 10px;
-      border-radius: 5px;
-      background: rgba(255, 255, 255, .08);
-      margin-bottom: 10px;
-  }
-
-  .bb-w1 {
-      width: 70%;
-  }
-
-  .bb-w2 {
-      width: 45%;
-      margin-bottom: 22px;
-  }
-
-  .bb-chat {
+      background: rgba(13, 12, 20, .85);
+      border: 1px solid var(--glass-border);
+      color: var(--foreground);
       display: flex;
-      flex-direction: column;
-      gap: 8px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background .2s, border-color .2s;
   }
 
-  .bb-bubble {
-      height: 26px;
-      border-radius: 10px;
-      background: rgba(139, 92, 246, .22);
-      animation: bubblePulse 3.4s ease-in-out infinite;
+  .gallery-arrow:hover {
+      background: rgba(139, 92, 246, .3);
+      border-color: rgba(167, 139, 250, .5);
   }
 
-  .bb-bubble-a {
-      width: 78%;
+  .gallery-prev {
+      left: -6px;
   }
 
-  .bb-bubble-b {
-      width: 55%;
-      background: rgba(232, 121, 249, .18);
-      animation-delay: .6s;
+  .gallery-next {
+      right: -6px;
   }
 
-  @keyframes bubblePulse {
-
-      0%,
-      100% {
-          opacity: .55;
-      }
-
-      50% {
-          opacity: 1;
+  @media(max-width:640px) {
+      .gallery-arrow {
+          display: none;
       }
   }
 

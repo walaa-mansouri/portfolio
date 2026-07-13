@@ -88,7 +88,7 @@
             height="14"></i> <span data-i18n="hero.cta2">Get a quote</span></a>
       </div>
     </div>
-    <img class="hero-illustration" src="hero-illustration.png" alt="Illustrated portrait of Walaa Mansouri">
+    <img class="hero-illustration" src="img/hero-illustration.png" alt="Illustrated portrait of Walaa Mansouri">
     <div class="scroll-cue">
       <span data-i18n="hero.scroll">Scroll</span>
       <div class="scroll-line"></div>
@@ -215,66 +215,72 @@
       </div>
 
       <!-- Projects -->
-      <div class="project-card reveal" id="projects">
-        <div class="glass" style="padding:32px;height:100%;">
+      <div class="showcase-card reveal" id="projects">
+        <div class="glass" style="padding:36px;height:100%;">
           <div class="eyebrow" style="margin-bottom:14px;" data-i18n="projects.eyebrow">Projects</div>
-          <div class="project-grid">
-            <div class="project-info">
-              <p class="fdisplay project-title" data-i18n="projects.p1.title">Mirasens — Bilingual Business Website
-                &amp; AI Assistant</p>
-              <p class="muted project-desc" data-i18n="projects.p1.body">Built during my 2025 web development
-                internship at Sirius Net: a bilingual (FR/EN) production website with a live Gemini AI chatbot,
-                shipped to real users and reviewed by the senior team.</p>
-              <div class="project-tags">
-                <span class="chip" data-i18n="projects.p1.tag1">Web Dev Internship · Sirius Net · 2025</span>
-                <span class="chip"
-                  style="background:rgba(99,102,241,.12);color:#818cf8;border-color:rgba(99,102,241,.2);"
-                  data-i18n="projects.p1.tag2">Gemini AI Chatbot</span>
-                <span class="chip"
-                  style="background:rgba(232,121,249,.12);color:#e879f9;border-color:rgba(232,121,249,.2);"
-                  data-i18n="projects.p1.tag3">Bilingual FR/EN · SEO</span>
-              </div>
-              <a class="btn-primary project-link" href="https://mirasens.com/" target="_blank" rel="noopener">
-                <span data-i18n="projects.p1.cta">Visit mirasens.com</span> <i data-lucide="arrow-up-right" width="14"
-                  height="14"></i>
-              </a>
-            </div>
-            <div class="project-preview" aria-hidden="true">
-              <div class="browser-chrome">
-                <span></span><span></span><span></span>
-              </div>
-              <div class="browser-body">
-                <div class="bb-line bb-w1"></div>
-                <div class="bb-line bb-w2"></div>
-                <div class="bb-chat">
-                  <div class="bb-bubble bb-bubble-a"></div>
-                  <div class="bb-bubble bb-bubble-b"></div>
-                </div>
-              </div>
-            </div>
+          <p class="fdisplay showcase-title" data-i18n="projects.p1.title">Mirasens — Bilingual Business Website
+            &amp; AI Assistant</p>
+          <p class="muted showcase-desc" data-i18n="projects.p1.body">Built during my 2025 web development
+            internship at Sirius Net: a bilingual (FR/EN) production website with a live Gemini AI chatbot, shipped
+            to real users and reviewed by the senior team.</p>
+          <div class="showcase-tags">
+            <span class="chip" data-i18n="projects.p1.tag1">Web Dev Internship · Sirius Net · 2025</span>
+            <span class="chip" style="background:rgba(99,102,241,.12);color:#818cf8;border-color:rgba(99,102,241,.2);"
+              data-i18n="projects.p1.tag2">Gemini AI Chatbot</span>
+            <span class="chip" style="background:rgba(232,121,249,.12);color:#e879f9;border-color:rgba(232,121,249,.2);"
+              data-i18n="projects.p1.tag3">Bilingual FR/EN · SEO</span>
           </div>
+
+          <div class="gallery-wrap">
+            <button class="gallery-arrow gallery-prev" onclick="scrollGallery(this,-1)" aria-label="Previous"><i
+                data-lucide="chevron-left" width="16" height="16"></i></button>
+            <div class="gallery-track">
+              <img class="gallery-img" src="img/project-1.PNG" alt="Mirasens homepage mockup">
+              <img class="gallery-img" src="img/project-2.PNG" alt="Mirasens Gemini AI chatbot widget">
+              <img class="gallery-img" src="img/project-3.PNG" alt="Mirasens responsive mobile layout">
+            </div>
+            <button class="gallery-arrow gallery-next" onclick="scrollGallery(this,1)" aria-label="Next"><i
+                data-lucide="chevron-right" width="16" height="16"></i></button>
+          </div>
+
+          <a class="btn-primary showcase-cta" href="https://mirasens.com/" target="_blank" rel="noopener">
+            <span data-i18n="projects.p1.cta">Visit mirasens.com</span> <i data-lucide="arrow-up-right" width="14"
+              height="14"></i>
+          </a>
         </div>
       </div>
 
       <!-- Research (click to expand) -->
-      <div class="qf-stack reveal" id="research">
-        <button class="glass tilt research-trigger" type="button" onclick="openResearchModal()">
-          <div class="eyebrow" style="margin-bottom:10px;" data-i18n="research.eyebrow">Research</div>
-          <p class="fdisplay" style="font-weight:600;font-size:15px;margin:0 0 8px;" data-i18n="research.title">RSA
-            Security &amp; Cryptography</p>
-          <p class="muted" style="font-size:12px;line-height:1.6;margin:0 0 14px;" data-i18n="research.body">Selected
-            for an exclusive university
-            cryptography research project — rare for a first-year student. Delivered a 65-page technical report on RSA
+      <div class="showcase-card reveal" id="research">
+        <div class="glass" style="padding:36px;height:100%;">
+          <div class="eyebrow" style="margin-bottom:14px;" data-i18n="research.eyebrow">Research</div>
+          <p class="fdisplay showcase-title" data-i18n="research.title">RSA Security &amp; Cryptography</p>
+          <p class="muted showcase-desc" data-i18n="research.body">Selected for an exclusive university cryptography
+            research project — rare for a first-year student. Delivered a 65-page technical report on RSA
             vulnerabilities.</p>
-          <div style="display:flex;gap:8px;align-items:center;justify-content:space-between;">
-            <div style="display:flex;gap:8px;">
-              <span class="chip" data-i18n="research.chip1">Cryptography</span><span class="chip"
-                style="background:rgba(99,102,241,.12);color:#818cf8;border-color:rgba(99,102,241,.2);">RSA</span>
-            </div>
-            <span class="research-cta fmono"><span data-i18n="research.view">View details</span> <i
-                data-lucide="arrow-up-right" width="12" height="12"></i></span>
+          <div class="showcase-tags">
+            <span class="chip" data-i18n="research.chip1">Cryptography</span>
+            <span class="chip"
+              style="background:rgba(99,102,241,.12);color:#818cf8;border-color:rgba(99,102,241,.2);">RSA</span>
           </div>
-        </button>
+
+          <div class="gallery-wrap">
+            <button class="gallery-arrow gallery-prev" onclick="scrollGallery(this,-1)" aria-label="Previous"><i
+                data-lucide="chevron-left" width="16" height="16"></i></button>
+            <div class="gallery-track">
+              <img class="gallery-img" src="img/research-1.jpg" alt="RSA key generation illustration">
+              <img class="gallery-img" src="img/research-2.jpg" alt="Modular arithmetic illustration">
+              <img class="gallery-img" src="img/research-3.jpg" alt="Security analysis and attacks illustration">
+            </div>
+            <button class="gallery-arrow gallery-next" onclick="scrollGallery(this,1)" aria-label="Next"><i
+                data-lucide="chevron-right" width="16" height="16"></i></button>
+          </div>
+
+          <button class="btn-primary showcase-cta" type="button" onclick="openResearchModal()">
+            <span data-i18n="research.view">View details</span> <i data-lucide="arrow-up-right" width="14"
+              height="14"></i>
+          </button>
+        </div>
       </div>
 
       <!-- Contact moved below as a full-bleed section -->
@@ -294,16 +300,15 @@
       </div>
     </div>
     <div class="contact-content">
-      <div class="eyebrow contact-num" data-i18n="contact.eyebrowNum">05 — Contact</div>
+      <div class="eyebrow contact-num"></div>
       <h2 class="fdisplay contact-heading">
         <span data-i18n="contact.headingLine1">Let's build</span><br>
         <span class="grad-text script-accent" data-i18n="contact.headingLine2">something together</span>
       </h2>
       <p class="contact-sub" data-i18n="contact.body">Tell me what you need, who it's for, and when you want it live.
         I'll reply with a free quote and a clear plan.</p>
-      <a href="mailto:walaa.mansouri@etu.u-paris.fr" class="btn-primary contact-cta"><span
-          data-i18n="contact.cta">Get a free quote</span> <i data-lucide="arrow-right" width="14"
-          height="14"></i></a>
+      <a href="mailto:walaa.mansouri@etu.u-paris.fr" class="btn-primary contact-cta"><span data-i18n="contact.cta">Get a
+          free quote</span> <i data-lucide="arrow-right" width="14" height="14"></i></a>
 
       <div class="contact-facts-row">
         <span><span class="flabel" data-i18n="contact.emailLabel">Email</span> walaa.mansouri@etu.u-paris.fr</span>
@@ -351,8 +356,8 @@
         <div class="research-modal-plan-title" data-i18n="researchModal.planTitle">Plan de l'exposé</div>
         <div class="plan-row"><span class="plan-num">01</span>
           <div><span class="plan-item-title" data-i18n="researchModal.plan1title">Introduction à la
-              cryptographie</span><span class="plan-item-sub"
-              data-i18n="researchModal.plan1sub">Chiffrements classiques · Diffie-Hellman</span></div>
+              cryptographie</span><span class="plan-item-sub" data-i18n="researchModal.plan1sub">Chiffrements classiques
+              · Diffie-Hellman</span></div>
         </div>
         <div class="plan-row"><span class="plan-num">02</span>
           <div><span class="plan-item-title" data-i18n="researchModal.plan2title">Fondements mathématiques</span><span
@@ -377,11 +382,11 @@
       </div>
 
       <div class="research-modal-downloads">
-        <a class="btn-primary" href="rsa-expose.pdf" download>
+        <a class="btn-primary" href="research/rsa-expose.pdf" download>
           <i data-lucide="presentation" width="14" height="14"></i>
           <span data-i18n="researchModal.downloadExpose">Download the Exposé (PDF)</span>
         </a>
-        <a class="btn-ghost" href="rsa-rapport.pdf" download>
+        <a class="btn-ghost" href="research/rsa-rapport.pdf" download>
           <i data-lucide="file-text" width="14" height="14"></i>
           <span data-i18n="researchModal.downloadRapport">Download the Rapport (PDF)</span>
         </a>

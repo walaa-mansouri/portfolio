@@ -8,7 +8,13 @@
     }
     themeBtn.addEventListener('click', () => { body.classList.toggle('dark'); paintThemeIcon(); });
 
-    function scrollToId(id) { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); }
+    const NAV_OFFSET = 84;
+    function scrollToId(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const top = el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
     function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
 
     // skills (tech names stay the same across languages)
@@ -450,3 +456,12 @@ function closeResearchModal() {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && researchOverlay.classList.contains('open')) closeResearchModal();
 });
+
+/* ================= IMAGE GALLERIES (scrollable, 3 pics each) ================= */
+function scrollGallery(btn, dir) {
+  const wrap = btn.closest('.gallery-wrap');
+  const track = wrap.querySelector('.gallery-track');
+  const img = track.querySelector('.gallery-img');
+  const amount = (img ? img.getBoundingClientRect().width : 300) + 16;
+  track.scrollBy({ left: dir * amount, behavior: 'smooth' });
+}
