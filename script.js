@@ -9,6 +9,9 @@
     themeBtn.addEventListener('click', () => { body.classList.toggle('dark'); paintThemeIcon(); });
 
     const NAV_OFFSET = 84;
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
     function scrollToId(id) {
       const el = document.getElementById(id);
       if (!el) return;
@@ -465,3 +468,94 @@ function scrollGallery(btn, dir) {
   const amount = (img ? img.getBoundingClientRect().width : 300) + 16;
   track.scrollBy({ left: dir * amount, behavior: 'smooth' });
 }
+
+/* ================= IMAGE LIGHTBOX (click any gallery pic to zoom) ================= */
+const lightboxOverlay = document.getElementById('lightboxOverlay');
+const lightboxImgEl = document.getElementById('lightboxImg');
+let lightboxGroup = [];
+let lightboxIndex = 0;
+
+function showLightboxImage() {
+  const img = lightboxGroup[lightboxIndex];
+  if (!img) return;
+  lightboxImgEl.src = img.src;
+  lightboxImgEl.alt = img.alt || '';
+}
+
+function openLightbox(imgEl) {
+  const group = imgEl.dataset.group;
+  lightboxGroup = Array.from(document.querySelectorAll(`.gallery-img[data-group="${group}"]`));
+  lightboxIndex = lightboxGroup.indexOf(imgEl);
+  showLightboxImage();
+  lightboxOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightboxOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function lightboxNav(dir) {
+  if (!lightboxGroup.length) return;
+  lightboxIndex = (lightboxIndex + dir + lightboxGroup.length) % lightboxGroup.length;
+  showLightboxImage();
+}
+
+document.addEventListener('keydown', (e) => {
+  if (!lightboxOverlay.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') lightboxNav(-1);
+  if (e.key === 'ArrowRight') lightboxNav(1);
+});
+
+/* ================= LEFT SIDE-NAV (scrollspy + step through sections) ================= */
+const SIDE_SECTIONS = ['home', 'about', 'services', 'work', 'projects', 'research', 'contact'];
+const sideDots = document.querySelectorAll('.side-dot');
+
+function goToSideSection(id) {
+  if (id === 'home') scrollToTop();
+  else scrollToId(id);
+}
+
+sideDots.forEach((dot) => {
+  dot.addEventListener('click', () => goToSideSection(dot.dataset.target));
+});
+
+function sectionTopPositions() {
+  return SIDE_SECTIONS.map(id => {
+    if (id === 'home') return 0;
+    const el = document.getElementById(id);
+    if (!el) return Infinity;
+    return el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET - 6;
+  });
+}
+
+function sideNavStep(dir) {
+  const positions = sectionTopPositions();
+  const current = window.scrollY;
+  let idx = 0;
+  if (dir > 0) {
+    idx = positions.findIndex(p => p > current + 12);
+    if (idx === -1) idx = positions.length - 1;
+  } else {
+    idx = 0;
+    for (let i = positions.length - 1; i >= 0; i--) {
+      if (positions[i] < current - 12) { idx = i; break; }
+    }
+  }
+  goToSideSection(SIDE_SECTIONS[idx]);
+}
+
+function updateSideNav() {
+  const positions = sectionTopPositions();
+  const current = window.scrollY;
+  let activeIdx = 0;
+  positions.forEach((p, i) => { if (current + 4 >= p) activeIdx = i; });
+  sideDots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
+}
+window.addEventListener('scroll', updateSideNav);
+updateSideNav();
+
+/* Final pass: render any static Lucide icons (hero, chips, side-nav arrows, lightbox) */
+lucide.createIcons();

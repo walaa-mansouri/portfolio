@@ -7,6 +7,7 @@
   <title>Walaa Mansouri — Full-Stack Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="img/logo.svg">
   <link
     href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap"
     rel="stylesheet">
@@ -24,7 +25,23 @@
 
   <nav class="navbar" id="siteNav">
     <div class="nav-inner">
-      <span class="navlogo">WM</span>
+      <button class="navlogo" onclick="scrollToTop()" aria-label="Back to top">
+        <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#e879f9" />
+              <stop offset="45%" stop-color="#a78bfa" />
+              <stop offset="100%" stop-color="#818cf8" />
+            </linearGradient>
+          </defs>
+          <rect x="1.5" y="1.5" width="33" height="33" rx="10" fill="rgba(139,92,246,.14)"
+            stroke="url(#logoGrad)" stroke-width="1.3" />
+          <polyline points="7,13 12.5,24 18,14 23.5,24 29,13" fill="none" stroke="url(#logoGrad)"
+            stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+          <polyline points="7,24 12.5,13 18,23 23.5,13 29,24" fill="none" stroke="url(#logoGrad)"
+            stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".55" />
+        </svg>
+      </button>
       <div class="navlinks">
         <button class="link" data-i18n="nav.about" onclick="scrollToId('about')">About</button>
         <button class="link" data-i18n="nav.services" onclick="scrollToId('services')">Services</button>
@@ -64,7 +81,25 @@
     </div>
   </div>
 
-  <section class="hero-full">
+  <div class="side-nav" id="sideNav">
+    <button class="side-nav-arrow" onclick="sideNavStep(-1)" aria-label="Scroll to previous section">
+      <i data-lucide="chevron-up" width="14" height="14"></i>
+    </button>
+    <div class="side-nav-dots">
+      <button class="side-dot" data-target="home" aria-label="Home"></button>
+      <button class="side-dot" data-target="about" aria-label="About"></button>
+      <button class="side-dot" data-target="services" aria-label="Services"></button>
+      <button class="side-dot" data-target="work" aria-label="Work"></button>
+      <button class="side-dot" data-target="projects" aria-label="Projects"></button>
+      <button class="side-dot" data-target="research" aria-label="Research"></button>
+      <button class="side-dot" data-target="contact" aria-label="Contact"></button>
+    </div>
+    <button class="side-nav-arrow" onclick="sideNavStep(1)" aria-label="Scroll to next section">
+      <i data-lucide="chevron-down" width="14" height="14"></i>
+    </button>
+  </div>
+
+  <section class="hero-full" id="home">
     <div class="bg-marquee" aria-hidden="true">
       <div class="marquee-track">
         <span data-i18n="hero.marquee">Full-Stack Developer</span>
@@ -235,9 +270,12 @@
             <button class="gallery-arrow gallery-prev" onclick="scrollGallery(this,-1)" aria-label="Previous"><i
                 data-lucide="chevron-left" width="16" height="16"></i></button>
             <div class="gallery-track">
-              <img class="gallery-img" src="img/project-1.PNG" alt="Mirasens homepage mockup">
-              <img class="gallery-img" src="img/project-2.PNG" alt="Mirasens Gemini AI chatbot widget">
-              <img class="gallery-img" src="img/project-3.PNG" alt="Mirasens responsive mobile layout">
+              <img class="gallery-img" src="img/project-1.PNG" alt="Mirasens homepage mockup" data-group="projects"
+                onclick="openLightbox(this)">
+              <img class="gallery-img" src="img/project-2.PNG" alt="Mirasens Gemini AI chatbot widget"
+                data-group="projects" onclick="openLightbox(this)">
+              <img class="gallery-img" src="img/project-3.PNG" alt="Mirasens responsive mobile layout"
+                data-group="projects" onclick="openLightbox(this)">
             </div>
             <button class="gallery-arrow gallery-next" onclick="scrollGallery(this,1)" aria-label="Next"><i
                 data-lucide="chevron-right" width="16" height="16"></i></button>
@@ -268,9 +306,12 @@
             <button class="gallery-arrow gallery-prev" onclick="scrollGallery(this,-1)" aria-label="Previous"><i
                 data-lucide="chevron-left" width="16" height="16"></i></button>
             <div class="gallery-track">
-              <img class="gallery-img" src="img/research-1.jpg" alt="RSA key generation illustration">
-              <img class="gallery-img" src="img/research-2.jpg" alt="Modular arithmetic illustration">
-              <img class="gallery-img" src="img/research-3.jpg" alt="Security analysis and attacks illustration">
+              <img class="gallery-img" src="img/research-1.jpg" alt="RSA key generation illustration"
+                data-group="research" onclick="openLightbox(this)">
+              <img class="gallery-img" src="img/research-2.jpg" alt="Modular arithmetic illustration"
+                data-group="research" onclick="openLightbox(this)">
+              <img class="gallery-img" src="img/research-3.jpg" alt="Security analysis and attacks illustration"
+                data-group="research" onclick="openLightbox(this)">
             </div>
             <button class="gallery-arrow gallery-next" onclick="scrollGallery(this,1)" aria-label="Next"><i
                 data-lucide="chevron-right" width="16" height="16"></i></button>
@@ -392,6 +433,18 @@
         </a>
       </div>
     </div>
+  </div>
+
+  <!-- Image lightbox (Projects + Research galleries) -->
+  <div class="lightbox-overlay" id="lightboxOverlay" onclick="if(event.target===this) closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">×</button>
+    <button class="lightbox-arrow lightbox-prev" onclick="lightboxNav(-1)" aria-label="Previous image">
+      <i data-lucide="chevron-left" width="18" height="18"></i>
+    </button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    <button class="lightbox-arrow lightbox-next" onclick="lightboxNav(1)" aria-label="Next image">
+      <i data-lucide="chevron-right" width="18" height="18"></i>
+    </button>
   </div>
 
   <footer>
