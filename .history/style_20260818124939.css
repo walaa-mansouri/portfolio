@@ -135,6 +135,15 @@
       }
   }
 
+  @keyframes pingRing {
+
+      75%,
+      100% {
+          transform: scale(2.4);
+          opacity: 0
+      }
+  }
+
   @keyframes gradShift {
 
       0%,
@@ -238,7 +247,7 @@
       cursor: pointer;
       border-radius: 10px;
       flex-shrink: 0;
-      transition: transform .3s cubic-bezier(.25,.1,.25,1), filter .3s ease;
+      transition: transform .3s cubic-bezier(.25, .1, .25, 1), filter .3s ease;
   }
 
   .navlogo svg {
@@ -369,9 +378,12 @@
   }
 
   @media (max-width: 860px) {
-      .navlinks, .nav-right .lang-switch.desktop-only {
+
+      .navlinks,
+      .nav-right .lang-switch.desktop-only {
           display: none;
       }
+
       .hamburger {
           display: flex;
       }
@@ -437,7 +449,7 @@
   .reveal {
       opacity: 0;
       transform: translateY(26px) scale(.98);
-      transition: opacity .65s cubic-bezier(.16,1,.3,1), transform .65s cubic-bezier(.16,1,.3,1);
+      transition: opacity .65s cubic-bezier(.16, 1, .3, 1), transform .65s cubic-bezier(.16, 1, .3, 1);
   }
 
   .reveal.visible {
@@ -446,8 +458,13 @@
   }
 
   /* RTL tweaks */
-  html[dir="rtl"] .xp-head { flex-direction: row-reverse; }
-  html[dir="rtl"] .facts { direction: rtl; }
+  html[dir="rtl"] .xp-head {
+      flex-direction: row-reverse;
+  }
+
+  html[dir="rtl"] .facts {
+      direction: rtl;
+  }
 
   main {
       position: relative;
@@ -515,7 +532,7 @@
       color: var(--muted-foreground);
   }
 
-  /* hero - full-bleed, no card chrome */
+  /* hero — full-bleed, no card chrome */
   .hero-full {
       position: relative;
       overflow: hidden;
@@ -653,130 +670,58 @@
       }
   }
 
-  /* ===== right-side vertical scroll indicator (simple, like most sites) ===== */
+  /* ===== Minimal scroll indicator ===== */
+
   .side-nav {
       position: fixed;
-      right: 18px;
-      left: auto;
+      right: 14px;
       top: 50%;
       transform: translateY(-50%);
       z-index: 90;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 14px;
-      padding: 0;
-      background: none;
-      border: none;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
       animation: revealUp 700ms cubic-bezier(.25, .1, .25, 1) 300ms both;
   }
 
+  /* Hide arrows completely */
   .side-nav-arrow {
       display: none;
   }
 
-  .scroll-hit {
-      width: 24px;
-      height: 130px;
-      display: flex;
-      align-items: stretch;
-      justify-content: center;
-      cursor: pointer;
-      touch-action: none;
-  }
-
-  .scroll-track-visual {
-      width: 3px;
-      height: 100%;
-      border-radius: 3px;
-      background: rgba(139, 92, 246, .18);
+  /* Thin subtle line */
+  .scroll-track {
+      width: 2px;
+      height: 100px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.12);
       position: relative;
       overflow: hidden;
   }
 
+  /* Purple progress */
   .scroll-fill {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 0%;
-      border-radius: 3px;
-      background: linear-gradient(180deg, #a78bfa, #6366f1);
-      box-shadow: 0 0 8px rgba(139, 92, 246, .55);
+      border-radius: inherit;
+      background: #8b5cf6;
+      transition: height 0.08s linear;
   }
 
-  .scroll-hit:hover .scroll-track-visual,
-  .scroll-hit:active .scroll-track-visual {
-      background: rgba(139, 92, 246, .3);
-  }
-
-  /* Back-to-top floating button */
-  .back-to-top {
-      position: fixed;
-      right: 20px;
-      bottom: 24px;
-      z-index: 90;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      color: var(--foreground);
-      cursor: pointer;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(8px);
-      transition: opacity .25s ease, transform .25s ease, background .2s;
-  }
-
-  .back-to-top.visible {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-  }
-
-  .back-to-top:hover {
-      background: rgba(139, 92, 246, .16);
-      border-color: rgba(139, 92, 246, .3);
-  }
-
-  html[dir="rtl"] .back-to-top {
-      right: auto;
-      left: 20px;
-  }
-
-  @media (max-width: 900px) {
-      .back-to-top {
-          right: 14px;
-          bottom: 18px;
-      }
-
-      html[dir="rtl"] .back-to-top {
-          left: 14px;
-      }
-  }
-
+  /* RTL */
   html[dir="rtl"] .side-nav {
       right: auto;
-      left: 18px;
+      left: 14px;
   }
 
+  /* Hide on mobile */
   @media (max-width: 900px) {
       .side-nav {
-          right: 8px;
-      }
-
-      .scroll-hit {
-          height: 110px;
+          display: none;
       }
   }
+
+
 
   .hero-illustration {
       position: absolute;
@@ -910,6 +855,29 @@
       .loc-card {
           grid-column: span 4;
       }
+  }
+
+  .dot-wrap {
+      position: relative;
+      width: 12px;
+      height: 12px;
+      flex-shrink: 0;
+      margin-top: 4px;
+  }
+
+  .dot-core {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #34d399;
+  }
+
+  .dot-ring {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: #34d399;
+      animation: pingRing 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
   }
 
   .chip {
@@ -1683,7 +1651,7 @@
       gap: 12px;
   }
 
-  /* ================= CONTACT - full bleed (no card) ================= */
+  /* ================= CONTACT — full bleed (no card) ================= */
   .contact-full {
       position: relative;
       overflow: hidden;
@@ -1767,6 +1735,7 @@
           display: none;
       }
   }
+
   /* ================= REPOSITIONING ADD-ONS (why-us, packages, process, faq, contact form) ================= */
 
   .whyus-card {
@@ -1855,28 +1824,6 @@
       text-transform: uppercase;
       letter-spacing: .06em;
       margin-bottom: 2px;
-  }
-
-  .lp-price-old {
-      font-family: var(--font-mono);
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--muted-foreground);
-      text-decoration: line-through;
-      margin-inline-start: 8px;
-  }
-
-  .lp-price-badge {
-      display: inline-block;
-      margin-top: 6px;
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: .04em;
-      color: #34d399;
-      background: rgba(52, 211, 153, .1);
-      border: 1px solid rgba(52, 211, 153, .22);
-      padding: 3px 9px;
-      border-radius: 999px;
   }
 
   .lp-perfect-row {
@@ -2049,7 +1996,7 @@
       margin: 12px 0 0;
   }
 
-  /* Research - sits next to About, sized to fill the remaining grid row */
+  /* Research — sits next to About, sized to fill the remaining grid row */
   .research-compact {
       grid-column: span 12;
       padding: 28px;
@@ -2075,12 +2022,21 @@
   .rc-top {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
   }
 
-  .rc-gallery .gallery-img {
-      height: 190px;
-      max-width: min(300px, 78vw);
+  .rc-thumbs {
+      display: flex;
+      gap: 8px;
+  }
+
+  .rc-thumbs img {
+      width: 72px;
+      height: 72px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid var(--glass-border);
+      flex-shrink: 0;
   }
 
   /* Contact form (mailto-assisted) */

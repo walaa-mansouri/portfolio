@@ -62,8 +62,8 @@ const translations = {
     about: {
       eyebrow: "About me",
       lead: "Hi, I'm Walaa. I'm a web developer based in Paris, with a background in computer science and a passion for building things that are both beautiful and technically solid.",
-      p1: "I enjoy working at the intersection of design and development - turning an idea or a business into a polished website that feels intentional on every screen.",
-      p2: "Alongside web development, I was selected for a supervised university research project in cryptography, where I studied RSA and real-world security. It taught me to approach technical problems with curiosity, precision and attention to detail - a mindset I bring to every website I build."
+      p1: "I enjoy working at the intersection of design and development — turning an idea or a business into a polished website that feels intentional on every screen.",
+      p2: "Alongside web development, I was selected for a supervised university research project in cryptography, where I studied RSA and real-world security. It taught me to approach technical problems with curiosity, precision and attention to detail — a mindset I bring to every website I build."
     },
     aboutBackground: [
       "Computer Science · Université Paris Cité",
@@ -74,7 +74,7 @@ const translations = {
       item1title: "Mobile-first", item1body: "Every site is built and tested to look great and work smoothly on phones first.",
       item2title: "Built to be found", item2body: "Fast, structured and technically optimized with search engines in mind.",
       item3title: "Multilingual FR / EN / AR", item3body: "Reach customers in their own language, with each version built for its own audience.",
-      item4title: "Direct collaboration", item4body: "You work directly with me - no account manager, no middleman."
+      item4title: "Direct collaboration", item4body: "You work directly with me — no account manager, no middleman."
     },
     packages: {
       eyebrow: "Services",
@@ -83,11 +83,9 @@ const translations = {
     },
     mainPackage: {
       name: "Landing Page",
-      tagline: "A complete online presence, built around one clear goal - your business, distilled into one beautiful page.",
+      tagline: "A complete online presence, built around one clear goal — your business, distilled into one beautiful page.",
       priceLabel: "Starting from",
-      price: "€400",
-      oldPrice: "€500",
-      badge: "Introductory offer",
+      price: "€XXX",
       perfectFor: ["Dentists", "Doctors", "Lawyers", "Beauty professionals", "Restaurants", "Freelancers", "Local businesses"],
       categories: [
         { title: "Design", items: ["Custom visual direction", "Responsive design", "Mobile optimization"] },
@@ -102,28 +100,28 @@ const translations = {
     comingSoon: ["Business Websites", "Booking Systems", "Multilingual Websites"],
     process: { eyebrow: "How it works" },
     processSteps: [
-      { title: "Tell me about your business", sub: "A short call or a simple form - 15–20 minutes." },
+      { title: "Tell me about your business", sub: "A short call or a simple form — 15–20 minutes." },
       { title: "Get your design", sub: "You receive the first version and give feedback." },
       { title: "Build & optimize", sub: "Responsive, fast, and SEO-ready." },
       { title: "Launch", sub: "Your website goes live and you get everything you need." }
     ],
     exp: { eyebrow: "Experience" },
     experience: [
-      { role: "Web Dev Intern", org: "Sirius Net", period: "Summer 2025", points: ["Responsive multilingual site - design to production.", "Gemini AI chatbot integrated, shipped to real users.", "Clean code reviewed and merged by senior team."] },
+      { role: "Web Dev Intern", org: "Sirius Net", period: "Summer 2025", points: ["Responsive multilingual site — design to production.", "Gemini AI chatbot integrated, shipped to real users.", "Clean code reviewed and merged by senior team."] },
       { role: "Tutor", org: "Independent", period: "Ongoing", points: ["Programming & math tutoring.", "Complex ideas made practical and clear.", "Trust built through structured guidance."] },
     ],
     research: {
       eyebrow: "Research in cryptography", title: "Supervised research in RSA cryptography",
-      body: "Selected for a university research project studying RSA and real-world security - part of how I learned to build things properly, not just make them look good.",
+      body: "Selected for a university research project studying RSA and real-world security — part of how I learned to build things properly, not just make them look good.",
       view: "View project"
     },
     projects: {
       eyebrow: "Work · Case study",
       p1: {
-        title: "Mirasens - A website designed to answer visitors, not just look good",
+        title: "Mirasens — A website designed to answer visitors, not just look good",
         body: "A multilingual (FR/EN) production website with a live AI assistant, built to help visitors get answers without waiting on a reply from the team.",
         challengeLabel: "The challenge",
-        challengeBody: "The business needed a fast, bilingual site that could answer visitor questions instantly - without a support team on standby.",
+        challengeBody: "The business needed a fast, bilingual site that could answer visitor questions instantly — without a support team on standby.",
         approachLabel: "What I did",
         approachBody: "Designed and built the site, set up FR/EN structure and SEO, then integrated an AI assistant to handle real visitor questions live.",
         resultLabel: "The result",
@@ -141,7 +139,7 @@ const translations = {
       supervisorLabel: "Supervisor",
       recoLabel: "Recommendation",
       schoolLabel: "School",
-      abstract: "This project studies the RSA cryptosystem (Rivest, Shamir, Adleman, 1978), one of the most influential public-key algorithms in the history of computer security. After introducing classical and modern cryptography - substitution and stream ciphers, symmetric AES encryption, Diffie-Hellman key exchange and hash functions - it builds the mathematical toolkit behind RSA: modular arithmetic, the extended Euclidean algorithm, Euler's totient function, Euler's theorem, the Chinese remainder theorem and fast modular exponentiation. It then details RSA end to end: key generation, encryption, decryption, digital signatures and the RSA-CRT optimization. A dedicated security analysis studies integer factorization (Pollard's rho, the quadratic sieve, the general number field sieve) and several concrete attacks - the common modulus attack, the blinding attack exploiting RSA's multiplicative homomorphism, and Bleichenbacher's attack on PKCS#1 padding, which recovers a message after roughly 10⁶ queries and once compromised SSL/TLS in practice.",
+      abstract: "This project studies the RSA cryptosystem (Rivest, Shamir, Adleman, 1978), one of the most influential public-key algorithms in the history of computer security. After introducing classical and modern cryptography — substitution and stream ciphers, symmetric AES encryption, Diffie-Hellman key exchange and hash functions — it builds the mathematical toolkit behind RSA: modular arithmetic, the extended Euclidean algorithm, Euler's totient function, Euler's theorem, the Chinese remainder theorem and fast modular exponentiation. It then details RSA end to end: key generation, encryption, decryption, digital signatures and the RSA-CRT optimization. A dedicated security analysis studies integer factorization (Pollard's rho, the quadratic sieve, the general number field sieve) and several concrete attacks — the common modulus attack, the blinding attack exploiting RSA's multiplicative homomorphism, and Bleichenbacher's attack on PKCS#1 padding, which recovers a message after roughly 10⁶ queries and once compromised SSL/TLS in practice.",
       planTitle: "Outline",
       plan1title: "Introduction to cryptography",
       plan1sub: "Classical ciphers · Diffie-Hellman",
@@ -158,12 +156,12 @@ const translations = {
     },
     faq: { eyebrow: "FAQ" },
     faqItems: [
-      { q: "How much does a website cost?", a: "It depends on scope - see the packages above for what's included in each. Tell me about your business and I'll reply with a free, no-obligation quote." },
+      { q: "How much does a website cost?", a: "It depends on scope — see the packages above for what's included in each. Tell me about your business and I'll reply with a free, no-obligation quote." },
       { q: "How long does it take?", a: "Most landing pages and business websites take a few weeks from our first call to launch, depending on how quickly content and feedback come back." },
       { q: "Do you provide hosting?", a: "I can guide you through hosting and domain setup, or handle it for you as part of the project." },
-      { q: "Can you improve my existing website?", a: "Yes - send me your current site and I'll suggest concrete improvements, or rebuild it from scratch if that's a better fit." },
-      { q: "Can you make it multilingual?", a: "Yes. I build in French, English and Arabic, with proper structure and language tags for each - not just a text swap." },
-      { q: "Can I update the content myself afterwards?", a: "Yes - I can set things up so simple text and image changes are easy for you, or handle updates for you with an ongoing maintenance option." }
+      { q: "Can you improve my existing website?", a: "Yes — send me your current site and I'll suggest concrete improvements, or rebuild it from scratch if that's a better fit." },
+      { q: "Can you make it multilingual?", a: "Yes. I build in French, English and Arabic, with proper structure and language tags for each — not just a text swap." },
+      { q: "Can I update the content myself afterwards?", a: "Yes — I can set things up so simple text and image changes are easy for you, or handle updates for you with an ongoing maintenance option." }
     ],
     contact: {
       eyebrow: "Contact", heading: "Ready to build?",
@@ -171,7 +169,7 @@ const translations = {
       headingLine1: "Let's talk about",
       headingLine2: "your website",
       marquee: "Let's build together",
-      body: "Tell me about your business and what you need. I'll reply with a free consultation and a clear plan - no pressure, no jargon.",
+      body: "Tell me about your business and what you need. I'll reply with a free consultation and a clear plan — no pressure, no jargon.",
       cta: "Request a free consultation",
       formName: "Your name",
       formBusiness: "Your business / what you do",
@@ -208,8 +206,8 @@ const translations = {
     about: {
       eyebrow: "À propos de moi",
       lead: "Bonjour, je suis Walaa. Je suis développeuse web basée à Paris, avec une formation en informatique et une passion pour créer des choses à la fois belles et techniquement solides.",
-      p1: "J'aime travailler à l'intersection du design et du développement - transformer une idée ou une entreprise en un site web abouti, pensé jusque dans le moindre détail.",
-      p2: "En parallèle du développement web, j'ai été sélectionnée pour un projet de recherche universitaire encadré en cryptographie, où j'ai étudié RSA et la sécurité réelle. Cela m'a appris à aborder les problèmes techniques avec curiosité, précision et souci du détail - un état d'esprit que j'apporte à chaque site que je construis."
+      p1: "J'aime travailler à l'intersection du design et du développement — transformer une idée ou une entreprise en un site web abouti, pensé jusque dans le moindre détail.",
+      p2: "En parallèle du développement web, j'ai été sélectionnée pour un projet de recherche universitaire encadré en cryptographie, où j'ai étudié RSA et la sécurité réelle. Cela m'a appris à aborder les problèmes techniques avec curiosité, précision et souci du détail — un état d'esprit que j'apporte à chaque site que je construis."
     },
     aboutBackground: [
       "Informatique · Université Paris Cité",
@@ -220,7 +218,7 @@ const translations = {
       item1title: "Mobile-first", item1body: "Chaque site est pensé et testé pour bien s'afficher et fonctionner d'abord sur mobile.",
       item2title: "Pensé pour être trouvé", item2body: "Rapide, structuré et techniquement optimisé pour les moteurs de recherche.",
       item3title: "Multilingue FR / EN / AR", item3body: "Touchez vos clients dans leur langue, avec une version pensée pour chaque public.",
-      item4title: "Collaboration directe", item4body: "Vous travaillez directement avec moi - sans chargé de compte, sans intermédiaire."
+      item4title: "Collaboration directe", item4body: "Vous travaillez directement avec moi — sans chargé de compte, sans intermédiaire."
     },
     packages: {
       eyebrow: "Services",
@@ -229,11 +227,9 @@ const translations = {
     },
     mainPackage: {
       name: "Page d'atterrissage",
-      tagline: "Une présence en ligne complète, construite autour d'un objectif clair - votre entreprise, distillée en une seule et belle page.",
+      tagline: "Une présence en ligne complète, construite autour d'un objectif clair — votre entreprise, distillée en une seule et belle page.",
       priceLabel: "À partir de",
-      price: "400 €",
-      oldPrice: "500 €",
-      badge: "Offre de lancement",
+      price: "XXX €",
       perfectFor: ["Dentistes", "Médecins", "Avocats", "Professionnels de la beauté", "Restaurants", "Freelances", "Commerces locaux"],
       categories: [
         { title: "Design", items: ["Direction visuelle sur mesure", "Design responsive", "Optimisation mobile"] },
@@ -248,28 +244,28 @@ const translations = {
     comingSoon: ["Sites vitrines", "Systèmes de réservation", "Sites multilingues"],
     process: { eyebrow: "Comment ça marche" },
     processSteps: [
-      { title: "Parlez-moi de votre entreprise", sub: "Un court appel ou un formulaire simple - 15 à 20 minutes." },
+      { title: "Parlez-moi de votre entreprise", sub: "Un court appel ou un formulaire simple — 15 à 20 minutes." },
       { title: "Recevez votre design", sub: "Vous recevez une première version et donnez vos retours." },
       { title: "Construction & optimisation", sub: "Responsive, rapide et prêt pour le SEO." },
       { title: "Mise en ligne", sub: "Votre site est publié et vous recevez tout ce dont vous avez besoin." }
     ],
     exp: { eyebrow: "Expérience" },
     experience: [
-      { role: "Stagiaire Dev Web", org: "Sirius Net", period: "Été 2025", points: ["Site multilingue responsive - de la conception à la production.", "Chatbot IA Gemini intégré, livré à de vrais utilisateurs.", "Code propre relu et validé par l'équipe senior."] },
+      { role: "Stagiaire Dev Web", org: "Sirius Net", period: "Été 2025", points: ["Site multilingue responsive — de la conception à la production.", "Chatbot IA Gemini intégré, livré à de vrais utilisateurs.", "Code propre relu et validé par l'équipe senior."] },
       { role: "Professeure particulière", org: "Indépendant", period: "En cours", points: ["Cours de programmation et de mathématiques.", "Des idées complexes rendues concrètes et claires.", "Une confiance construite par un accompagnement structuré."] },
     ],
     research: {
       eyebrow: "Recherche en cryptographie", title: "Recherche encadrée en cryptographie RSA",
-      body: "Sélectionnée pour un projet de recherche universitaire étudiant RSA et la sécurité réelle - une part de ce qui m'a appris à construire les choses correctement, pas seulement à les rendre jolies.",
+      body: "Sélectionnée pour un projet de recherche universitaire étudiant RSA et la sécurité réelle — une part de ce qui m'a appris à construire les choses correctement, pas seulement à les rendre jolies.",
       view: "Voir le projet"
     },
     projects: {
       eyebrow: "Réalisations · Étude de cas",
       p1: {
-        title: "Mirasens - Un site pensé pour répondre aux visiteurs, pas seulement pour être joli",
+        title: "Mirasens — Un site pensé pour répondre aux visiteurs, pas seulement pour être joli",
         body: "Un site professionnel bilingue (FR/EN) en production, avec un assistant IA en direct, conçu pour que les visiteurs obtiennent des réponses sans attendre l'équipe.",
         challengeLabel: "Le défi",
-        challengeBody: "L'entreprise avait besoin d'un site bilingue rapide, capable de répondre instantanément aux visiteurs - sans équipe support disponible en permanence.",
+        challengeBody: "L'entreprise avait besoin d'un site bilingue rapide, capable de répondre instantanément aux visiteurs — sans équipe support disponible en permanence.",
         approachLabel: "Ce que j'ai fait",
         approachBody: "Conception et développement du site, mise en place de la structure FR/EN et du SEO, puis intégration d'un assistant IA pour répondre en direct aux vrais visiteurs.",
         resultLabel: "Le résultat",
@@ -287,7 +283,7 @@ const translations = {
       supervisorLabel: "Encadrante",
       recoLabel: "Recommandation",
       schoolLabel: "École",
-      abstract: "Ce projet étudie le cryptosystème RSA (Rivest, Shamir, Adleman, 1978), l'un des algorithmes à clé publique les plus influents de l'histoire de la sécurité informatique. Après une introduction à la cryptographie classique et moderne - chiffrements par substitution et par flot, chiffrement symétrique AES, échange de clés Diffie-Hellman et fonctions de hachage - le rapport construit les outils mathématiques nécessaires à RSA : arithmétique modulaire, algorithme d'Euclide étendu, indicatrice d'Euler, théorème d'Euler, théorème des restes chinois et exponentiation modulaire rapide. Il détaille ensuite RSA de bout en bout : génération des clés, chiffrement, déchiffrement, signature numérique et optimisation RSA-CRT. Une analyse de sécurité dédiée étudie la factorisation d'entiers (ρ de Pollard, crible quadratique, crible algébrique) ainsi que plusieurs attaques concrètes - l'attaque par module commun, l'attaque par masquage exploitant l'homomorphisme multiplicatif de RSA, et l'attaque de Bleichenbacher sur le bourrage PKCS#1, qui retrouve un message après environ 10⁶ requêtes et a compromis SSL/TLS en pratique.",
+      abstract: "Ce projet étudie le cryptosystème RSA (Rivest, Shamir, Adleman, 1978), l'un des algorithmes à clé publique les plus influents de l'histoire de la sécurité informatique. Après une introduction à la cryptographie classique et moderne — chiffrements par substitution et par flot, chiffrement symétrique AES, échange de clés Diffie-Hellman et fonctions de hachage — le rapport construit les outils mathématiques nécessaires à RSA : arithmétique modulaire, algorithme d'Euclide étendu, indicatrice d'Euler, théorème d'Euler, théorème des restes chinois et exponentiation modulaire rapide. Il détaille ensuite RSA de bout en bout : génération des clés, chiffrement, déchiffrement, signature numérique et optimisation RSA-CRT. Une analyse de sécurité dédiée étudie la factorisation d'entiers (ρ de Pollard, crible quadratique, crible algébrique) ainsi que plusieurs attaques concrètes — l'attaque par module commun, l'attaque par masquage exploitant l'homomorphisme multiplicatif de RSA, et l'attaque de Bleichenbacher sur le bourrage PKCS#1, qui retrouve un message après environ 10⁶ requêtes et a compromis SSL/TLS en pratique.",
       planTitle: "Plan de l'exposé",
       plan1title: "Introduction à la cryptographie",
       plan1sub: "Chiffrements classiques · Diffie-Hellman",
@@ -304,12 +300,12 @@ const translations = {
     },
     faq: { eyebrow: "FAQ" },
     faqItems: [
-      { q: "Combien coûte un site internet ?", a: "Cela dépend du périmètre - voir les formules ci-dessus pour le contenu de chacune. Parlez-moi de votre entreprise et je vous réponds avec un devis gratuit et sans engagement." },
+      { q: "Combien coûte un site internet ?", a: "Cela dépend du périmètre — voir les formules ci-dessus pour le contenu de chacune. Parlez-moi de votre entreprise et je vous réponds avec un devis gratuit et sans engagement." },
       { q: "Combien de temps ça prend ?", a: "La plupart des pages d'atterrissage et sites vitrines sont livrés en quelques semaines à partir de notre premier échange, selon la rapidité des retours et du contenu." },
       { q: "Fournissez-vous l'hébergement ?", a: "Je peux vous accompagner pour l'hébergement et le nom de domaine, ou m'en charger directement dans le cadre du projet." },
-      { q: "Pouvez-vous améliorer mon site existant ?", a: "Oui - envoyez-moi votre site actuel et je vous proposerai des améliorations concrètes, ou une refonte complète si c'est plus adapté." },
-      { q: "Pouvez-vous le rendre multilingue ?", a: "Oui. Je développe en français, anglais et arabe, avec une structure et des balises de langue propres à chacune - pas une simple traduction du texte." },
-      { q: "Pourrai-je modifier le contenu moi-même ensuite ?", a: "Oui - je peux organiser le site pour que les modifications simples de texte ou d'images soient faciles pour vous, ou m'en occuper via une formule de maintenance." }
+      { q: "Pouvez-vous améliorer mon site existant ?", a: "Oui — envoyez-moi votre site actuel et je vous proposerai des améliorations concrètes, ou une refonte complète si c'est plus adapté." },
+      { q: "Pouvez-vous le rendre multilingue ?", a: "Oui. Je développe en français, anglais et arabe, avec une structure et des balises de langue propres à chacune — pas une simple traduction du texte." },
+      { q: "Pourrai-je modifier le contenu moi-même ensuite ?", a: "Oui — je peux organiser le site pour que les modifications simples de texte ou d'images soient faciles pour vous, ou m'en occuper via une formule de maintenance." }
     ],
     contact: {
       eyebrow: "Contact", heading: "Prêt à construire ?",
@@ -317,7 +313,7 @@ const translations = {
       headingLine1: "Parlons de",
       headingLine2: "votre site",
       marquee: "Construisons ensemble",
-      body: "Dites-moi ce que fait votre entreprise et ce dont vous avez besoin. Je vous réponds avec une consultation gratuite et un plan clair - sans pression, sans jargon.",
+      body: "Dites-moi ce que fait votre entreprise et ce dont vous avez besoin. Je vous réponds avec une consultation gratuite et un plan clair — sans pression, sans jargon.",
       cta: "Demander une consultation gratuite",
       formName: "Votre nom",
       formBusiness: "Votre entreprise / activité",
@@ -354,8 +350,8 @@ const translations = {
     about: {
       eyebrow: "نبذة عني",
       lead: "مرحبًا، أنا ولاء. مطوّرة ويب مقيمة في باريس، بخلفية في علوم الحاسوب وشغف ببناء أشياء جميلة ومتينة تقنيًا في آن واحد.",
-      p1: "أستمتع بالعمل عند تقاطع التصميم والتطوير - تحويل فكرة أو نشاط تجاري إلى موقع متكامل يبدو مدروسًا في كل تفصيلة.",
-      p2: "إلى جانب تطوير الويب، اختيرت لمشروع بحث جامعي مُشرَف عليه في التشفير، درست فيه RSA والأمان الواقعي. علّمني ذلك التعامل مع المشكلات التقنية بفضول ودقة واهتمام بالتفاصيل - وهي عقلية أحملها إلى كل موقع أبنيه."
+      p1: "أستمتع بالعمل عند تقاطع التصميم والتطوير — تحويل فكرة أو نشاط تجاري إلى موقع متكامل يبدو مدروسًا في كل تفصيلة.",
+      p2: "إلى جانب تطوير الويب، اختيرت لمشروع بحث جامعي مُشرَف عليه في التشفير، درست فيه RSA والأمان الواقعي. علّمني ذلك التعامل مع المشكلات التقنية بفضول ودقة واهتمام بالتفاصيل — وهي عقلية أحملها إلى كل موقع أبنيه."
     },
     aboutBackground: [
       "علوم حاسوب · جامعة باريس سيتيه",
@@ -366,7 +362,7 @@ const translations = {
       item1title: "أولوية للموبايل", item1body: "كل موقع مصمّم ومختبر ليظهر بشكل رائع ويعمل بسلاسة على الهاتف أولًا.",
       item2title: "مبني ليُكتشف بسهولة", item2body: "سريع ومنظم ومُحسَّن تقنيًا مع مراعاة محركات البحث.",
       item3title: "متعدد اللغات FR / EN / AR", item3body: "تواصل مع عملائك بلغتهم، مع نسخة مصممة لكل جمهور.",
-      item4title: "تعاون مباشر", item4body: "تعمل معي مباشرة - بلا مسؤول حسابات وبلا وسيط."
+      item4title: "تعاون مباشر", item4body: "تعمل معي مباشرة — بلا مسؤول حسابات وبلا وسيط."
     },
     packages: {
       eyebrow: "الخدمات",
@@ -375,11 +371,9 @@ const translations = {
     },
     mainPackage: {
       name: "صفحة هبوط",
-      tagline: "حضور كامل على الإنترنت، مبني حول هدف واحد واضح - نشاطك التجاري، مُختزَل في صفحة واحدة جميلة.",
+      tagline: "حضور كامل على الإنترنت، مبني حول هدف واحد واضح — نشاطك التجاري، مُختزَل في صفحة واحدة جميلة.",
       priceLabel: "ابتداءً من",
-      price: "400 €",
-      oldPrice: "500 €",
-      badge: "عرض إطلاق",
+      price: "XXX €",
       perfectFor: ["أطباء الأسنان", "الأطباء", "المحامون", "خبراء التجميل", "المطاعم", "المستقلون", "الأنشطة المحلية"],
       categories: [
         { title: "التصميم", items: ["توجيه بصري مخصص", "تصميم متجاوب", "تحسين للهاتف"] },
@@ -394,28 +388,28 @@ const translations = {
     comingSoon: ["مواقع تجارية", "أنظمة حجز", "مواقع متعددة اللغات"],
     process: { eyebrow: "كيف نعمل" },
     processSteps: [
-      { title: "أخبرني عن نشاطك", sub: "مكالمة قصيرة أو نموذج بسيط - 15 إلى 20 دقيقة." },
+      { title: "أخبرني عن نشاطك", sub: "مكالمة قصيرة أو نموذج بسيط — 15 إلى 20 دقيقة." },
       { title: "استلم تصميمك", sub: "تستلم النسخة الأولى وتشاركني ملاحظاتك." },
       { title: "البناء والتحسين", sub: "متجاوب وسريع وجاهز لمحركات البحث." },
       { title: "الإطلاق", sub: "يصبح موقعك مباشرًا وتحصل على كل ما تحتاجه." }
     ],
     exp: { eyebrow: "الخبرة" },
     experience: [
-      { role: "متدربة تطوير ويب", org: "Sirius Net", period: "صيف 2025", points: ["موقع متجاوب متعدد اللغات - من التصميم إلى الإنتاج.", "دمج روبوت محادثة Gemini، وتم إطلاقه لمستخدمين حقيقيين.", "كود نظيف تمت مراجعته واعتماده من فريق أول."] },
+      { role: "متدربة تطوير ويب", org: "Sirius Net", period: "صيف 2025", points: ["موقع متجاوب متعدد اللغات — من التصميم إلى الإنتاج.", "دمج روبوت محادثة Gemini، وتم إطلاقه لمستخدمين حقيقيين.", "كود نظيف تمت مراجعته واعتماده من فريق أول."] },
       { role: "مدرّسة خصوصية", org: "عمل حر", period: "مستمر", points: ["دروس في البرمجة والرياضيات.", "أفكار معقدة تصبح عملية وواضحة.", "بناء الثقة من خلال توجيه منظم."] },
     ],
     research: {
       eyebrow: "بحث في التشفير", title: "بحث أكاديمي مُشرَف عليه في تشفير RSA",
-      body: "اختيرت لمشروع بحث جامعي يدرس RSA والأمان الواقعي - جزء مما علّمني بناء الأشياء بشكل صحيح، لا مجرد جعلها تبدو جميلة.",
+      body: "اختيرت لمشروع بحث جامعي يدرس RSA والأمان الواقعي — جزء مما علّمني بناء الأشياء بشكل صحيح، لا مجرد جعلها تبدو جميلة.",
       view: "عرض المشروع"
     },
     projects: {
       eyebrow: "الأعمال · دراسة حالة",
       p1: {
-        title: "Mirasens - موقع مصمم للإجابة على الزوار، لا لمجرد الشكل الجميل",
+        title: "Mirasens — موقع مصمم للإجابة على الزوار، لا لمجرد الشكل الجميل",
         body: "موقع تجاري ثنائي اللغة (فرنسي/إنجليزي) في الإنتاج مع مساعد ذكاء اصطناعي فعلي، مصمم ليحصل الزوار على إجابات دون انتظار الفريق.",
         challengeLabel: "التحدي",
-        challengeBody: "احتاجت الشركة إلى موقع ثنائي اللغة سريع، قادر على الإجابة عن أسئلة الزوار فورًا - دون فريق دعم متاح باستمرار.",
+        challengeBody: "احتاجت الشركة إلى موقع ثنائي اللغة سريع، قادر على الإجابة عن أسئلة الزوار فورًا — دون فريق دعم متاح باستمرار.",
         approachLabel: "ما قمت به",
         approachBody: "صممت وطورت الموقع، وأعددت بنية ثنائية اللغة وتحسين محركات البحث، ثم دمجت مساعدًا بالذكاء الاصطناعي للرد المباشر على الزوار الحقيقيين.",
         resultLabel: "النتيجة",
@@ -450,12 +444,12 @@ const translations = {
     },
     faq: { eyebrow: "الأسئلة الشائعة" },
     faqItems: [
-      { q: "كم تكلفة الموقع؟", a: "يعتمد ذلك على نطاق العمل - انظر الباقات أعلاه لمعرفة ما تشمله كل واحدة. أخبرني عن نشاطك وسأرد عليك بعرض سعر مجاني وغير مُلزم." },
+      { q: "كم تكلفة الموقع؟", a: "يعتمد ذلك على نطاق العمل — انظر الباقات أعلاه لمعرفة ما تشمله كل واحدة. أخبرني عن نشاطك وسأرد عليك بعرض سعر مجاني وغير مُلزم." },
       { q: "كم تستغرق المدة؟", a: "معظم صفحات الهبوط والمواقع التجارية تُسلَّم خلال أسابيع قليلة من أول مكالمة، حسب سرعة تجهيز المحتوى والملاحظات." },
       { q: "هل توفرين الاستضافة؟", a: "يمكنني إرشادك خلال إعداد الاستضافة والنطاق، أو تولي ذلك بنفسي ضمن المشروع." },
-      { q: "هل يمكنك تحسين موقعي الحالي؟", a: "نعم - أرسل لي موقعك الحالي وسأقترح تحسينات محددة، أو إعادة بنائه بالكامل إن كان ذلك أنسب." },
-      { q: "هل يمكن أن يكون الموقع متعدد اللغات؟", a: "نعم. أطوّر بالفرنسية والإنجليزية والعربية، ببنية وعلامات لغة صحيحة لكل نسخة - وليس مجرد ترجمة نصوص." },
-      { q: "هل أستطيع تعديل المحتوى بنفسي لاحقًا؟", a: "نعم - يمكنني إعداد الموقع بحيث تكون تعديلات النصوص والصور البسيطة سهلة عليك، أو تولي ذلك عبر باقة صيانة مستمرة." }
+      { q: "هل يمكنك تحسين موقعي الحالي؟", a: "نعم — أرسل لي موقعك الحالي وسأقترح تحسينات محددة، أو إعادة بنائه بالكامل إن كان ذلك أنسب." },
+      { q: "هل يمكن أن يكون الموقع متعدد اللغات؟", a: "نعم. أطوّر بالفرنسية والإنجليزية والعربية، ببنية وعلامات لغة صحيحة لكل نسخة — وليس مجرد ترجمة نصوص." },
+      { q: "هل أستطيع تعديل المحتوى بنفسي لاحقًا؟", a: "نعم — يمكنني إعداد الموقع بحيث تكون تعديلات النصوص والصور البسيطة سهلة عليك، أو تولي ذلك عبر باقة صيانة مستمرة." }
     ],
     contact: {
       eyebrow: "تواصل", heading: "مستعدة للبناء؟",
@@ -463,7 +457,7 @@ const translations = {
       headingLine1: "لنتحدث عن",
       headingLine2: "موقعك",
       marquee: "لنبنِ شيئًا معًا",
-      body: "أخبرني عن نشاطك وما تحتاجه. سأرد عليك باستشارة مجانية وخطة واضحة - دون ضغط ودون مصطلحات معقدة.",
+      body: "أخبرني عن نشاطك وما تحتاجه. سأرد عليك باستشارة مجانية وخطة واضحة — دون ضغط ودون مصطلحات معقدة.",
       cta: "اطلب استشارة مجانية",
       formName: "اسمك",
       formBusiness: "نشاطك التجاري",
@@ -516,7 +510,6 @@ function renderAboutBackground(lang) {
   });
   lucide.createIcons();
 }
-
 /* ---- Single Landing Page offer ---- */
 const mainPackageEl = document.getElementById('mainPackage');
 function renderMainPackage(lang) {
@@ -648,7 +641,7 @@ setLang(initialLang);
 
 paintThemeIcon();
 
-/* ================= CONTACT FORM (builds a pre-filled mailto - no backend needed) ================= */
+/* ================= CONTACT FORM (builds a pre-filled mailto — no backend needed) ================= */
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
@@ -659,7 +652,7 @@ if (contactForm) {
     const needLabel = needSelect.options[needSelect.selectedIndex].text;
     const message = document.getElementById('cfMessage').value.trim();
 
-    const subject = `Website project - ${bizz || name}`;
+    const subject = `Website project — ${bizz || name}`;
     const bodyLines = [
       `Name: ${name}`,
       `Business: ${bizz}`,
@@ -800,37 +793,14 @@ function updateScrollBar() {
 window.addEventListener('scroll', updateScrollBar);
 updateScrollBar();
 
-const backToTopBtn = document.getElementById('backToTop');
-function updateBackToTop() {
-  if (!backToTopBtn) return;
-  backToTopBtn.classList.toggle('visible', window.scrollY > 500);
-}
-window.addEventListener('scroll', updateBackToTop);
-updateBackToTop();
-
 if (scrollTrack) {
-  let isDraggingTrack = false;
-
-  function scrollToTrackPoint(clientY) {
+  scrollTrack.addEventListener('click', (e) => {
     const rect = scrollTrack.getBoundingClientRect();
-    let frac = (clientY - rect.top) / rect.height;
-    frac = Math.min(1, Math.max(0, frac));
+    const frac = (e.clientY - rect.top) / rect.height;
     const doc = document.documentElement;
     const target = frac * (doc.scrollHeight - doc.clientHeight);
-    window.scrollTo(0, target);
-  }
-
-  scrollTrack.addEventListener('pointerdown', (e) => {
-    isDraggingTrack = true;
-    scrollTrack.setPointerCapture(e.pointerId);
-    scrollToTrackPoint(e.clientY);
+    animatedScrollTo(target);
   });
-  scrollTrack.addEventListener('pointermove', (e) => {
-    if (!isDraggingTrack) return;
-    scrollToTrackPoint(e.clientY);
-  });
-  scrollTrack.addEventListener('pointerup', () => { isDraggingTrack = false; });
-  scrollTrack.addEventListener('pointercancel', () => { isDraggingTrack = false; });
 }
 
 /* Final pass: render any static Lucide icons (hero, chips, side-nav arrows, lightbox) */

@@ -88,10 +88,16 @@
   </div>
 
   <div class="side-nav" id="sideNav">
-    <div class="scroll-track" id="scrollTrack" aria-label="Scroll progress">
-      <div class="scroll-fill" id="scrollFill"></div>
+    <div class="scroll-hit" id="scrollTrack" aria-label="Scroll progress, drag to scroll">
+      <div class="scroll-track-visual">
+        <div class="scroll-fill" id="scrollFill"></div>
+      </div>
     </div>
   </div>
+
+  <button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="Back to top">
+    <i data-lucide="arrow-up" width="17" height="17"></i>
+  </button>
 
   <section class="hero-full" id="home">
     <div class="bg-marquee" aria-hidden="true">
@@ -132,10 +138,6 @@
         <div class="glass tilt"
           style="padding:24px;height:100%;display:flex;flex-direction:column;justify-content:space-between;">
           <div style="display:flex;align-items:flex-start;gap:12px;">
-            <div class="dot-wrap">
-              <div class="dot-core"></div>
-              <div class="dot-ring"></div>
-            </div>
             <div>
               <div class="fdisplay" style="font-weight:600;font-size:14px;margin-bottom:2px;"
                 data-i18n="status.available">Available for work</div>
@@ -175,11 +177,11 @@
           <div class="eyebrow" style="margin-bottom:14px;" data-i18n="about.eyebrow">About me</div>
           <p class="lead" data-i18n="about.lead">Hi, I'm Walaa. I'm a web developer based in Paris, with a background
             in computer science and a passion for building things that are both beautiful and technically solid.</p>
-          <p data-i18n="about.p1">I enjoy working at the intersection of design and development — turning an idea or
+          <p data-i18n="about.p1">I enjoy working at the intersection of design and development - turning an idea or
             a business into a polished website that feels intentional on every screen.</p>
           <p data-i18n="about.p2">Alongside web development, I was selected for a supervised university research
             project in cryptography, where I studied RSA and real-world security. It taught me to approach technical
-            problems with curiosity, precision and attention to detail — a mindset I bring to every website I build.
+            problems with curiosity, precision and attention to detail - a mindset I bring to every website I build.
           </p>
           <div class="divider" style="margin-top:18px;padding-top:16px;">
             <ul class="xp-points" id="aboutBgList" style="gap:8px;"></ul>
@@ -187,14 +189,23 @@
         </div>
       </div>
 
-      <!-- Research — sits next to About, kept as a small credibility note -->
+      <!-- Research - sits next to About, kept as a small credibility note -->
       <div class="research-compact reveal" id="research">
         <div class="glass" style="padding:28px;height:100%;display:flex;flex-direction:column;justify-content:space-between;gap:18px;">
           <div class="rc-top">
-            <div class="rc-thumbs">
-              <img src="img/research-1.jpg" alt="RSA key generation illustration">
-              <img src="img/research-2.jpg" alt="Modular arithmetic illustration">
-              <img src="img/research-3.jpg" alt="Security analysis and attacks illustration">
+            <div class="gallery-wrap rc-gallery">
+              <button class="gallery-arrow gallery-prev" onclick="scrollGallery(this,-1)" aria-label="Previous"><i
+                  data-lucide="chevron-left" width="16" height="16"></i></button>
+              <div class="gallery-track">
+                <img class="gallery-img" src="img/research-1.jpg" alt="RSA key generation illustration"
+                  data-group="research" onclick="openLightbox(this)">
+                <img class="gallery-img" src="img/research-2.jpg" alt="Modular arithmetic illustration"
+                  data-group="research" onclick="openLightbox(this)">
+                <img class="gallery-img" src="img/research-3.jpg" alt="Security analysis and attacks illustration"
+                  data-group="research" onclick="openLightbox(this)">
+              </div>
+              <button class="gallery-arrow gallery-next" onclick="scrollGallery(this,1)" aria-label="Next"><i
+                  data-lucide="chevron-right" width="16" height="16"></i></button>
             </div>
             <div class="rc-text">
               <div class="eyebrow" style="margin-bottom:6px;" data-i18n="research.eyebrow">Research in cryptography
@@ -202,7 +213,7 @@
               <p class="fdisplay" style="font-weight:700;font-size:15px;margin:0 0 8px;" data-i18n="research.title">
                 Supervised research in RSA cryptography</p>
               <p data-i18n="research.body">Selected for a university research project studying RSA and real-world
-                security — part of how I learned to build things properly, not just make them look good.</p>
+                security - part of how I learned to build things properly, not just make them look good.</p>
             </div>
           </div>
           <button class="btn-primary" type="button" style="align-self:flex-start;" onclick="openResearchModal()">
@@ -244,7 +255,7 @@
         <div class="glass tilt" style="padding:24px;height:100%;display:flex;flex-direction:column;gap:10px;">
           <div class="whyus-icon"><i data-lucide="users" width="16" height="16"></i></div>
           <div class="whyus-title" data-i18n="whyus.item4title">Direct collaboration</div>
-          <div class="whyus-body" data-i18n="whyus.item4body">You work directly with me — no account manager, no
+          <div class="whyus-body" data-i18n="whyus.item4body">You work directly with me - no account manager, no
             middleman.</div>
         </div>
       </div>
@@ -269,7 +280,7 @@
       <div class="showcase-card reveal" id="projects">
         <div class="glass" style="padding:36px;height:100%;">
           <div class="eyebrow" style="margin-bottom:14px;" data-i18n="projects.eyebrow">Projects · Featured build</div>
-          <p class="fdisplay showcase-title" data-i18n="projects.p1.title">Mirasens — Bilingual Business Website
+          <p class="fdisplay showcase-title" data-i18n="projects.p1.title">Mirasens - Bilingual Business Website
             &amp; AI Assistant</p>
           <p class="muted showcase-desc" data-i18n="projects.p1.body">Built during my 2025 web development
             internship at Sirius Net: a bilingual (FR/EN) production website with a live Gemini AI chatbot, shipped
@@ -279,7 +290,7 @@
             <div class="case-item">
               <span class="eyebrow" data-i18n="projects.p1.challengeLabel">The challenge</span>
               <p data-i18n="projects.p1.challengeBody">The client needed a fast, bilingual site that could answer
-                visitor questions instantly — without a support team on standby.</p>
+                visitor questions instantly - without a support team on standby.</p>
             </div>
             <div class="case-item">
               <span class="eyebrow" data-i18n="projects.p1.approachLabel">My approach</span>
@@ -354,7 +365,7 @@
         <span class="grad-text script-accent" data-i18n="contact.headingLine2">something together</span>
       </h2>
       <p class="contact-sub" data-i18n="contact.body">Tell me about your business and what you need. I'll reply with
-        a free consultation and a clear plan — no pressure, no jargon.</p>
+        a free consultation and a clear plan - no pressure, no jargon.</p>
 
       <form class="contact-form" id="contactForm">
         <input type="text" id="cfName" data-i18n-placeholder="contact.formName" placeholder="Your name" required>
@@ -411,7 +422,7 @@
       </div>
 
       <p class="research-modal-abstract" data-i18n="researchModal.abstract">This project studies the RSA
-        cryptosystem, one of the most influential public-key algorithms in computing history — from the mathematical
+        cryptosystem, one of the most influential public-key algorithms in computing history - from the mathematical
         foundations (modular arithmetic, Euler's theorem, the Chinese remainder theorem) to key generation,
         encryption and digital signatures, and a full security analysis covering factorization attacks, the common
         modulus attack, blinding, and the Bleichenbacher attack on PKCS#1 padding that directly compromised SSL/TLS.
