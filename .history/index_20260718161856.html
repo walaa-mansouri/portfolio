@@ -4,13 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="pageTitle">Web Design &amp; Website Development in Paris | Walaa Mansouri</title>
-  <meta id="pageDesc" name="description"
-    content="Professional, fast and multilingual websites for small businesses and independent professionals in Paris. Free consultation.">
-  <meta property="og:title" content="Web Design &amp; Website Development in Paris | Walaa Mansouri">
-  <meta property="og:description"
-    content="Professional, fast and multilingual websites for small businesses and independent professionals in Paris.">
-  <meta name="robots" content="index, follow">
+  <title>Walaa Mansouri — Full-Stack Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/svg+xml" href="img/logo.svg">
@@ -49,11 +43,11 @@
         </svg>
       </button>
       <div class="navlinks">
-        <button class="link" data-i18n="nav.services" onclick="scrollToId('services')">Services</button>
-        <button class="link" data-i18n="nav.work" onclick="scrollToId('projects')">Work</button>
-        <button class="link" data-i18n="nav.process" onclick="scrollToId('process')">How it works</button>
-        <button class="link" data-i18n="nav.faq" onclick="scrollToId('faq')">FAQ</button>
         <button class="link" data-i18n="nav.about" onclick="scrollToId('about')">About</button>
+        <button class="link" data-i18n="nav.services" onclick="scrollToId('services')">Services</button>
+        <button class="link" data-i18n="nav.work" onclick="scrollToId('work')">Work</button>
+        <button class="link" data-i18n="nav.projects" onclick="scrollToId('projects')">Projects</button>
+        <button class="link" data-i18n="nav.research" onclick="scrollToId('research')">Research</button>
         <button class="link" data-i18n="nav.contact" onclick="scrollToId('contact')">Contact</button>
       </div>
       <div class="nav-right">
@@ -73,11 +67,11 @@
   <div id="mobileMenu">
     <button id="closeMenu" aria-label="Close menu">×</button>
     <div class="mobile-links">
-      <button data-i18n="nav.services" onclick="scrollToId('services');closeMobileMenu()">Services</button>
-      <button data-i18n="nav.work" onclick="scrollToId('projects');closeMobileMenu()">Work</button>
-      <button data-i18n="nav.process" onclick="scrollToId('process');closeMobileMenu()">How it works</button>
-      <button data-i18n="nav.faq" onclick="scrollToId('faq');closeMobileMenu()">FAQ</button>
       <button data-i18n="nav.about" onclick="scrollToId('about');closeMobileMenu()">About</button>
+      <button data-i18n="nav.services" onclick="scrollToId('services');closeMobileMenu()">Services</button>
+      <button data-i18n="nav.work" onclick="scrSollToId('work');closeMobileMenu()">Work</button>
+      <button data-i18n="nav.projects" onclick="scrollToId('projects');closeMobileMenu()">Projects</button>
+      <button data-i18n="nav.research" onclick="scrollToId('research');closeMobileMenu()">Research</button>
       <button data-i18n="nav.contact" onclick="scrollToId('contact');closeMobileMenu()">Contact</button>
     </div>
     <div class="lang-switch mobile">
@@ -88,22 +82,34 @@
   </div>
 
   <div class="side-nav" id="sideNav">
-    <div class="scroll-track" id="scrollTrack" aria-label="Scroll progress">
-      <div class="scroll-fill" id="scrollFill"></div>
+    <button class="side-nav-arrow" onclick="sideNavStep(-1)" aria-label="Scroll to previous section">
+      <i data-lucide="chevron-up" width="14" height="14"></i>
+    </button>
+    <div class="side-nav-dots">
+      <button class="side-dot" data-target="home" aria-label="Home"></button>
+      <button class="side-dot" data-target="about" aria-label="About"></button>
+      <button class="side-dot" data-target="services" aria-label="Services"></button>
+      <button class="side-dot" data-target="work" aria-label="Work"></button>
+      <button class="side-dot" data-target="projects" aria-label="Projects"></button>
+      <button class="side-dot" data-target="research" aria-label="Research"></button>
+      <button class="side-dot" data-target="contact" aria-label="Contact"></button>
     </div>
+    <button class="side-nav-arrow" onclick="sideNavStep(1)" aria-label="Scroll to next section">
+      <i data-lucide="chevron-down" width="14" height="14"></i>
+    </button>
   </div>
 
   <section class="hero-full" id="home">
     <div class="bg-marquee" aria-hidden="true">
       <div class="marquee-track">
-        <span data-i18n="hero.marquee">Full-Stack Web Developer · Paris</span>
-        <span data-i18n="hero.marquee">Full-Stack Web Developer · Paris</span>
-        <span data-i18n="hero.marquee">Full-Stack Web Developer · Paris</span>
-        <span data-i18n="hero.marquee">Full-Stack Web Developer · Paris</span>
-        <span data-i18n="hero.marquee">Full-Stack Web Developer · Paris</span>
-        <span data-i18n="hero.marquee">Full-Stack Web Developer · Paris</span>
-        <span data-i18n="hero.marquee">Full-Stack Web Developer · Paris</span>
-        <span data-i18n="hero.marquee">Full-Stack Web Developer · Paris</span>
+        <span data-i18n="hero.marquee">Full-Stack Developer</span>
+        <span data-i18n="hero.marquee">Full-Stack Developer</span>
+        <span data-i18n="hero.marquee">Full-Stack Developer</span>
+        <span data-i18n="hero.marquee">Full-Stack Developer</span>
+        <span data-i18n="hero.marquee">Full-Stack Developer</span>
+        <span data-i18n="hero.marquee">Full-Stack Developer</span>
+        <span data-i18n="hero.marquee">Full-Stack Developer</span>
+        <span data-i18n="hero.marquee">Full-Stack Developer</span>
       </div>
     </div>
     <div class="hero-content">
@@ -137,8 +143,8 @@
               <div class="dot-ring"></div>
             </div>
             <div>
-              <div class="fdisplay" style="font-weight:600;font-size:14px;margin-bottom:2px;"
-                data-i18n="status.available">Available for work</div>
+              <div style="font-weight:600;font-size:14px;margin-bottom:2px;" data-i18n="status.available">Available for
+                work</div>
               <div class="muted" style="font-size:12px;" data-i18n="status.availableSub">Open to new client projects
               </div>
             </div>
@@ -173,79 +179,65 @@
       <div class="about-card reveal" id="about">
         <div class="glass" style="padding:28px;height:100%;">
           <div class="eyebrow" style="margin-bottom:14px;" data-i18n="about.eyebrow">About me</div>
-          <p class="lead" data-i18n="about.lead">Hi, I'm Walaa. I'm a web developer based in Paris, with a background
-            in computer science and a passion for building things that are both beautiful and technically solid.</p>
-          <p data-i18n="about.p1">I enjoy working at the intersection of design and development — turning an idea or
-            a business into a polished website that feels intentional on every screen.</p>
-          <p data-i18n="about.p2">Alongside web development, I was selected for a supervised university research
-            project in cryptography, where I studied RSA and real-world security. It taught me to approach technical
-            problems with curiosity, precision and attention to detail — a mindset I bring to every website I build.
+          <p class="lead" data-i18n="about.lead">CS student at Université Paris Cité — top 2 of 148 — but rankings don't
+            close projects.
+            Results do.</p>
+          <p data-i18n="about.p1">Self-taught full-stack developer. Real internship. Real shipped code. My work at
+            Sirius Net meant building
+            a multilingual production site with a live AI chatbot — not a demo.</p>
+          <p data-i18n="about.p2">I write clean code and design for outcomes. Hire me when you need a site that works
+            hard for your business.
           </p>
-          <div class="divider" style="margin-top:18px;padding-top:16px;">
-            <ul class="xp-points" id="aboutBgList" style="gap:8px;"></ul>
+        </div>
+      </div>
+
+      <!-- Skills / Services -->
+      <div class="skills-card reveal" id="services">
+        <div class="glass" style="padding:28px;height:100%;">
+          <div class="eyebrow" style="margin-bottom:18px;" data-i18n="skills.eyebrow">Tech stack</div>
+          <div class="skillwrap" id="skillsWrap"></div>
+          <div class="divider">
+            <div class="eyebrow" style="margin-bottom:14px;" data-i18n="skills.servicesEyebrow">Services</div>
+            <div class="svc-grid" id="svcGrid"></div>
           </div>
         </div>
       </div>
 
-      <!-- Research — sits next to About, kept as a small credibility note -->
-      <div class="research-compact reveal" id="research">
-        <div class="glass" style="padding:28px;height:100%;display:flex;flex-direction:column;justify-content:space-between;gap:18px;">
-          <div class="rc-top">
-            <div class="rc-thumbs">
-              <img src="img/research-1.jpg" alt="RSA key generation illustration">
-              <img src="img/research-2.jpg" alt="Modular arithmetic illustration">
-              <img src="img/research-3.jpg" alt="Security analysis and attacks illustration">
-            </div>
-            <div class="rc-text">
-              <div class="eyebrow" style="margin-bottom:6px;" data-i18n="research.eyebrow">Research in cryptography
-              </div>
-              <p class="fdisplay" style="font-weight:700;font-size:15px;margin:0 0 8px;" data-i18n="research.title">
-                Supervised research in RSA cryptography</p>
-              <p data-i18n="research.body">Selected for a university research project studying RSA and real-world
-                security — part of how I learned to build things properly, not just make them look good.</p>
-            </div>
-          </div>
-          <button class="btn-primary" type="button" style="align-self:flex-start;" onclick="openResearchModal()">
-            <span data-i18n="research.view">View project</span> <i data-lucide="arrow-up-right" width="14"
-              height="14"></i>
-          </button>
+      <!-- Achievements -->
+      <div class="ach-card reveal">
+        <div class="glass tilt"
+          style="padding:24px;height:100%;display:flex;flex-direction:column;gap:10px;min-height:160px;">
+          <div class="ach-big grad-text"><span class="counter" data-to="2" data-pre="Top " data-suf="">0</span></div>
+          <div class="eyebrow" data-i18n="ach.eyebrow1">of 148 students</div>
+          <div class="ach-body" data-i18n="ach.body1">Ranked among the highest in a competitive CS program at Université
+            Paris Cité.</div>
         </div>
       </div>
-
-      <div id="mainPackage" style="display:contents;"></div>
-      <div id="comingSoonGrid" style="display:contents;"></div>
-
-      <!-- Why work with me -->
-      <div class="whyus-card reveal">
-        <div class="glass tilt" style="padding:24px;height:100%;display:flex;flex-direction:column;gap:10px;">
-          <div class="whyus-icon"><i data-lucide="smartphone" width="16" height="16"></i></div>
-          <div class="whyus-title" data-i18n="whyus.item1title">Mobile-first</div>
-          <div class="whyus-body" data-i18n="whyus.item1body">Every site is built and tested to look great and work
-            smoothly on phones first.</div>
+      <div class="ach-card reveal">
+        <div class="glass tilt"
+          style="padding:24px;height:100%;display:flex;flex-direction:column;gap:10px;min-height:160px;">
+          <div class="ach-big grad-text"><span class="counter" data-to="1" data-pre="#" data-suf=" pick">0</span></div>
+          <div class="eyebrow" data-i18n="ach.eyebrow2">research selection</div>
+          <div class="ach-body" data-i18n="ach.body2">Chosen for a cryptography research project — rare for a first-year
+            student.</div>
         </div>
       </div>
-      <div class="whyus-card reveal">
-        <div class="glass tilt" style="padding:24px;height:100%;display:flex;flex-direction:column;gap:10px;">
-          <div class="whyus-icon"><i data-lucide="search" width="16" height="16"></i></div>
-          <div class="whyus-title" data-i18n="whyus.item2title">Built to be found</div>
-          <div class="whyus-body" data-i18n="whyus.item2body">Fast, structured and technically optimized with search
-            engines in mind.</div>
+      <div class="ach-card reveal">
+        <div class="glass tilt"
+          style="padding:24px;height:100%;display:flex;flex-direction:column;gap:10px;min-height:160px;">
+          <div class="ach-big grad-text"><span class="counter" data-to="65" data-pre="" data-suf=" pg">0</span></div>
+          <div class="eyebrow" data-i18n="ach.eyebrow3">technical report</div>
+          <div class="ach-body" data-i18n="ach.body3">Authored a deep-dive on RSA security and real-world cryptographic
+            systems.</div>
         </div>
       </div>
-      <div class="whyus-card reveal">
-        <div class="glass tilt" style="padding:24px;height:100%;display:flex;flex-direction:column;gap:10px;">
-          <div class="whyus-icon"><i data-lucide="globe" width="16" height="16"></i></div>
-          <div class="whyus-title" data-i18n="whyus.item3title">Multilingual FR / EN / AR</div>
-          <div class="whyus-body" data-i18n="whyus.item3body">Reach customers in their own language, with each
-            version built for its own audience.</div>
-        </div>
-      </div>
-      <div class="whyus-card reveal">
-        <div class="glass tilt" style="padding:24px;height:100%;display:flex;flex-direction:column;gap:10px;">
-          <div class="whyus-icon"><i data-lucide="users" width="16" height="16"></i></div>
-          <div class="whyus-title" data-i18n="whyus.item4title">Direct collaboration</div>
-          <div class="whyus-body" data-i18n="whyus.item4body">You work directly with me — no account manager, no
-            middleman.</div>
+      <div class="ach-card reveal">
+        <div class="glass tilt"
+          style="padding:24px;height:100%;display:flex;flex-direction:column;gap:10px;min-height:160px;">
+          <div class="ach-big grad-text"><span class="counter" data-to="1" data-pre="" data-suf=" site">0</span></div>
+          <div class="eyebrow" data-i18n="ach.eyebrow4">shipped with AI</div>
+          <div class="ach-body" data-i18n="ach.body4">Launched a bilingual SEO-optimized site with a live Gemini AI
+            chatbot.</div>
         </div>
       </div>
 
@@ -257,42 +249,15 @@
         </div>
       </div>
 
-      <!-- How it works -->
-      <div class="process-card reveal" id="process">
-        <div class="glass" style="padding:28px;height:100%;">
-          <div class="eyebrow" style="margin-bottom:18px;" data-i18n="process.eyebrow">How it works</div>
-          <div class="process-grid" id="processGrid"></div>
-        </div>
-      </div>
-
       <!-- Projects -->
       <div class="showcase-card reveal" id="projects">
         <div class="glass" style="padding:36px;height:100%;">
-          <div class="eyebrow" style="margin-bottom:14px;" data-i18n="projects.eyebrow">Projects · Featured build</div>
+          <div class="eyebrow" style="margin-bottom:14px;" data-i18n="projects.eyebrow">Projects</div>
           <p class="fdisplay showcase-title" data-i18n="projects.p1.title">Mirasens — Bilingual Business Website
             &amp; AI Assistant</p>
           <p class="muted showcase-desc" data-i18n="projects.p1.body">Built during my 2025 web development
             internship at Sirius Net: a bilingual (FR/EN) production website with a live Gemini AI chatbot, shipped
             to real users and reviewed by the senior team.</p>
-
-          <div class="case-grid">
-            <div class="case-item">
-              <span class="eyebrow" data-i18n="projects.p1.challengeLabel">The challenge</span>
-              <p data-i18n="projects.p1.challengeBody">The client needed a fast, bilingual site that could answer
-                visitor questions instantly — without a support team on standby.</p>
-            </div>
-            <div class="case-item">
-              <span class="eyebrow" data-i18n="projects.p1.approachLabel">My approach</span>
-              <p data-i18n="projects.p1.approachBody">Designed and built the frontend, wired up FR/EN routing and
-                SEO, then integrated a Gemini-powered chatbot to handle real visitor questions live.</p>
-            </div>
-            <div class="case-item">
-              <span class="eyebrow" data-i18n="projects.p1.resultLabel">The result</span>
-              <p data-i18n="projects.p1.resultBody">Shipped to production, code reviewed and merged by the senior
-                team, and running live at mirasens.com today.</p>
-            </div>
-          </div>
-
           <div class="showcase-tags">
             <span class="chip" data-i18n="projects.p1.tag1">Web Dev Internship · Sirius Net · 2025</span>
             <span class="chip" style="background:rgba(99,102,241,.12);color:#818cf8;border-color:rgba(99,102,241,.2);"
@@ -323,11 +288,39 @@
         </div>
       </div>
 
-      <!-- FAQ -->
-      <div class="faq-card reveal" id="faq">
-        <div class="glass" style="padding:12px 28px;height:100%;">
-          <div class="eyebrow" style="margin:18px 0 4px;" data-i18n="faq.eyebrow">FAQ</div>
-          <div id="faqList"></div>
+      <!-- Research (click to expand) -->
+      <div class="showcase-card reveal" id="research">
+        <div class="glass" style="padding:36px;height:100%;">
+          <div class="eyebrow" style="margin-bottom:14px;" data-i18n="research.eyebrow">Research</div>
+          <p class="fdisplay showcase-title" data-i18n="research.title">RSA Security &amp; Cryptography</p>
+          <p class="muted showcase-desc" data-i18n="research.body">Selected for an exclusive university cryptography
+            research project — rare for a first-year student. Delivered a 65-page technical report on RSA
+            vulnerabilities.</p>
+          <div class="showcase-tags">
+            <span class="chip" data-i18n="research.chip1">Cryptography</span>
+            <span class="chip"
+              style="background:rgba(99,102,241,.12);color:#818cf8;border-color:rgba(99,102,241,.2);">RSA</span>
+          </div>
+
+          <div class="gallery-wrap">
+            <button class="gallery-arrow gallery-prev" onclick="scrollGallery(this,-1)" aria-label="Previous"><i
+                data-lucide="chevron-left" width="16" height="16"></i></button>
+            <div class="gallery-track">
+              <img class="gallery-img" src="img/research-1.jpg" alt="RSA key generation illustration"
+                data-group="research" onclick="openLightbox(this)">
+              <img class="gallery-img" src="img/research-2.jpg" alt="Modular arithmetic illustration"
+                data-group="research" onclick="openLightbox(this)">
+              <img class="gallery-img" src="img/research-3.jpg" alt="Security analysis and attacks illustration"
+                data-group="research" onclick="openLightbox(this)">
+            </div>
+            <button class="gallery-arrow gallery-next" onclick="scrollGallery(this,1)" aria-label="Next"><i
+                data-lucide="chevron-right" width="16" height="16"></i></button>
+          </div>
+
+          <button class="btn-primary showcase-cta" type="button" onclick="openResearchModal()">
+            <span data-i18n="research.view">View details</span> <i data-lucide="arrow-up-right" width="14"
+              height="14"></i>
+          </button>
         </div>
       </div>
 
@@ -353,27 +346,10 @@
         <span data-i18n="contact.headingLine1">Let's build</span><br>
         <span class="grad-text script-accent" data-i18n="contact.headingLine2">something together</span>
       </h2>
-      <p class="contact-sub" data-i18n="contact.body">Tell me about your business and what you need. I'll reply with
-        a free consultation and a clear plan — no pressure, no jargon.</p>
-
-      <form class="contact-form" id="contactForm">
-        <input type="text" id="cfName" data-i18n-placeholder="contact.formName" placeholder="Your name" required>
-        <input type="text" id="cfBusiness" data-i18n-placeholder="contact.formBusiness"
-          placeholder="Your business / what you do" required>
-        <select id="cfNeed">
-          <option value="" data-i18n="contact.formNeedDefault">What do you need?</option>
-          <option value="new" data-i18n="contact.formNeed1">New website</option>
-          <option value="redesign" data-i18n="contact.formNeed2">Redesign an existing site</option>
-          <option value="landing" data-i18n="contact.formNeed3">Landing page</option>
-          <option value="booking" data-i18n="contact.formNeed4">Website + booking</option>
-          <option value="multilingual" data-i18n="contact.formNeed5">Multilingual website</option>
-          <option value="unsure" data-i18n="contact.formNeed6">Not sure yet</option>
-        </select>
-        <textarea id="cfMessage" data-i18n-placeholder="contact.formMessage"
-          placeholder="A few words about your project"></textarea>
-        <button type="submit" class="btn-primary contact-cta"><span data-i18n="contact.cta">Request a free
-            consultation</span> <i data-lucide="arrow-right" width="14" height="14"></i></button>
-      </form>
+      <p class="contact-sub" data-i18n="contact.body">Tell me what you need, who it's for, and when you want it live.
+        I'll reply with a free quote and a clear plan.</p>
+      <a href="mailto:walaa.mansouri@etu.u-paris.fr" class="btn-primary contact-cta"><span data-i18n="contact.cta">Get a
+          free quote</span> <i data-lucide="arrow-right" width="14" height="14"></i></a>
 
       <div class="contact-facts-row">
         <span><span class="flabel" data-i18n="contact.emailLabel">Email</span> walaa.mansouri@etu.u-paris.fr</span>
@@ -473,7 +449,7 @@
 
   <footer>
     <span data-i18n="footer.line1">© 2026 Walaa Mansouri</span>
-    <span data-i18n="footer.line2">Websites for local businesses · Paris</span>
+    <span data-i18n="footer.line2">Full-Stack Developer · Paris</span>
   </footer>
 
   <script src="script.js"></script>

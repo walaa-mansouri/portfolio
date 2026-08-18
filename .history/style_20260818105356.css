@@ -690,6 +690,24 @@
       animation: revealUp 700ms cubic-bezier(.25, .1, .25, 1) 300ms both;
   }
 
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+      width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+      background: #0a0a0a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: #8b5cf6;
+      border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+      background: #a78bfa;
+  }
+
   .side-nav-arrow {
       display: none;
   }

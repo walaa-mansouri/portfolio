@@ -1,450 +1,720 @@
-    // theme toggle
-    const body = document.body;
-    const themeBtn = document.getElementById('themeToggle');
-    function paintThemeIcon() {
-      const dark = body.classList.contains('dark');
-      themeBtn.innerHTML = dark ? '<i data-lucide="sun" width="13" height="13"></i>' : '<i data-lucide="moon" width="13" height="13"></i>';
-      lucide.createIcons();
-    }
-    themeBtn.addEventListener('click', () => { body.classList.toggle('dark'); paintThemeIcon(); });
+// theme toggle
+const body = document.body;
+const themeBtn = document.getElementById('themeToggle');
+function paintThemeIcon() {
+  const dark = body.classList.contains('dark');
+  themeBtn.innerHTML = dark ? '<i data-lucide="sun" width="13" height="13"></i>' : '<i data-lucide="moon" width="13" height="13"></i>';
+  lucide.createIcons();
+}
+themeBtn.addEventListener('click', () => { body.classList.toggle('dark'); paintThemeIcon(); });
 
-    const NAV_OFFSET = 84;
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-    function scrollToId(id) {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const top = el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
-    function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+const NAV_OFFSET = 84;
 
-    // skills (tech names stay the same across languages)
-    const SKILLS = [
-      { name: "React", bg: "rgba(97,218,251,0.15)", fg: "#61daff" },
-      { name: "JavaScript", bg: "rgba(247,223,30,0.12)", fg: "#f7df1e" },
-      { name: "Python", bg: "rgba(55,118,171,0.15)", fg: "#4b8bbe" },
-      { name: "PHP", bg: "rgba(119,123,180,0.15)", fg: "#8892be" },
-      { name: "SQL", bg: "rgba(0,144,200,0.15)", fg: "#00aad4" },
-      { name: "HTML/CSS", bg: "rgba(228,77,38,0.12)", fg: "#e44d26" },
-      { name: "Git", bg: "rgba(240,80,50,0.12)", fg: "#f05033" },
-      { name: "Gemini API", bg: "rgba(66,133,244,0.12)", fg: "#4285f4" },
-      { name: "Figma", bg: "rgba(162,89,255,0.15)", fg: "#a259ff" },
-    ];
-    const skillsWrap = document.getElementById('skillsWrap');
-    SKILLS.forEach(s => {
-      const el = document.createElement('span');
-      el.className = 'skillchip';
-      el.textContent = s.name;
-      el.style.background = s.bg; el.style.color = s.fg; el.style.border = `1px solid ${s.fg}30`;
-      skillsWrap.appendChild(el);
-    });
+function animatedScrollTo(targetY, duration = 650) {
+  const startY = window.scrollY;
+  const diff = targetY - startY;
+  if (Math.abs(diff) < 1) return;
+  let startTime = null;
+  function easeInOutQuad(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
+  function step(timestamp) {
+    if (startTime === null) startTime = timestamp;
+    const elapsed = timestamp - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    window.scrollTo(0, startY + diff * easeInOutQuad(progress));
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
 
-    /* ================= TRANSLATIONS ================= */
-    const translations = {
-      en: {
-        nav: { about: "About", services: "Services", work: "Work", projects: "Projects", research: "Research", contact: "Contact" },
-        hero: {
-          eyebrow: "Full-Stack Developer · Paris",
-          sub: "Building fast, modern websites for real businesses.",
-          cta1: "Let's build your site",
-          cta2: "Get a quote",
-          marquee: "Full-Stack Developer",
-          scroll: "Scroll"
-        },
-        status: { available: "Available for work", availableSub: "Open to new client projects", languages: "Languages", french: "French", english: "English", arabic: "Arabic" },
-        loc: { label: "Location", value: "Paris, France", note: "Université Paris Cité · Computer Science" },
-        about: {
-          eyebrow: "About me",
-          lead: "CS student at Université Paris Cité — top 2 of 148 — but rankings don't close projects. Results do.",
-          p1: "Self-taught full-stack developer. Real internship. Real shipped code. My work at Sirius Net meant building a multilingual production site with a live AI chatbot — not a demo.",
-          p2: "I write clean code and design for outcomes. Hire me when you need a site that works hard for your business."
-        },
-        skills: { eyebrow: "Tech stack", servicesEyebrow: "Services" },
-        services: [
-          { icon: "code-2", title: "Design & Dev", desc: "Full websites from design to deployment." },
-          { icon: "zap", title: "Landing Pages", desc: "Conversion-focused single-page experiences." },
-          { icon: "message-square", title: "AI Chatbots", desc: "Gemini & OpenAI integrations, production-ready." },
-          { icon: "globe", title: "Bilingual (FR/EN)", desc: "Localised for French and English markets." },
-          { icon: "search", title: "SEO", desc: "Structured, semantic, fast and discoverable." },
-        ],
-        ach: {
-          eyebrow1: "of 148 students", body1: "Ranked among the highest in a competitive CS program at Université Paris Cité.",
-          eyebrow2: "research selection", body2: "Chosen for a cryptography research project — rare for a first-year student.",
-          eyebrow3: "technical report", body3: "Authored a deep-dive on RSA security and real-world cryptographic systems.",
-          eyebrow4: "shipped with AI", body4: "Launched a bilingual SEO-optimized site with a live Gemini AI chatbot."
-        },
-        exp: { eyebrow: "Experience" },
-        experience: [
-          { role: "Web Dev Intern", org: "Sirius Net", period: "2024", points: ["Responsive multilingual site — design to production.", "Gemini AI chatbot integrated, shipped to real users.", "Clean code reviewed and merged by senior team."] },
-          { role: "Tutor", org: "Independent", period: "Ongoing", points: ["Programming & math tutoring.", "Complex ideas made practical and clear.", "Trust built through structured guidance."] },
-          { role: "Sales Advisor", org: "Retail", period: "2023", points: ["Client communication under pressure.", "Listening and delivering what clients need.", "Vague requests turned into concrete outcomes."] },
-        ],
-        research: {
-          eyebrow: "Research", title: "RSA Security &amp; Cryptography",
-          body: "Selected for an exclusive university cryptography research project — rare for a first-year student. Delivered a 65-page technical report on RSA vulnerabilities.",
-          chip1: "Cryptography",
-          view: "View details"
-        },
-        projects: {
-          eyebrow: "Projects",
-          p1: {
-            title: "Mirasens — Bilingual Business Website &amp; AI Assistant",
-            body: "Built during my 2025 web development internship at Sirius Net: a bilingual (FR/EN) production website with a live Gemini AI chatbot, shipped to real users and reviewed by the senior team.",
-            tag1: "Web Dev Internship · Sirius Net · 2025",
-            tag2: "Gemini AI Chatbot",
-            tag3: "Bilingual FR/EN · SEO",
-            cta: "Visit mirasens.com"
-          }
-        },
-        researchModal: {
-          kicker: "Initiation to Research · L1 Computer Science",
-          title: "The RSA Cryptosystem",
-          subtitle: "Mathematical Foundations and Security Analysis",
-          supervisorLabel: "Supervisor",
-          recoLabel: "Recommendation",
-          schoolLabel: "School",
-          abstract: "This project studies the RSA cryptosystem (Rivest, Shamir, Adleman, 1978), one of the most influential public-key algorithms in the history of computer security. After introducing classical and modern cryptography — substitution and stream ciphers, symmetric AES encryption, Diffie-Hellman key exchange and hash functions — it builds the mathematical toolkit behind RSA: modular arithmetic, the extended Euclidean algorithm, Euler's totient function, Euler's theorem, the Chinese remainder theorem and fast modular exponentiation. It then details RSA end to end: key generation, encryption, decryption, digital signatures and the RSA-CRT optimization. A dedicated security analysis studies integer factorization (Pollard's rho, the quadratic sieve, the general number field sieve) and several concrete attacks — the common modulus attack, the blinding attack exploiting RSA's multiplicative homomorphism, and Bleichenbacher's attack on PKCS#1 padding, which recovers a message after roughly 10⁶ queries and once compromised SSL/TLS in practice.",
-          planTitle: "Outline",
-          plan1title: "Introduction to cryptography",
-          plan1sub: "Classical ciphers · Diffie-Hellman",
-          plan2title: "Mathematical foundations",
-          plan2sub: "Modular arithmetic · Euler · extended Euclid",
-          plan3title: "The RSA algorithm",
-          plan3sub: "Key generation · Encryption · Signature",
-          plan4title: "Security analysis &amp; attacks",
-          plan4sub: "Factorization · Common modulus · Bleichenbacher",
-          plan5title: "Conclusion &amp; perspectives",
-          plan5sub: "RSA vs. post-quantum · Dropped in TLS 1.3",
-          downloadExpose: "Download the Exposé (PDF)",
-          downloadRapport: "Download the Rapport (PDF)"
-        },
-        contact: {
-          eyebrow: "Contact", heading: "Ready to build?",
-          eyebrowNum: "05 — Contact",
-          headingLine1: "Let's build",
-          headingLine2: "something together",
-          marquee: "Let's build together",
-          body: "Tell me what you need, who it's for, and when you want it live. I'll reply with a free quote and a clear plan.",
-          cta: "Get a free quote",
-          emailLabel: "Email", locationLabel: "Location", locationValueInline: "Paris, France",
-          languagesLabel: "Languages", availabilityLabel: "Availability", availabilityValueInline: "Open to projects"
-        },
-        footer: { line1: "© 2026 Walaa Mansouri", line2: "Full-Stack Developer · Paris" }
-      },
-      fr: {
-        nav: { about: "À propos", services: "Services", work: "Parcours", projects: "Projets", research: "Recherche", contact: "Contact" },
-        hero: {
-          eyebrow: "Développeuse Full-Stack · Paris",
-          sub: "Je crée des sites web rapides et modernes pour de vraies entreprises.",
-          cta1: "Construisons votre site",
-          cta2: "Devis gratuit",
-          marquee: "Développeuse Full-Stack",
-          scroll: "Défiler"
-        },
-        status: { available: "Disponible pour des missions", availableSub: "Ouverte à de nouveaux projets clients", languages: "Langues", french: "Français", english: "Anglais", arabic: "Arabe" },
-        loc: { label: "Localisation", value: "Paris, France", note: "Université Paris Cité · Informatique" },
-        about: {
-          eyebrow: "À propos de moi",
-          lead: "Étudiante en informatique à l'Université Paris Cité — 2ème sur 148 — mais un classement ne livre pas un projet. Les résultats, si.",
-          p1: "Développeuse full-stack autodidacte. Un vrai stage. Du vrai code en production. Mon travail chez Sirius Net a consisté à construire un site multilingue en production avec un chatbot IA en direct — pas une démo.",
-          p2: "J'écris un code propre et je conçois pour des résultats concrets. Faites appel à moi quand vous avez besoin d'un site à la hauteur de votre entreprise."
-        },
-        skills: { eyebrow: "Stack technique", servicesEyebrow: "Services" },
-        services: [
-          { icon: "code-2", title: "Conception & Dev", desc: "Sites web complets, de la conception à la mise en ligne." },
-          { icon: "zap", title: "Pages d'atterrissage", desc: "Des pages pensées pour la conversion." },
-          { icon: "message-square", title: "Chatbots IA", desc: "Intégrations Gemini & OpenAI, prêtes pour la production." },
-          { icon: "globe", title: "Bilingue (FR/EN)", desc: "Adapté aux marchés francophones et anglophones." },
-          { icon: "search", title: "SEO", desc: "Structuré, sémantique, rapide et facile à trouver." },
-        ],
-        ach: {
-          eyebrow1: "sur 148 étudiants", body1: "Classée parmi les meilleurs d'un cursus informatique très sélectif à l'Université Paris Cité.",
-          eyebrow2: "sélection recherche", body2: "Choisie pour un projet de recherche en cryptographie — rare pour une étudiante de première année.",
-          eyebrow3: "rapport technique", body3: "Auteure d'une étude approfondie sur la sécurité RSA et les systèmes cryptographiques réels.",
-          eyebrow4: "livré avec IA", body4: "Lancement d'un site bilingue optimisé SEO avec un chatbot IA Gemini en direct."
-        },
-        exp: { eyebrow: "Expérience" },
-        experience: [
-          { role: "Stagiaire Dev Web", org: "Sirius Net", period: "2024", points: ["Site multilingue responsive — de la conception à la production.", "Chatbot IA Gemini intégré, livré à de vrais utilisateurs.", "Code propre relu et validé par l'équipe senior."] },
-          { role: "Professeure particulière", org: "Indépendant", period: "En cours", points: ["Cours de programmation et de mathématiques.", "Des idées complexes rendues concrètes et claires.", "Une confiance construite par un accompagnement structuré."] },
-          { role: "Conseillère de vente", org: "Commerce", period: "2023", points: ["Communication client sous pression.", "Écouter et livrer ce que veulent les clients.", "Des demandes floues transformées en résultats concrets."] },
-        ],
-        research: {
-          eyebrow: "Recherche", title: "Sécurité RSA &amp; Cryptographie",
-          body: "Sélectionnée pour un projet de recherche universitaire exclusif en cryptographie — rare pour une étudiante de première année. Rapport technique de 65 pages sur les vulnérabilités RSA.",
-          chip1: "Cryptographie",
-          view: "Voir les détails"
-        },
-        projects: {
-          eyebrow: "Projets",
-          p1: {
-            title: "Mirasens — Site vitrine bilingue &amp; assistant IA",
-            body: "Réalisé durant mon stage de développement web 2025 chez Sirius Net : un site professionnel bilingue (FR/EN) en production, avec un chatbot IA Gemini en direct, livré à de vrais utilisateurs et relu par l'équipe senior.",
-            tag1: "Stage Dev Web · Sirius Net · 2025",
-            tag2: "Chatbot IA Gemini",
-            tag3: "Bilingue FR/EN · SEO",
-            cta: "Voir mirasens.com"
-          }
-        },
-        researchModal: {
-          kicker: "Initiation à la recherche · L1 Informatique",
-          title: "Le Cryptosystème RSA",
-          subtitle: "Fondements Mathématiques et Analyse de Sécurité",
-          supervisorLabel: "Encadrante",
-          recoLabel: "Recommandation",
-          schoolLabel: "École",
-          abstract: "Ce projet étudie le cryptosystème RSA (Rivest, Shamir, Adleman, 1978), l'un des algorithmes à clé publique les plus influents de l'histoire de la sécurité informatique. Après une introduction à la cryptographie classique et moderne — chiffrements par substitution et par flot, chiffrement symétrique AES, échange de clés Diffie-Hellman et fonctions de hachage — le rapport construit les outils mathématiques nécessaires à RSA : arithmétique modulaire, algorithme d'Euclide étendu, indicatrice d'Euler, théorème d'Euler, théorème des restes chinois et exponentiation modulaire rapide. Il détaille ensuite RSA de bout en bout : génération des clés, chiffrement, déchiffrement, signature numérique et optimisation RSA-CRT. Une analyse de sécurité dédiée étudie la factorisation d'entiers (ρ de Pollard, crible quadratique, crible algébrique) ainsi que plusieurs attaques concrètes — l'attaque par module commun, l'attaque par masquage exploitant l'homomorphisme multiplicatif de RSA, et l'attaque de Bleichenbacher sur le bourrage PKCS#1, qui retrouve un message après environ 10⁶ requêtes et a compromis SSL/TLS en pratique.",
-          planTitle: "Plan de l'exposé",
-          plan1title: "Introduction à la cryptographie",
-          plan1sub: "Chiffrements classiques · Diffie-Hellman",
-          plan2title: "Fondements mathématiques",
-          plan2sub: "Arithmétique modulaire · Euler · Euclide étendu",
-          plan3title: "L'algorithme RSA",
-          plan3sub: "Génération des clés · Chiffrement · Signature",
-          plan4title: "Analyse de sécurité &amp; Attaques",
-          plan4sub: "Factorisation · Module commun · Bleichenbacher",
-          plan5title: "Conclusion &amp; Perspectives",
-          plan5sub: "RSA face au post-quantique · Abandon dans TLS 1.3",
-          downloadExpose: "Télécharger l'Exposé (PDF)",
-          downloadRapport: "Télécharger le Rapport (PDF)"
-        },
-        contact: {
-          eyebrow: "Contact", heading: "Prêt à construire ?",
-          eyebrowNum: "05 — Contact",
-          headingLine1: "Construisons",
-          headingLine2: "quelque chose ensemble",
-          marquee: "Construisons ensemble",
-          body: "Dites-moi ce dont vous avez besoin, pour qui, et pour quand. Je vous répondrai avec un devis gratuit et un plan clair.",
-          cta: "Devis gratuit",
-          emailLabel: "Email", locationLabel: "Localisation", locationValueInline: "Paris, France",
-          languagesLabel: "Langues", availabilityLabel: "Disponibilité", availabilityValueInline: "Ouverte aux projets"
-        },
-        footer: { line1: "© 2026 Walaa Mansouri", line2: "Développeuse Full-Stack · Paris" }
-      },
-      ar: {
-        nav: { about: "نبذة", services: "الخدمات", work: "المسار", projects: "المشاريع", research: "البحث", contact: "تواصل" },
-        hero: {
-          eyebrow: "مطوّرة Full-Stack · باريس",
-          sub: "أصمم مواقع ويب سريعة وحديثة لشركات حقيقية.",
-          cta1: "لنبنِ موقعك",
-          cta2: "اطلب عرض سعر",
-          marquee: "مطوّرة Full-Stack",
-          scroll: "مرّر"
-        },
-        status: { available: "متاحة للعمل", availableSub: "منفتحة على مشاريع عملاء جدد", languages: "اللغات", french: "الفرنسية", english: "الإنجليزية", arabic: "العربية" },
-        loc: { label: "الموقع", value: "باريس، فرنسا", note: "جامعة باريس سيتيه · علوم حاسوب" },
-        about: {
-          eyebrow: "نبذة عني",
-          lead: "طالبة علوم حاسوب في جامعة باريس سيتيه — من بين أفضل 2 من أصل 148 — لكن الترتيب لا ينجز المشاريع، النتائج هي التي تفعل ذلك.",
-          p1: "مطوّرة full-stack تعلّمت بنفسها. تدريب حقيقي. كود حقيقي في الإنتاج. عملي في Sirius Net كان بناء موقع متعدد اللغات في الإنتاج مع روبوت محادثة بالذكاء الاصطناعي فعلي — وليس عرضًا تجريبيًا.",
-          p2: "أكتب كودًا نظيفًا وأصمم من أجل نتائج ملموسة. استعن بي عندما تحتاج إلى موقع يعمل بجد من أجل عملك."
-        },
-        skills: { eyebrow: "الأدوات التقنية", servicesEyebrow: "الخدمات" },
-        services: [
-          { icon: "code-2", title: "تصميم وتطوير", desc: "مواقع كاملة من التصميم حتى الإطلاق." },
-          { icon: "zap", title: "صفحات هبوط", desc: "صفحات مصممة لتحقيق أعلى نسبة تحويل." },
-          { icon: "message-square", title: "روبوتات محادثة بالذكاء الاصطناعي", desc: "تكاملات Gemini وOpenAI جاهزة للإنتاج." },
-          { icon: "globe", title: "ثنائي اللغة (فرنسي/إنجليزي)", desc: "مصمم للأسواق الفرنكوفونية والأنجلوفونية." },
-          { icon: "search", title: "تحسين محركات البحث", desc: "بنية منظمة وسريعة وسهلة الاكتشاف." },
-        ],
-        ach: {
-          eyebrow1: "من أصل 148 طالبًا", body1: "من بين الأفضل في برنامج علوم حاسوب تنافسي بجامعة باريس سيتيه.",
-          eyebrow2: "اختيار بحثي", body2: "تم اختيارها لمشروع بحث في التشفير — أمر نادر لطالبة في السنة الأولى.",
-          eyebrow3: "تقرير تقني", body3: "أعدّت دراسة معمّقة حول أمان RSA والأنظمة التشفيرية الحقيقية.",
-          eyebrow4: "أُطلق بالذكاء الاصطناعي", body4: "أطلقت موقعًا ثنائي اللغة محسّنًا لمحركات البحث مع روبوت محادثة Gemini فعلي."
-        },
-        exp: { eyebrow: "الخبرة" },
-        experience: [
-          { role: "متدربة تطوير ويب", org: "Sirius Net", period: "2024", points: ["موقع متجاوب متعدد اللغات — من التصميم إلى الإنتاج.", "دمج روبوت محادثة Gemini، وتم إطلاقه لمستخدمين حقيقيين.", "كود نظيف تمت مراجعته واعتماده من فريق أول."] },
-          { role: "مدرّسة خصوصية", org: "عمل حر", period: "مستمر", points: ["دروس في البرمجة والرياضيات.", "أفكار معقدة تصبح عملية وواضحة.", "بناء الثقة من خلال توجيه منظم."] },
-          { role: "مستشارة مبيعات", org: "تجارة تجزئة", period: "2023", points: ["التواصل مع العملاء تحت الضغط.", "الإصغاء وتقديم ما يريده العملاء.", "تحويل طلبات غامضة إلى نتائج ملموسة."] },
-        ],
-        research: {
-          eyebrow: "البحث", title: "أمان RSA والتشفير",
-          body: "اختيرت لمشروع بحث جامعي حصري في التشفير — أمر نادر لطالبة في السنة الأولى. أعدّت تقريرًا تقنيًا من 65 صفحة حول ثغرات RSA.",
-          chip1: "التشفير",
-          view: "عرض التفاصيل"
-        },
-        projects: {
-          eyebrow: "المشاريع",
-          p1: {
-            title: "Mirasens — موقع تجاري ثنائي اللغة ومساعد ذكاء اصطناعي",
-            body: "أُنجز خلال تدريبي في تطوير الويب لعام 2025 لدى Sirius Net: موقع تجاري ثنائي اللغة (فرنسي/إنجليزي) في الإنتاج مع روبوت محادثة Gemini فعلي، أُطلق لمستخدمين حقيقيين وراجعه الفريق الأول.",
-            tag1: "تدريب تطوير ويب · Sirius Net · 2025",
-            tag2: "روبوت محادثة Gemini",
-            tag3: "ثنائي اللغة · تحسين محركات البحث",
-            cta: "زيارة mirasens.com"
-          }
-        },
-        researchModal: {
-          kicker: "المبادرة إلى البحث · السنة الأولى إعلام آلي",
-          title: "نظام التشفير RSA",
-          subtitle: "الأسس الرياضية وتحليل الأمان",
-          supervisorLabel: "المشرفة",
-          recoLabel: "توصية",
-          schoolLabel: "الجامعة",
-          abstract: "يدرس هذا المشروع نظام التشفير RSA (Rivest وShamir وAdleman، 1978)، أحد أكثر خوارزميات المفتاح العام تأثيرًا في تاريخ أمن المعلومات. بعد مقدمة عن التشفير الكلاسيكي والحديث، يبني التقرير الأدوات الرياضية اللازمة لفهم RSA: الحساب النمطي، خوارزمية إقليدس الممتدة، دالة أويلر، مبرهنة أويلر، مبرهنة الباقي الصيني والأس النمطي السريع. ثم يشرح RSA بالكامل: توليد المفاتيح، التشفير، فك التشفير، التوقيع الرقمي وتحسين RSA-CRT. ويخصص تحليلًا أمنيًا لطرق تفكيك الأعداد وعدة هجمات فعلية، من بينها هجوم Bleichenbacher الذي أثّر فعليًا على بروتوكولي SSL وTLS.",
-          planTitle: "خطة العرض",
-          plan1title: "مقدمة في التشفير",
-          plan1sub: "التشفير الكلاسيكي · Diffie-Hellman",
-          plan2title: "الأسس الرياضية",
-          plan2sub: "الحساب النمطي · أويلر · إقليدس الممتد",
-          plan3title: "خوارزمية RSA",
-          plan3sub: "توليد المفاتيح · التشفير · التوقيع",
-          plan4title: "تحليل الأمان والهجمات",
-          plan4sub: "التفكيك · المعامل المشترك · Bleichenbacher",
-          plan5title: "الخاتمة والآفاق",
-          plan5sub: "RSA أمام الحوسبة الكمّية · التخلي عنه في TLS 1.3",
-          downloadExpose: "تحميل العرض (PDF)",
-          downloadRapport: "تحميل التقرير (PDF)"
-        },
-        contact: {
-          eyebrow: "تواصل", heading: "مستعدة للبناء؟",
-          eyebrowNum: "٠٥ — تواصل",
-          headingLine1: "لنبنِ",
-          headingLine2: "شيئًا معًا",
-          marquee: "لنبنِ شيئًا معًا",
-          body: "أخبرني بما تحتاجه، ولمن، ومتى تريده مباشرًا. سأرد عليك بعرض سعر مجاني وخطة واضحة.",
-          cta: "اطلب عرض سعر مجاني",
-          emailLabel: "البريد الإلكتروني", locationLabel: "الموقع", locationValueInline: "باريس، فرنسا",
-          languagesLabel: "اللغات", availabilityLabel: "التوفر", availabilityValueInline: "متاحة لمشاريع جديدة"
-        },
-        footer: { line1: "© 2026 ولاء منصوري", line2: "مطوّرة Full-Stack · باريس" }
+function scrollToTop() {
+  animatedScrollTo(0);
+}
+function scrollToId(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const navEl = document.getElementById('siteNav');
+  const navHeight = navEl ? navEl.getBoundingClientRect().height : NAV_OFFSET;
+  const offset = navHeight + 24;
+  const top = el.getBoundingClientRect().top + window.scrollY - offset;
+  animatedScrollTo(Math.max(0, top));
+}
+function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+/* ================= TRANSLATIONS ================= */
+const translations = {
+  en: {
+    meta: {
+      title: "Web Design & Website Development in Paris | Walaa Mansouri",
+      description: "Professional, fast and multilingual websites for small businesses and independent professionals in Paris. Free consultation."
+    },
+    nav: { services: "Services", work: "Work", process: "How it works", faq: "FAQ", about: "About", contact: "Contact" },
+    hero: {
+      eyebrow: "Full-Stack Developer · Paris",
+      title: "Walaa<br>Mansouri",
+      sub: "Building fast, modern websites for real businesses.",
+      cta1: "Let's build your site",
+      cta2: "Get a quote",
+      marquee: "Full-Stack Developer · Paris",
+      scroll: "Scroll"
+    },
+    status: { available: "Available for work", availableSub: "Open to new client projects", languages: "Languages", french: "French", english: "English", arabic: "Arabic" },
+    loc: { label: "Location", value: "Paris, France", note: "Université Paris Cité · Computer Science" },
+    about: {
+      eyebrow: "About me",
+      lead: "Hi, I'm Walaa. I'm a web developer based in Paris, with a background in computer science and a passion for building things that are both beautiful and technically solid.",
+      p1: "I enjoy working at the intersection of design and development — turning an idea or a business into a polished website that feels intentional on every screen.",
+      p2: "Alongside web development, I was selected for a supervised university research project in cryptography, where I studied RSA and real-world security. It taught me to approach technical problems with curiosity, precision and attention to detail — a mindset I bring to every website I build."
+    },
+    aboutBackground: [
+      "Computer Science · Université Paris Cité",
+      "Web Development Internship · Sirius Net",
+      "Cryptography Research · RSA"
+    ],
+    whyus: {
+      item1title: "Mobile-first", item1body: "Every site is built and tested to look great and work smoothly on phones first.",
+      item2title: "Built to be found", item2body: "Fast, structured and technically optimized with search engines in mind.",
+      item3title: "Multilingual FR / EN / AR", item3body: "Reach customers in their own language, with each version built for its own audience.",
+      item4title: "Direct collaboration", item4body: "You work directly with me — no account manager, no middleman."
+    },
+    packages: {
+      eyebrow: "Services",
+      title: "One offer, done properly.",
+      body: "I'm starting focused: landing pages that make a strong first impression online. More formats are on the way."
+    },
+    mainPackage: {
+      name: "Landing Page",
+      tagline: "A complete online presence, built around one clear goal — your business, distilled into one beautiful page.",
+      priceLabel: "Starting from",
+      price: "€XXX",
+      perfectFor: ["Dentists", "Doctors", "Lawyers", "Beauty professionals", "Restaurants", "Freelancers", "Local businesses"],
+      categories: [
+        { title: "Design", items: ["Custom visual direction", "Responsive design", "Mobile optimization"] },
+        { title: "Content structure", items: ["Hero section", "Services", "About", "Benefits", "Testimonials", "FAQ", "Contact CTA"] },
+        { title: "Technical", items: ["Fast loading", "SEO basics", "Contact form", "Domain connection", "Deployment"] },
+        { title: "After launch", items: ["2 rounds of revisions", "7 days of post-launch support"] }
+      ],
+      customNote: "Need something more specific? Tell me about your project and I'll give you a custom quote.",
+      cta: "Discuss your project"
+    },
+    comingSoonLabel: "Coming soon",
+    comingSoon: ["Business Websites", "Booking Systems", "Multilingual Websites"],
+    process: { eyebrow: "How it works" },
+    processSteps: [
+      { title: "Tell me about your business", sub: "A short call or a simple form — 15–20 minutes." },
+      { title: "Get your design", sub: "You receive the first version and give feedback." },
+      { title: "Build & optimize", sub: "Responsive, fast, and SEO-ready." },
+      { title: "Launch", sub: "Your website goes live and you get everything you need." }
+    ],
+    exp: { eyebrow: "Experience" },
+    experience: [
+      { role: "Web Dev Intern", org: "Sirius Net", period: "Summer 2025", points: ["Responsive multilingual site — design to production.", "Gemini AI chatbot integrated, shipped to real users.", "Clean code reviewed and merged by senior team."] },
+      { role: "Tutor", org: "Independent", period: "Ongoing", points: ["Programming & math tutoring.", "Complex ideas made practical and clear.", "Trust built through structured guidance."] },
+    ],
+    research: {
+      eyebrow: "Research in cryptography", title: "Supervised research in RSA cryptography",
+      body: "Selected for a university research project studying RSA and real-world security — part of how I learned to build things properly, not just make them look good.",
+      view: "View project"
+    },
+    projects: {
+      eyebrow: "Work · Case study",
+      p1: {
+        title: "Mirasens — A website designed to answer visitors, not just look good",
+        body: "A multilingual (FR/EN) production website with a live AI assistant, built to help visitors get answers without waiting on a reply from the team.",
+        challengeLabel: "The challenge",
+        challengeBody: "The business needed a fast, bilingual site that could answer visitor questions instantly — without a support team on standby.",
+        approachLabel: "What I did",
+        approachBody: "Designed and built the site, set up FR/EN structure and SEO, then integrated an AI assistant to handle real visitor questions live.",
+        resultLabel: "The result",
+        resultBody: "A production website launched for real users, running live at mirasens.com today.",
+        tag1: "Multilingual FR/EN",
+        tag2: "AI Assistant",
+        tag3: "SEO-ready",
+        cta: "Visit mirasens.com"
       }
-    };
+    },
+    researchModal: {
+      kicker: "Initiation to Research · L1 Computer Science",
+      title: "The RSA Cryptosystem",
+      subtitle: "Mathematical Foundations and Security Analysis",
+      supervisorLabel: "Supervisor",
+      recoLabel: "Recommendation",
+      schoolLabel: "School",
+      abstract: "This project studies the RSA cryptosystem (Rivest, Shamir, Adleman, 1978), one of the most influential public-key algorithms in the history of computer security. After introducing classical and modern cryptography — substitution and stream ciphers, symmetric AES encryption, Diffie-Hellman key exchange and hash functions — it builds the mathematical toolkit behind RSA: modular arithmetic, the extended Euclidean algorithm, Euler's totient function, Euler's theorem, the Chinese remainder theorem and fast modular exponentiation. It then details RSA end to end: key generation, encryption, decryption, digital signatures and the RSA-CRT optimization. A dedicated security analysis studies integer factorization (Pollard's rho, the quadratic sieve, the general number field sieve) and several concrete attacks — the common modulus attack, the blinding attack exploiting RSA's multiplicative homomorphism, and Bleichenbacher's attack on PKCS#1 padding, which recovers a message after roughly 10⁶ queries and once compromised SSL/TLS in practice.",
+      planTitle: "Outline",
+      plan1title: "Introduction to cryptography",
+      plan1sub: "Classical ciphers · Diffie-Hellman",
+      plan2title: "Mathematical foundations",
+      plan2sub: "Modular arithmetic · Euler · extended Euclid",
+      plan3title: "The RSA algorithm",
+      plan3sub: "Key generation · Encryption · Signature",
+      plan4title: "Security analysis &amp; attacks",
+      plan4sub: "Factorization · Common modulus · Bleichenbacher",
+      plan5title: "Conclusion &amp; perspectives",
+      plan5sub: "RSA vs. post-quantum · Dropped in TLS 1.3",
+      downloadExpose: "Download the Exposé (PDF)",
+      downloadRapport: "Download the Rapport (PDF)"
+    },
+    faq: { eyebrow: "FAQ" },
+    faqItems: [
+      { q: "How much does a website cost?", a: "It depends on scope — see the packages above for what's included in each. Tell me about your business and I'll reply with a free, no-obligation quote." },
+      { q: "How long does it take?", a: "Most landing pages and business websites take a few weeks from our first call to launch, depending on how quickly content and feedback come back." },
+      { q: "Do you provide hosting?", a: "I can guide you through hosting and domain setup, or handle it for you as part of the project." },
+      { q: "Can you improve my existing website?", a: "Yes — send me your current site and I'll suggest concrete improvements, or rebuild it from scratch if that's a better fit." },
+      { q: "Can you make it multilingual?", a: "Yes. I build in French, English and Arabic, with proper structure and language tags for each — not just a text swap." },
+      { q: "Can I update the content myself afterwards?", a: "Yes — I can set things up so simple text and image changes are easy for you, or handle updates for you with an ongoing maintenance option." }
+    ],
+    contact: {
+      eyebrow: "Contact", heading: "Ready to build?",
+      eyebrowNum: "Contact",
+      headingLine1: "Let's talk about",
+      headingLine2: "your website",
+      marquee: "Let's build together",
+      body: "Tell me about your business and what you need. I'll reply with a free consultation and a clear plan — no pressure, no jargon.",
+      cta: "Request a free consultation",
+      formName: "Your name",
+      formBusiness: "Your business / what you do",
+      formNeedDefault: "What do you need?",
+      formNeed1: "New website",
+      formNeed2: "Redesign an existing site",
+      formNeed3: "Landing page",
+      formNeed4: "Website + booking",
+      formNeed5: "Multilingual website",
+      formNeed6: "Not sure yet",
+      formMessage: "A few words about your project",
+      emailLabel: "Email", locationLabel: "Location", locationValueInline: "Paris, France",
+      languagesLabel: "Languages", availabilityLabel: "Availability", availabilityValueInline: "Open to projects"
+    },
+    footer: { line1: "© 2026 Walaa Mansouri", line2: "Full-Stack Web Developer · Paris" }
+  },
+  fr: {
+    meta: {
+      title: "Création de sites internet à Paris | Walaa Mansouri",
+      description: "Sites internet professionnels, rapides et multilingues pour indépendants et petites entreprises à Paris. Consultation gratuite."
+    },
+    nav: { services: "Services", work: "Réalisations", process: "Comment ça marche", faq: "FAQ", about: "À propos", contact: "Contact" },
+    hero: {
+      eyebrow: "Développeuse Web Full-Stack · Paris",
+      title: "Walaa<br>Mansouri",
+      sub: "Des sites rapides et modernes pour de vraies entreprises.",
+      cta1: "Construisons votre site",
+      cta2: "Demander un devis",
+      marquee: "Développeuse Web Full-Stack · Paris",
+      scroll: "Défiler"
+    },
+    status: { available: "Disponible pour des missions", availableSub: "Ouverte à de nouveaux projets clients", languages: "Langues", french: "Français", english: "Anglais", arabic: "Arabe" },
+    loc: { label: "Localisation", value: "Paris, France", note: "Université Paris Cité · Informatique" },
+    about: {
+      eyebrow: "À propos de moi",
+      lead: "Bonjour, je suis Walaa. Je suis développeuse web basée à Paris, avec une formation en informatique et une passion pour créer des choses à la fois belles et techniquement solides.",
+      p1: "J'aime travailler à l'intersection du design et du développement — transformer une idée ou une entreprise en un site web abouti, pensé jusque dans le moindre détail.",
+      p2: "En parallèle du développement web, j'ai été sélectionnée pour un projet de recherche universitaire encadré en cryptographie, où j'ai étudié RSA et la sécurité réelle. Cela m'a appris à aborder les problèmes techniques avec curiosité, précision et souci du détail — un état d'esprit que j'apporte à chaque site que je construis."
+    },
+    aboutBackground: [
+      "Informatique · Université Paris Cité",
+      "Stage en développement web · Sirius Net",
+      "Recherche en cryptographie · RSA"
+    ],
+    whyus: {
+      item1title: "Mobile-first", item1body: "Chaque site est pensé et testé pour bien s'afficher et fonctionner d'abord sur mobile.",
+      item2title: "Pensé pour être trouvé", item2body: "Rapide, structuré et techniquement optimisé pour les moteurs de recherche.",
+      item3title: "Multilingue FR / EN / AR", item3body: "Touchez vos clients dans leur langue, avec une version pensée pour chaque public.",
+      item4title: "Collaboration directe", item4body: "Vous travaillez directement avec moi — sans chargé de compte, sans intermédiaire."
+    },
+    packages: {
+      eyebrow: "Services",
+      title: "Une offre, bien faite.",
+      body: "Je démarre avec un seul objectif : des pages d'atterrissage qui font une forte première impression en ligne. D'autres formules arrivent bientôt."
+    },
+    mainPackage: {
+      name: "Page d'atterrissage",
+      tagline: "Une présence en ligne complète, construite autour d'un objectif clair — votre entreprise, distillée en une seule et belle page.",
+      priceLabel: "À partir de",
+      price: "XXX €",
+      perfectFor: ["Dentistes", "Médecins", "Avocats", "Professionnels de la beauté", "Restaurants", "Freelances", "Commerces locaux"],
+      categories: [
+        { title: "Design", items: ["Direction visuelle sur mesure", "Design responsive", "Optimisation mobile"] },
+        { title: "Structure du contenu", items: ["Section héro", "Services", "À propos", "Avantages", "Témoignages", "FAQ", "Appel à l'action"] },
+        { title: "Technique", items: ["Chargement rapide", "SEO de base", "Formulaire de contact", "Connexion du domaine", "Mise en ligne"] },
+        { title: "Après le lancement", items: ["2 tours de révisions", "7 jours de support après lancement"] }
+      ],
+      customNote: "Besoin de quelque chose de plus spécifique ? Parlez-moi de votre projet et je vous ferai un devis sur mesure.",
+      cta: "Discuter de votre projet"
+    },
+    comingSoonLabel: "Bientôt disponible",
+    comingSoon: ["Sites vitrines", "Systèmes de réservation", "Sites multilingues"],
+    process: { eyebrow: "Comment ça marche" },
+    processSteps: [
+      { title: "Parlez-moi de votre entreprise", sub: "Un court appel ou un formulaire simple — 15 à 20 minutes." },
+      { title: "Recevez votre design", sub: "Vous recevez une première version et donnez vos retours." },
+      { title: "Construction & optimisation", sub: "Responsive, rapide et prêt pour le SEO." },
+      { title: "Mise en ligne", sub: "Votre site est publié et vous recevez tout ce dont vous avez besoin." }
+    ],
+    exp: { eyebrow: "Expérience" },
+    experience: [
+      { role: "Stagiaire Dev Web", org: "Sirius Net", period: "Été 2025", points: ["Site multilingue responsive — de la conception à la production.", "Chatbot IA Gemini intégré, livré à de vrais utilisateurs.", "Code propre relu et validé par l'équipe senior."] },
+      { role: "Professeure particulière", org: "Indépendant", period: "En cours", points: ["Cours de programmation et de mathématiques.", "Des idées complexes rendues concrètes et claires.", "Une confiance construite par un accompagnement structuré."] },
+    ],
+    research: {
+      eyebrow: "Recherche en cryptographie", title: "Recherche encadrée en cryptographie RSA",
+      body: "Sélectionnée pour un projet de recherche universitaire étudiant RSA et la sécurité réelle — une part de ce qui m'a appris à construire les choses correctement, pas seulement à les rendre jolies.",
+      view: "Voir le projet"
+    },
+    projects: {
+      eyebrow: "Réalisations · Étude de cas",
+      p1: {
+        title: "Mirasens — Un site pensé pour répondre aux visiteurs, pas seulement pour être joli",
+        body: "Un site professionnel bilingue (FR/EN) en production, avec un assistant IA en direct, conçu pour que les visiteurs obtiennent des réponses sans attendre l'équipe.",
+        challengeLabel: "Le défi",
+        challengeBody: "L'entreprise avait besoin d'un site bilingue rapide, capable de répondre instantanément aux visiteurs — sans équipe support disponible en permanence.",
+        approachLabel: "Ce que j'ai fait",
+        approachBody: "Conception et développement du site, mise en place de la structure FR/EN et du SEO, puis intégration d'un assistant IA pour répondre en direct aux vrais visiteurs.",
+        resultLabel: "Le résultat",
+        resultBody: "Un site en production, livré à de vrais utilisateurs, toujours en ligne aujourd'hui sur mirasens.com.",
+        tag1: "Multilingue FR/EN",
+        tag2: "Assistant IA",
+        tag3: "Prêt pour le SEO",
+        cta: "Voir mirasens.com"
+      }
+    },
+    researchModal: {
+      kicker: "Initiation à la recherche · L1 Informatique",
+      title: "Le Cryptosystème RSA",
+      subtitle: "Fondements Mathématiques et Analyse de Sécurité",
+      supervisorLabel: "Encadrante",
+      recoLabel: "Recommandation",
+      schoolLabel: "École",
+      abstract: "Ce projet étudie le cryptosystème RSA (Rivest, Shamir, Adleman, 1978), l'un des algorithmes à clé publique les plus influents de l'histoire de la sécurité informatique. Après une introduction à la cryptographie classique et moderne — chiffrements par substitution et par flot, chiffrement symétrique AES, échange de clés Diffie-Hellman et fonctions de hachage — le rapport construit les outils mathématiques nécessaires à RSA : arithmétique modulaire, algorithme d'Euclide étendu, indicatrice d'Euler, théorème d'Euler, théorème des restes chinois et exponentiation modulaire rapide. Il détaille ensuite RSA de bout en bout : génération des clés, chiffrement, déchiffrement, signature numérique et optimisation RSA-CRT. Une analyse de sécurité dédiée étudie la factorisation d'entiers (ρ de Pollard, crible quadratique, crible algébrique) ainsi que plusieurs attaques concrètes — l'attaque par module commun, l'attaque par masquage exploitant l'homomorphisme multiplicatif de RSA, et l'attaque de Bleichenbacher sur le bourrage PKCS#1, qui retrouve un message après environ 10⁶ requêtes et a compromis SSL/TLS en pratique.",
+      planTitle: "Plan de l'exposé",
+      plan1title: "Introduction à la cryptographie",
+      plan1sub: "Chiffrements classiques · Diffie-Hellman",
+      plan2title: "Fondements mathématiques",
+      plan2sub: "Arithmétique modulaire · Euler · Euclide étendu",
+      plan3title: "L'algorithme RSA",
+      plan3sub: "Génération des clés · Chiffrement · Signature",
+      plan4title: "Analyse de sécurité &amp; Attaques",
+      plan4sub: "Factorisation · Module commun · Bleichenbacher",
+      plan5title: "Conclusion &amp; Perspectives",
+      plan5sub: "RSA face au post-quantique · Abandon dans TLS 1.3",
+      downloadExpose: "Télécharger l'Exposé (PDF)",
+      downloadRapport: "Télécharger le Rapport (PDF)"
+    },
+    faq: { eyebrow: "FAQ" },
+    faqItems: [
+      { q: "Combien coûte un site internet ?", a: "Cela dépend du périmètre — voir les formules ci-dessus pour le contenu de chacune. Parlez-moi de votre entreprise et je vous réponds avec un devis gratuit et sans engagement." },
+      { q: "Combien de temps ça prend ?", a: "La plupart des pages d'atterrissage et sites vitrines sont livrés en quelques semaines à partir de notre premier échange, selon la rapidité des retours et du contenu." },
+      { q: "Fournissez-vous l'hébergement ?", a: "Je peux vous accompagner pour l'hébergement et le nom de domaine, ou m'en charger directement dans le cadre du projet." },
+      { q: "Pouvez-vous améliorer mon site existant ?", a: "Oui — envoyez-moi votre site actuel et je vous proposerai des améliorations concrètes, ou une refonte complète si c'est plus adapté." },
+      { q: "Pouvez-vous le rendre multilingue ?", a: "Oui. Je développe en français, anglais et arabe, avec une structure et des balises de langue propres à chacune — pas une simple traduction du texte." },
+      { q: "Pourrai-je modifier le contenu moi-même ensuite ?", a: "Oui — je peux organiser le site pour que les modifications simples de texte ou d'images soient faciles pour vous, ou m'en occuper via une formule de maintenance." }
+    ],
+    contact: {
+      eyebrow: "Contact", heading: "Prêt à construire ?",
+      eyebrowNum: "Contact",
+      headingLine1: "Parlons de",
+      headingLine2: "votre site",
+      marquee: "Construisons ensemble",
+      body: "Dites-moi ce que fait votre entreprise et ce dont vous avez besoin. Je vous réponds avec une consultation gratuite et un plan clair — sans pression, sans jargon.",
+      cta: "Demander une consultation gratuite",
+      formName: "Votre nom",
+      formBusiness: "Votre entreprise / activité",
+      formNeedDefault: "De quoi avez-vous besoin ?",
+      formNeed1: "Nouveau site",
+      formNeed2: "Refonte d'un site existant",
+      formNeed3: "Page d'atterrissage",
+      formNeed4: "Site + réservation",
+      formNeed5: "Site multilingue",
+      formNeed6: "Je ne sais pas encore",
+      formMessage: "Quelques mots sur votre projet",
+      emailLabel: "Email", locationLabel: "Localisation", locationValueInline: "Paris, France",
+      languagesLabel: "Langues", availabilityLabel: "Disponibilité", availabilityValueInline: "Ouverte aux projets"
+    },
+    footer: { line1: "© 2026 Walaa Mansouri", line2: "Développeuse Web Full-Stack · Paris" }
+  },
+  ar: {
+    meta: {
+      title: "تصميم وتطوير المواقع الإلكترونية في باريس | ولاء منصوري",
+      description: "مواقع إلكترونية احترافية وسريعة ومتعددة اللغات للشركات الصغيرة والمهنيين المستقلين في باريس. استشارة مجانية."
+    },
+    nav: { services: "الخدمات", work: "الأعمال", process: "كيف نعمل", faq: "الأسئلة الشائعة", about: "نبذة", contact: "تواصل" },
+    hero: {
+      eyebrow: "مطوّرة ويب Full-Stack · باريس",
+      title: "ولاء<br>منصوري",
+      sub: "مواقع سريعة وحديثة لشركات حقيقية.",
+      cta1: "لنبنِ موقعك",
+      cta2: "اطلب عرض سعر",
+      marquee: "مطوّرة ويب Full-Stack · باريس",
+      scroll: "مرّر"
+    },
+    status: { available: "متاحة للعمل", availableSub: "منفتحة على مشاريع عملاء جدد", languages: "اللغات", french: "الفرنسية", english: "الإنجليزية", arabic: "العربية" },
+    loc: { label: "الموقع", value: "باريس، فرنسا", note: "جامعة باريس سيتيه · علوم حاسوب" },
+    about: {
+      eyebrow: "نبذة عني",
+      lead: "مرحبًا، أنا ولاء. مطوّرة ويب مقيمة في باريس، بخلفية في علوم الحاسوب وشغف ببناء أشياء جميلة ومتينة تقنيًا في آن واحد.",
+      p1: "أستمتع بالعمل عند تقاطع التصميم والتطوير — تحويل فكرة أو نشاط تجاري إلى موقع متكامل يبدو مدروسًا في كل تفصيلة.",
+      p2: "إلى جانب تطوير الويب، اختيرت لمشروع بحث جامعي مُشرَف عليه في التشفير، درست فيه RSA والأمان الواقعي. علّمني ذلك التعامل مع المشكلات التقنية بفضول ودقة واهتمام بالتفاصيل — وهي عقلية أحملها إلى كل موقع أبنيه."
+    },
+    aboutBackground: [
+      "علوم حاسوب · جامعة باريس سيتيه",
+      "تدريب في تطوير الويب · Sirius Net",
+      "بحث في التشفير · RSA"
+    ],
+    whyus: {
+      item1title: "أولوية للموبايل", item1body: "كل موقع مصمّم ومختبر ليظهر بشكل رائع ويعمل بسلاسة على الهاتف أولًا.",
+      item2title: "مبني ليُكتشف بسهولة", item2body: "سريع ومنظم ومُحسَّن تقنيًا مع مراعاة محركات البحث.",
+      item3title: "متعدد اللغات FR / EN / AR", item3body: "تواصل مع عملائك بلغتهم، مع نسخة مصممة لكل جمهور.",
+      item4title: "تعاون مباشر", item4body: "تعمل معي مباشرة — بلا مسؤول حسابات وبلا وسيط."
+    },
+    packages: {
+      eyebrow: "الخدمات",
+      title: "عرض واحد، منفَّذ بعناية.",
+      body: "أبدأ بتركيز واحد: صفحات هبوط تترك انطباعًا أول قويًا على الإنترنت. المزيد من الصيغ قادم قريبًا."
+    },
+    mainPackage: {
+      name: "صفحة هبوط",
+      tagline: "حضور كامل على الإنترنت، مبني حول هدف واحد واضح — نشاطك التجاري، مُختزَل في صفحة واحدة جميلة.",
+      priceLabel: "ابتداءً من",
+      price: "XXX €",
+      perfectFor: ["أطباء الأسنان", "الأطباء", "المحامون", "خبراء التجميل", "المطاعم", "المستقلون", "الأنشطة المحلية"],
+      categories: [
+        { title: "التصميم", items: ["توجيه بصري مخصص", "تصميم متجاوب", "تحسين للهاتف"] },
+        { title: "بنية المحتوى", items: ["قسم رئيسي", "الخدمات", "نبذة", "المزايا", "الشهادات", "الأسئلة الشائعة", "دعوة للتواصل"] },
+        { title: "الجانب التقني", items: ["تحميل سريع", "أساسيات SEO", "نموذج تواصل", "ربط النطاق", "النشر"] },
+        { title: "بعد الإطلاق", items: ["جولتا تعديل", "7 أيام دعم بعد الإطلاق"] }
+      ],
+      customNote: "تحتاج شيئًا أكثر تحديدًا؟ أخبرني عن مشروعك وسأعطيك عرض سعر مخصصًا.",
+      cta: "ناقش مشروعك"
+    },
+    comingSoonLabel: "قريبًا",
+    comingSoon: ["مواقع تجارية", "أنظمة حجز", "مواقع متعددة اللغات"],
+    process: { eyebrow: "كيف نعمل" },
+    processSteps: [
+      { title: "أخبرني عن نشاطك", sub: "مكالمة قصيرة أو نموذج بسيط — 15 إلى 20 دقيقة." },
+      { title: "استلم تصميمك", sub: "تستلم النسخة الأولى وتشاركني ملاحظاتك." },
+      { title: "البناء والتحسين", sub: "متجاوب وسريع وجاهز لمحركات البحث." },
+      { title: "الإطلاق", sub: "يصبح موقعك مباشرًا وتحصل على كل ما تحتاجه." }
+    ],
+    exp: { eyebrow: "الخبرة" },
+    experience: [
+      { role: "متدربة تطوير ويب", org: "Sirius Net", period: "صيف 2025", points: ["موقع متجاوب متعدد اللغات — من التصميم إلى الإنتاج.", "دمج روبوت محادثة Gemini، وتم إطلاقه لمستخدمين حقيقيين.", "كود نظيف تمت مراجعته واعتماده من فريق أول."] },
+      { role: "مدرّسة خصوصية", org: "عمل حر", period: "مستمر", points: ["دروس في البرمجة والرياضيات.", "أفكار معقدة تصبح عملية وواضحة.", "بناء الثقة من خلال توجيه منظم."] },
+    ],
+    research: {
+      eyebrow: "بحث في التشفير", title: "بحث أكاديمي مُشرَف عليه في تشفير RSA",
+      body: "اختيرت لمشروع بحث جامعي يدرس RSA والأمان الواقعي — جزء مما علّمني بناء الأشياء بشكل صحيح، لا مجرد جعلها تبدو جميلة.",
+      view: "عرض المشروع"
+    },
+    projects: {
+      eyebrow: "الأعمال · دراسة حالة",
+      p1: {
+        title: "Mirasens — موقع مصمم للإجابة على الزوار، لا لمجرد الشكل الجميل",
+        body: "موقع تجاري ثنائي اللغة (فرنسي/إنجليزي) في الإنتاج مع مساعد ذكاء اصطناعي فعلي، مصمم ليحصل الزوار على إجابات دون انتظار الفريق.",
+        challengeLabel: "التحدي",
+        challengeBody: "احتاجت الشركة إلى موقع ثنائي اللغة سريع، قادر على الإجابة عن أسئلة الزوار فورًا — دون فريق دعم متاح باستمرار.",
+        approachLabel: "ما قمت به",
+        approachBody: "صممت وطورت الموقع، وأعددت بنية ثنائية اللغة وتحسين محركات البحث، ثم دمجت مساعدًا بالذكاء الاصطناعي للرد المباشر على الزوار الحقيقيين.",
+        resultLabel: "النتيجة",
+        resultBody: "موقع في الإنتاج أُطلق لمستخدمين حقيقيين، وما زال يعمل اليوم على mirasens.com.",
+        tag1: "ثنائي اللغة FR/EN",
+        tag2: "مساعد ذكاء اصطناعي",
+        tag3: "جاهز لتحسين محركات البحث",
+        cta: "زيارة mirasens.com"
+      }
+    },
+    researchModal: {
+      kicker: "المبادرة إلى البحث · السنة الأولى إعلام آلي",
+      title: "نظام التشفير RSA",
+      subtitle: "الأسس الرياضية وتحليل الأمان",
+      supervisorLabel: "المشرفة",
+      recoLabel: "توصية",
+      schoolLabel: "الجامعة",
+      abstract: "يدرس هذا المشروع نظام التشفير RSA (Rivest وShamir وAdleman، 1978)، أحد أكثر خوارزميات المفتاح العام تأثيرًا في تاريخ أمن المعلومات. بعد مقدمة عن التشفير الكلاسيكي والحديث، يبني التقرير الأدوات الرياضية اللازمة لفهم RSA: الحساب النمطي، خوارزمية إقليدس الممتدة، دالة أويلر، مبرهنة أويلر، مبرهنة الباقي الصيني والأس النمطي السريع. ثم يشرح RSA بالكامل: توليد المفاتيح، التشفير، فك التشفير، التوقيع الرقمي وتحسين RSA-CRT. ويخصص تحليلًا أمنيًا لطرق تفكيك الأعداد وعدة هجمات فعلية، من بينها هجوم Bleichenbacher الذي أثّر فعليًا على بروتوكولي SSL وTLS.",
+      planTitle: "خطة العرض",
+      plan1title: "مقدمة في التشفير",
+      plan1sub: "التشفير الكلاسيكي · Diffie-Hellman",
+      plan2title: "الأسس الرياضية",
+      plan2sub: "الحساب النمطي · أويلر · إقليدس الممتد",
+      plan3title: "خوارزمية RSA",
+      plan3sub: "توليد المفاتيح · التشفير · التوقيع",
+      plan4title: "تحليل الأمان والهجمات",
+      plan4sub: "التفكيك · المعامل المشترك · Bleichenbacher",
+      plan5title: "الخاتمة والآفاق",
+      plan5sub: "RSA أمام الحوسبة الكمّية · التخلي عنه في TLS 1.3",
+      downloadExpose: "تحميل العرض (PDF)",
+      downloadRapport: "تحميل التقرير (PDF)"
+    },
+    faq: { eyebrow: "الأسئلة الشائعة" },
+    faqItems: [
+      { q: "كم تكلفة الموقع؟", a: "يعتمد ذلك على نطاق العمل — انظر الباقات أعلاه لمعرفة ما تشمله كل واحدة. أخبرني عن نشاطك وسأرد عليك بعرض سعر مجاني وغير مُلزم." },
+      { q: "كم تستغرق المدة؟", a: "معظم صفحات الهبوط والمواقع التجارية تُسلَّم خلال أسابيع قليلة من أول مكالمة، حسب سرعة تجهيز المحتوى والملاحظات." },
+      { q: "هل توفرين الاستضافة؟", a: "يمكنني إرشادك خلال إعداد الاستضافة والنطاق، أو تولي ذلك بنفسي ضمن المشروع." },
+      { q: "هل يمكنك تحسين موقعي الحالي؟", a: "نعم — أرسل لي موقعك الحالي وسأقترح تحسينات محددة، أو إعادة بنائه بالكامل إن كان ذلك أنسب." },
+      { q: "هل يمكن أن يكون الموقع متعدد اللغات؟", a: "نعم. أطوّر بالفرنسية والإنجليزية والعربية، ببنية وعلامات لغة صحيحة لكل نسخة — وليس مجرد ترجمة نصوص." },
+      { q: "هل أستطيع تعديل المحتوى بنفسي لاحقًا؟", a: "نعم — يمكنني إعداد الموقع بحيث تكون تعديلات النصوص والصور البسيطة سهلة عليك، أو تولي ذلك عبر باقة صيانة مستمرة." }
+    ],
+    contact: {
+      eyebrow: "تواصل", heading: "مستعدة للبناء؟",
+      eyebrowNum: "تواصل",
+      headingLine1: "لنتحدث عن",
+      headingLine2: "موقعك",
+      marquee: "لنبنِ شيئًا معًا",
+      body: "أخبرني عن نشاطك وما تحتاجه. سأرد عليك باستشارة مجانية وخطة واضحة — دون ضغط ودون مصطلحات معقدة.",
+      cta: "اطلب استشارة مجانية",
+      formName: "اسمك",
+      formBusiness: "نشاطك التجاري",
+      formNeedDefault: "ما الذي تحتاجه؟",
+      formNeed1: "موقع جديد",
+      formNeed2: "إعادة تصميم موقع حالي",
+      formNeed3: "صفحة هبوط",
+      formNeed4: "موقع + حجز",
+      formNeed5: "موقع متعدد اللغات",
+      formNeed6: "لست متأكدًا بعد",
+      formMessage: "بضع كلمات عن مشروعك",
+      emailLabel: "البريد الإلكتروني", locationLabel: "الموقع", locationValueInline: "باريس، فرنسا",
+      languagesLabel: "اللغات", availabilityLabel: "التوفر", availabilityValueInline: "متاحة لمشاريع جديدة"
+    },
+    footer: { line1: "© 2026 ولاء منصوري", line2: "مطوّرة ويب Full-Stack · باريس" }
+  }
+};
 
-    function getPath(obj, path) {
-      return path.split('.').reduce((o, k) => (o && o[k] !== undefined) ? o[k] : undefined, obj);
-    }
+function getPath(obj, path) {
+  return path.split('.').reduce((o, k) => (o && o[k] !== undefined) ? o[k] : undefined, obj);
+}
 
-    const svcGrid = document.getElementById('svcGrid');
-    function renderServices(lang) {
-      svcGrid.innerHTML = '';
-      translations[lang].services.forEach(s => {
-        const el = document.createElement('div');
-        el.className = 'svc-item';
-        el.innerHTML = `<i data-lucide="${s.icon}" width="14" height="14" style="color:#a78bfa"></i><div class="title">${s.title}</div><div class="desc">${s.desc}</div>`;
-        svcGrid.appendChild(el);
-      });
-      lucide.createIcons();
-    }
+/* ---- Experience ---- */
+const expList = document.getElementById('expList');
+function renderExperience(lang) {
+  expList.innerHTML = '';
+  translations[lang].experience.forEach(exp => {
+    const row = document.createElement('div');
+    row.className = 'xp-row';
+    row.innerHTML = `
+    <div class="xp-head">
+      <div><div class="xp-role">${exp.role}</div><div class="xp-org">${exp.org}</div></div>
+      <span class="xp-period">${exp.period}</span>
+    </div>
+    <ul class="xp-points">${exp.points.map(p => `<li><i data-lucide="chevron-right" width="11" height="11"></i>${p}</li>`).join('')}</ul>
+  `;
+    expList.appendChild(row);
+  });
+  lucide.createIcons();
+}
 
-    const expList = document.getElementById('expList');
-    function renderExperience(lang) {
-      expList.innerHTML = '';
-      translations[lang].experience.forEach(exp => {
-        const row = document.createElement('div');
-        row.className = 'xp-row';
-        row.innerHTML = `
-        <div class="xp-head">
-          <div><div class="xp-role">${exp.role}</div><div class="xp-org">${exp.org}</div></div>
-          <span class="xp-period">${exp.period}</span>
+/* ---- About background (credibility list, kept small) ---- */
+const aboutBgList = document.getElementById('aboutBgList');
+function renderAboutBackground(lang) {
+  aboutBgList.innerHTML = '';
+  translations[lang].aboutBackground.forEach(line => {
+    const li = document.createElement('li');
+    li.innerHTML = `<i data-lucide="chevron-right" width="11" height="11"></i>${line}`;
+    aboutBgList.appendChild(li);
+  });
+  lucide.createIcons();
+}
+
+/* ---- Single Landing Page offer ---- */
+const mainPackageEl = document.getElementById('mainPackage');
+function renderMainPackage(lang) {
+  const t = translations[lang];
+  const p = t.mainPackage;
+  mainPackageEl.innerHTML = `
+    <div class="landing-package reveal visible" id="services">
+      <div class="glass tilt" style="padding:32px;height:100%;">
+        <div class="lp-top">
+          <div>
+            <div class="eyebrow" style="margin-bottom:4px;">${t.packages.eyebrow}</div>
+            <div class="lp-name">${p.name}</div>
+            <div class="lp-tagline">${p.tagline}</div>
+          </div>
+          <div class="lp-price-block">
+            <div class="lp-price-label">${p.priceLabel}</div>
+            <div class="lp-price">${p.price}</div>
+          </div>
         </div>
-        <ul class="xp-points">${exp.points.map(p => `<li><i data-lucide="chevron-right" width="11" height="11"></i>${p}</li>`).join('')}</ul>
-      `;
-        expList.appendChild(row);
-      });
-      lucide.createIcons();
-    }
+        <div class="lp-perfect-row">
+          ${p.perfectFor.map(x => `<span class="chip">${x}</span>`).join('')}
+        </div>
+        <div class="lp-categories">
+          ${p.categories.map(cat => `
+            <div>
+              <div class="lp-cat-title">${cat.title}</div>
+              <ul class="lp-cat-list">${cat.items.map(it => `<li><i data-lucide="check" width="13" height="13"></i>${it}</li>`).join('')}</ul>
+            </div>`).join('')}
+        </div>
+        <div class="lp-bottom-row">
+          <p class="lp-custom-note">${p.customNote}</p>
+          <button class="btn-primary" onclick="scrollToId('contact')">
+            <span>${p.cta}</span> <i data-lucide="arrow-right" width="14" height="14"></i>
+          </button>
+        </div>
+      </div>
+    </div>`;
+  lucide.createIcons();
+}
 
-    function applyTranslations(lang) {
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        const val = getPath(translations[lang], key);
-        if (val !== undefined) el.innerHTML = val;
-      });
-      document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-    }
+/* ---- Coming soon services ---- */
+const comingSoonGrid = document.getElementById('comingSoonGrid');
+function renderComingSoon(lang) {
+  comingSoonGrid.innerHTML = '';
+  translations[lang].comingSoon.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'coming-soon-card reveal visible';
+    card.innerHTML = `
+      <div class="glass" style="padding:20px 22px;height:100%;">
+        <span class="cs-badge">${translations[lang].comingSoonLabel}</span>
+        <div class="cs-name">${item}</div>
+      </div>`;
+    comingSoonGrid.appendChild(card);
+  });
+}
 
-    function setLang(lang) {
-      document.documentElement.lang = lang;
-      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-      applyTranslations(lang);
-      renderServices(lang);
-      renderExperience(lang);
-      try { localStorage.setItem('wm_lang', lang); } catch (e) { }
-    }
+/* ---- Process ---- */
+const processGrid = document.getElementById('processGrid');
+function renderProcess(lang) {
+  processGrid.innerHTML = '';
+  translations[lang].processSteps.forEach((step, i) => {
+    const row = document.createElement('div');
+    row.className = 'plan-row';
+    row.innerHTML = `<span class="plan-num">0${i + 1}</span>
+      <div><span class="plan-item-title">${step.title}</span><span class="plan-item-sub">${step.sub}</span></div>`;
+    processGrid.appendChild(row);
+  });
+}
 
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.addEventListener('click', () => setLang(btn.dataset.lang));
+/* ---- FAQ ---- */
+const faqList = document.getElementById('faqList');
+function renderFaq(lang) {
+  faqList.innerHTML = '';
+  translations[lang].faqItems.forEach((item, i) => {
+    const det = document.createElement('details');
+    det.className = 'faq-item';
+    if (i === 0) det.open = true;
+    det.innerHTML = `<summary>${item.q}<i data-lucide="plus" width="16" height="16" class="faq-plus"></i></summary><p>${item.a}</p>`;
+    faqList.appendChild(det);
+  });
+  lucide.createIcons();
+}
+
+function applyTranslations(lang) {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    const val = getPath(translations[lang], key);
+    if (val !== undefined) el.innerHTML = val;
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    const val = getPath(translations[lang], key);
+    if (val !== undefined) el.setAttribute('placeholder', val);
+  });
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+
+  const meta = translations[lang].meta;
+  if (meta) {
+    document.title = meta.title;
+    const descTag = document.getElementById('pageDesc');
+    if (descTag) descTag.setAttribute('content', meta.description);
+  }
+}
+
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  applyTranslations(lang);
+  renderExperience(lang);
+  renderAboutBackground(lang);
+  renderMainPackage(lang);
+  renderComingSoon(lang);
+  renderProcess(lang);
+  renderFaq(lang);
+  try { localStorage.setItem('wm_lang', lang); } catch (e) { }
+}
+
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => setLang(btn.dataset.lang));
+});
+
+let initialLang = 'en';
+try {
+  const stored = localStorage.getItem('wm_lang');
+  if (stored && translations[stored]) initialLang = stored;
+} catch (e) { }
+setLang(initialLang);
+
+paintThemeIcon();
+
+/* ================= CONTACT FORM (builds a pre-filled mailto — no backend needed) ================= */
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('cfName').value.trim();
+    const bizz = document.getElementById('cfBusiness').value.trim();
+    const needSelect = document.getElementById('cfNeed');
+    const needLabel = needSelect.options[needSelect.selectedIndex].text;
+    const message = document.getElementById('cfMessage').value.trim();
+
+    const subject = `Website project — ${bizz || name}`;
+    const bodyLines = [
+      `Name: ${name}`,
+      `Business: ${bizz}`,
+      `Need: ${needLabel}`,
+      '',
+      message
+    ];
+    const mailto = `mailto:walaa.mansouri@etu.u-paris.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+    window.location.href = mailto;
+  });
+}
+
+/* ================= NAV SCROLL STATE ================= */
+const siteNav = document.getElementById('siteNav');
+function onScroll() {
+  if (window.scrollY > 40) siteNav.classList.add('scrolled');
+  else siteNav.classList.remove('scrolled');
+}
+window.addEventListener('scroll', onScroll);
+onScroll();
+
+/* ================= MOBILE MENU ================= */
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const closeMenuBtn = document.getElementById('closeMenu');
+hamburgerBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+closeMenuBtn.addEventListener('click', closeMobileMenu);
+
+/* ================= SCROLL REVEAL (pop-in) ================= */
+function initReveal() {
+  const revealEls = document.querySelectorAll('.reveal:not(.visible)');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
     });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach((el, i) => {
+    el.style.transitionDelay = (i % 4) * 70 + 'ms';
+    io.observe(el);
+  });
+}
+initReveal();
 
-    let initialLang = 'en';
-    try {
-      const stored = localStorage.getItem('wm_lang');
-      if (stored && translations[stored]) initialLang = stored;
-    } catch (e) { }
-    setLang(initialLang);
-
-    paintThemeIcon();
-
-    /* ================= NAV SCROLL STATE ================= */
-    const siteNav = document.getElementById('siteNav');
-    function onScroll() {
-      if (window.scrollY > 40) siteNav.classList.add('scrolled');
-      else siteNav.classList.remove('scrolled');
-    }
-    window.addEventListener('scroll', onScroll);
-    onScroll();
-
-    /* ================= MOBILE MENU ================= */
-    const hamburgerBtn = document.getElementById('hamburgerBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const closeMenuBtn = document.getElementById('closeMenu');
-    hamburgerBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
-    closeMenuBtn.addEventListener('click', closeMobileMenu);
-
-    /* ================= SCROLL REVEAL (pop-in) ================= */
-    const revealEls = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-    revealEls.forEach((el, i) => {
-      el.style.transitionDelay = (i % 4) * 70 + 'ms';
-      io.observe(el);
-    });
-
-    // counters
-    document.querySelectorAll('.counter').forEach(el => {
-      const to = parseInt(el.dataset.to, 10);
-      const pre = el.dataset.pre || '';
-      const suf = el.dataset.suf || '';
-      const obs = new IntersectionObserver(([entry]) => {
-        if (!entry.isIntersecting) return;
-        obs.disconnect();
-        const start = performance.now(), dur = 1300;
-        function tick(now) {
-          const t = Math.min((now - start) / dur, 1);
-          const val = Math.round((1 - Math.pow(1 - t, 3)) * to);
-          el.textContent = pre + val + suf;
-          if (t < 1) requestAnimationFrame(tick);
-        }
-        requestAnimationFrame(tick);
-      }, { rootMargin: '-50px' });
-      obs.observe(el);
-    });
-
-    // tilt effect
-    document.querySelectorAll('.tilt').forEach(card => {
-      card.addEventListener('mousemove', e => {
-        const r = card.getBoundingClientRect();
-        const rx = ((e.clientY - r.top) / r.height - 0.5) * 11;
-        const ry = -((e.clientX - r.left) / r.width - 0.5) * 11;
-        card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(8px)`;
-        card.style.transitionDuration = '0.1s';
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
-        card.style.transitionDuration = '0.5s';
-      });
-    });
+// tilt effect (delegated so dynamically-rendered .tilt cards still get it)
+document.addEventListener('mousemove', (e) => {
+  const card = e.target.closest && e.target.closest('.tilt');
+  if (!card) return;
+  const r = card.getBoundingClientRect();
+  const rx = ((e.clientY - r.top) / r.height - 0.5) * 11;
+  const ry = -((e.clientX - r.left) / r.width - 0.5) * 11;
+  card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(8px)`;
+  card.style.transitionDuration = '0.1s';
+});
+document.addEventListener('mouseout', (e) => {
+  const card = e.target.closest && e.target.closest('.tilt');
+  if (!card) return;
+  card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+  card.style.transitionDuration = '0.5s';
+});
 
 /* ================= RESEARCH MODAL ================= */
 const researchOverlay = document.getElementById('researchOverlay');
@@ -509,53 +779,29 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowRight') lightboxNav(1);
 });
 
-/* ================= LEFT SIDE-NAV (scrollspy + step through sections) ================= */
-const SIDE_SECTIONS = ['home', 'about', 'services', 'work', 'projects', 'research', 'contact'];
-const sideDots = document.querySelectorAll('.side-dot');
+/* ================= SCROLL PROGRESS BAR (simple, replaces dot navigation) ================= */
+const scrollTrack = document.getElementById('scrollTrack');
+const scrollFill = document.getElementById('scrollFill');
 
-function goToSideSection(id) {
-  if (id === 'home') scrollToTop();
-  else scrollToId(id);
+function updateScrollBar() {
+  if (!scrollFill) return;
+  const doc = document.documentElement;
+  const scrollable = doc.scrollHeight - doc.clientHeight;
+  const pct = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+  scrollFill.style.height = Math.min(100, Math.max(0, pct)) + '%';
 }
+window.addEventListener('scroll', updateScrollBar);
+updateScrollBar();
 
-sideDots.forEach((dot) => {
-  dot.addEventListener('click', () => goToSideSection(dot.dataset.target));
-});
-
-function sectionTopPositions() {
-  return SIDE_SECTIONS.map(id => {
-    if (id === 'home') return 0;
-    const el = document.getElementById(id);
-    if (!el) return Infinity;
-    return el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET - 6;
+if (scrollTrack) {
+  scrollTrack.addEventListener('click', (e) => {
+    const rect = scrollTrack.getBoundingClientRect();
+    const frac = (e.clientY - rect.top) / rect.height;
+    const doc = document.documentElement;
+    const target = frac * (doc.scrollHeight - doc.clientHeight);
+    animatedScrollTo(target);
   });
 }
-
-function sideNavStep(dir) {
-  const positions = sectionTopPositions();
-  const current = window.scrollY;
-  let idx = 0;
-  if (dir > 0) {
-    idx = positions.findIndex(p => p > current + 12);
-    if (idx === -1) idx = positions.length - 1;
-  } else {
-    idx = 0;
-    for (let i = positions.length - 1; i >= 0; i--) {
-      if (positions[i] < current - 12) { idx = i; break; }
-    }
-  }
-  goToSideSection(SIDE_SECTIONS[idx]);
-}
-
-function updateSideNav() {
-  const positions = sectionTopPositions();
-  const current = window.scrollY;
-  let activeIdx = 0;
-  positions.forEach((p, i) => { if (current + 4 >= p) activeIdx = i; });
-  sideDots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
-}
-window.addEventListener('scroll', updateSideNav);
-updateSideNav();
 
 /* Final pass: render any static Lucide icons (hero, chips, side-nav arrows, lightbox) */
 lucide.createIcons();
