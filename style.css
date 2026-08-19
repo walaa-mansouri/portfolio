@@ -2121,3 +2121,86 @@
   .contact-form select option {
       color: #111;
   }
+
+  /* Honeypot - visually hidden, still reachable by bots that fill everything */
+  .cf-hp {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+  }
+
+  .cf-row {
+      display: flex;
+      gap: 12px;
+  }
+
+  .cf-row input {
+      flex: 1;
+      min-width: 0;
+  }
+
+  @media (max-width: 560px) {
+      .cf-row {
+          flex-direction: column;
+      }
+  }
+
+  .cf-field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 4px 2px;
+  }
+
+  .cf-label {
+      font-size: 12.5px;
+      color: rgba(243, 242, 238, .65);
+  }
+
+  .cf-radio-row {
+      display: flex;
+      gap: 18px;
+  }
+
+  .cf-radio-col {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+  }
+
+  .cf-radio {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13.5px;
+      color: #f3f2ee;
+      cursor: pointer;
+  }
+
+  .cf-radio input {
+      accent-color: #a78bfa;
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+  }
+
+  .cf-status {
+      font-size: 13px;
+      min-height: 18px;
+      margin: 0;
+  }
+
+  .cf-status.success {
+      color: #6ee7b7;
+  }
+
+  .cf-status.error {
+      color: #fca5a5;
+  }
+
+  .contact-form button[disabled] {
+      opacity: .6;
+      cursor: not-allowed;
+  }

@@ -172,8 +172,9 @@ const translations = {
       headingLine2: "your website",
       marquee: "Let's build together",
       body: "Tell me about your business and what you need. I'll reply with a free consultation and a clear plan - no pressure, no jargon.",
-      cta: "Request a free consultation",
+      cta: "Start a conversation",
       formName: "Your name",
+      formEmail: "Your email",
       formBusiness: "Your business / what you do",
       formNeedDefault: "What do you need?",
       formNeed1: "New website",
@@ -182,7 +183,19 @@ const translations = {
       formNeed4: "Website + booking",
       formNeed5: "Multilingual website",
       formNeed6: "Not sure yet",
+      formHasSiteLabel: "Do you already have a website?",
+      yes: "Yes", no: "No",
+      formWebsiteUrl: "https://your-current-site.com",
+      formBudgetDefault: "Approximate budget",
+      formBudget1: "Under €500", formBudget2: "€500 – €750", formBudget3: "€750 – €1,000",
+      formBudget4: "€1,000+", formBudget5: "Not sure",
       formMessage: "A few words about your project",
+      formPreferenceLabel: "How would you like to continue?",
+      prefCall: "I'd like to book a call", prefEmail: "I'd prefer to continue by email",
+      prefExploring: "I'm just exploring for now",
+      sending: "Sending...", success: "Thanks! I've received your project and will reply within 1-2 business days.",
+      errorGeneric: "Something went wrong - please try again or email me directly.",
+      errorFields: "Please fill in the required fields.",
       emailLabel: "Email", locationLabel: "Location", locationValueInline: "Paris, France",
       languagesLabel: "Languages", availabilityLabel: "Availability", availabilityValueInline: "Open to projects"
     },
@@ -318,8 +331,9 @@ const translations = {
       headingLine2: "votre site",
       marquee: "Construisons ensemble",
       body: "Dites-moi ce que fait votre entreprise et ce dont vous avez besoin. Je vous réponds avec une consultation gratuite et un plan clair - sans pression, sans jargon.",
-      cta: "Demander une consultation gratuite",
+      cta: "Démarrer une conversation",
       formName: "Votre nom",
+      formEmail: "Votre email",
       formBusiness: "Votre entreprise / activité",
       formNeedDefault: "De quoi avez-vous besoin ?",
       formNeed1: "Nouveau site",
@@ -328,7 +342,19 @@ const translations = {
       formNeed4: "Site + réservation",
       formNeed5: "Site multilingue",
       formNeed6: "Je ne sais pas encore",
+      formHasSiteLabel: "Avez-vous déjà un site web ?",
+      yes: "Oui", no: "Non",
+      formWebsiteUrl: "https://votre-site-actuel.com",
+      formBudgetDefault: "Budget approximatif",
+      formBudget1: "Moins de 500 €", formBudget2: "500 € – 750 €", formBudget3: "750 € – 1 000 €",
+      formBudget4: "1 000 € et plus", formBudget5: "Je ne sais pas",
       formMessage: "Quelques mots sur votre projet",
+      formPreferenceLabel: "Comment souhaitez-vous continuer ?",
+      prefCall: "Je souhaite réserver un appel", prefEmail: "Je préfère continuer par email",
+      prefExploring: "Je me renseigne pour l'instant",
+      sending: "Envoi en cours...", success: "Merci ! J'ai bien reçu votre projet et je vous réponds sous 1-2 jours ouvrés.",
+      errorGeneric: "Une erreur s'est produite - réessayez ou écrivez-moi directement par email.",
+      errorFields: "Merci de remplir les champs obligatoires.",
       emailLabel: "Email", locationLabel: "Localisation", locationValueInline: "Paris, France",
       languagesLabel: "Langues", availabilityLabel: "Disponibilité", availabilityValueInline: "Ouverte aux projets"
     },
@@ -464,8 +490,9 @@ const translations = {
       headingLine2: "موقعك",
       marquee: "لنبنِ شيئًا معًا",
       body: "أخبرني عن نشاطك وما تحتاجه. سأرد عليك باستشارة مجانية وخطة واضحة - دون ضغط ودون مصطلحات معقدة.",
-      cta: "اطلب استشارة مجانية",
+      cta: "ابدأ محادثة",
       formName: "اسمك",
+      formEmail: "بريدك الإلكتروني",
       formBusiness: "نشاطك التجاري",
       formNeedDefault: "ما الذي تحتاجه؟",
       formNeed1: "موقع جديد",
@@ -474,7 +501,19 @@ const translations = {
       formNeed4: "موقع + حجز",
       formNeed5: "موقع متعدد اللغات",
       formNeed6: "لست متأكدًا بعد",
+      formHasSiteLabel: "هل لديك موقع إلكتروني حاليًا؟",
+      yes: "نعم", no: "لا",
+      formWebsiteUrl: "https://موقعك-الحالي.com",
+      formBudgetDefault: "الميزانية التقريبية",
+      formBudget1: "أقل من 500 €", formBudget2: "500 – 750 €", formBudget3: "750 – 1000 €",
+      formBudget4: "1000 € فأكثر", formBudget5: "لست متأكدًا",
       formMessage: "بضع كلمات عن مشروعك",
+      formPreferenceLabel: "كيف تفضل أن نتواصل؟",
+      prefCall: "أرغب في حجز مكالمة", prefEmail: "أفضّل المتابعة عبر البريد الإلكتروني",
+      prefExploring: "أستكشف الخيارات حاليًا فقط",
+      sending: "جارٍ الإرسال...", success: "شكرًا! استلمت مشروعك وسأرد عليك خلال 1-2 يوم عمل.",
+      errorGeneric: "حدث خطأ - يرجى المحاولة مجددًا أو مراسلتي مباشرة عبر البريد الإلكتروني.",
+      errorFields: "يرجى تعبئة الحقول المطلوبة.",
       emailLabel: "البريد الإلكتروني", locationLabel: "الموقع", locationValueInline: "باريس، فرنسا",
       languagesLabel: "اللغات", availabilityLabel: "التوفر", availabilityValueInline: "متاحة لمشاريع جديدة"
     },
@@ -648,27 +687,80 @@ setLang(initialLang);
 
 paintThemeIcon();
 
-/* ================= CONTACT FORM (builds a pre-filled mailto - no backend needed) ================= */
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('cfName').value.trim();
-    const bizz = document.getElementById('cfBusiness').value.trim();
-    const needSelect = document.getElementById('cfNeed');
-    const needLabel = needSelect.options[needSelect.selectedIndex].text;
-    const message = document.getElementById('cfMessage').value.trim();
+/* ================= CONTACT FORM (submits to backend API, which stores it + sends emails) ================= */
+// UPDATE THIS after you deploy the backend (see backend/README.md, section 7).
+// Example once deployed: 'https://your-backend.onrender.com'
+const API_BASE_URL = window.CF_API_BASE_URL || 'http://localhost:3000';
 
-    const subject = `Website project - ${bizz || name}`;
-    const bodyLines = [
-      `Name: ${name}`,
-      `Business: ${bizz}`,
-      `Need: ${needLabel}`,
-      '',
-      message
-    ];
-    const mailto = `mailto:walaa.mansouri@etu.u-paris.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
-    window.location.href = mailto;
+const contactForm = document.getElementById('contactForm');
+const cfHasSiteRadios = document.querySelectorAll('input[name="cfHasSite"]');
+const cfWebsiteUrl = document.getElementById('cfWebsiteUrl');
+
+function updateWebsiteUrlVisibility() {
+  const checked = document.querySelector('input[name="cfHasSite"]:checked');
+  if (!cfWebsiteUrl) return;
+  cfWebsiteUrl.style.display = (checked && checked.value === 'yes') ? 'block' : 'none';
+  if (!cfWebsiteUrl.style.display || cfWebsiteUrl.style.display === 'none') cfWebsiteUrl.value = '';
+}
+cfHasSiteRadios.forEach(r => r.addEventListener('change', updateWebsiteUrlVisibility));
+updateWebsiteUrlVisibility();
+
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const statusEl = document.getElementById('cfStatus');
+    const submitBtn = document.getElementById('cfSubmitBtn');
+    const activeLang = document.documentElement.lang || 'en';
+    const t = translations[activeLang] ? translations[activeLang].contact : translations.en.contact;
+
+    // Honeypot: if this hidden field got filled, silently drop the submission (bot behaviour)
+    const honeypot = document.getElementById('cfCompanyWebsite').value.trim();
+    if (honeypot) return;
+
+    const name = document.getElementById('cfName').value.trim();
+    const email = document.getElementById('cfEmail').value.trim();
+    const business = document.getElementById('cfBusiness').value.trim();
+    const need = document.getElementById('cfNeed').value;
+    const hasSite = (document.querySelector('input[name="cfHasSite"]:checked') || {}).value || 'no';
+    const websiteUrl = document.getElementById('cfWebsiteUrl').value.trim();
+    const budget = document.getElementById('cfBudget').value;
+    const message = document.getElementById('cfMessage').value.trim();
+    const preference = (document.querySelector('input[name="cfPreference"]:checked') || {}).value || 'email';
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!name || !email || !business || !need || !message || !emailPattern.test(email)) {
+      statusEl.textContent = t.errorFields;
+      statusEl.className = 'cf-status error';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    statusEl.textContent = t.sending;
+    statusEl.className = 'cf-status';
+
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/inquiries`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name, email, business, need, hasSite, websiteUrl, budget, message, preference,
+          lang: activeLang
+        })
+      });
+
+      if (!res.ok) throw new Error('Request failed');
+
+      statusEl.textContent = t.success;
+      statusEl.className = 'cf-status success';
+      contactForm.reset();
+      updateWebsiteUrlVisibility();
+    } catch (err) {
+      statusEl.textContent = t.errorGeneric;
+      statusEl.className = 'cf-status error';
+    } finally {
+      submitBtn.disabled = false;
+    }
   });
 }
 

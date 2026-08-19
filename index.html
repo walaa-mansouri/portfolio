@@ -119,7 +119,8 @@
       <div class="hero-actions">
         <button class="btn-primary" onclick="scrollToId('contact')"><span data-i18n="hero.cta1">Let's build your
             site</span> <i data-lucide="arrow-right" width="14" height="14"></i></button>
-        <a class="btn-ghost" href="mailto:walaa.mansouri@etu.u-paris.fr"><i data-lucide="mail" width="14"
+        <!-- TEMP: using personal Gmail until a domain email exists. Update both spots below when you switch. -->
+        <a class="btn-ghost" href="mailto:mansouriwalaa126@gmail.com"><i data-lucide="mail" width="14"
             height="14"></i> <span data-i18n="hero.cta2">Get a quote</span></a>
       </div>
     </div>
@@ -367,11 +368,23 @@
       <p class="contact-sub" data-i18n="contact.body">Tell me about your business and what you need. I'll reply with
         a free consultation and a clear plan - no pressure, no jargon.</p>
 
-      <form class="contact-form" id="contactForm">
-        <input type="text" id="cfName" data-i18n-placeholder="contact.formName" placeholder="Your name" required>
+      <form class="contact-form" id="contactForm" novalidate>
+        <!-- honeypot: hidden from real users, bots tend to fill every field -->
+        <div class="cf-hp" aria-hidden="true">
+          <label for="cfCompanyWebsite">Leave this field empty</label>
+          <input type="text" id="cfCompanyWebsite" name="companyWebsite" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="cf-row">
+          <input type="text" id="cfName" data-i18n-placeholder="contact.formName" placeholder="Your name" required>
+          <input type="email" id="cfEmail" data-i18n-placeholder="contact.formEmail" placeholder="Your email"
+            required>
+        </div>
+
         <input type="text" id="cfBusiness" data-i18n-placeholder="contact.formBusiness"
           placeholder="Your business / what you do" required>
-        <select id="cfNeed">
+
+        <select id="cfNeed" required>
           <option value="" data-i18n="contact.formNeedDefault">What do you need?</option>
           <option value="new" data-i18n="contact.formNeed1">New website</option>
           <option value="redesign" data-i18n="contact.formNeed2">Redesign an existing site</option>
@@ -380,14 +393,52 @@
           <option value="multilingual" data-i18n="contact.formNeed5">Multilingual website</option>
           <option value="unsure" data-i18n="contact.formNeed6">Not sure yet</option>
         </select>
+
+        <div class="cf-field-group">
+          <span class="cf-label" data-i18n="contact.formHasSiteLabel">Do you already have a website?</span>
+          <div class="cf-radio-row">
+            <label class="cf-radio"><input type="radio" name="cfHasSite" value="yes"> <span
+                data-i18n="contact.yes">Yes</span></label>
+            <label class="cf-radio"><input type="radio" name="cfHasSite" value="no" checked> <span
+                data-i18n="contact.no">No</span></label>
+          </div>
+        </div>
+
+        <input type="url" id="cfWebsiteUrl" data-i18n-placeholder="contact.formWebsiteUrl"
+          placeholder="https://your-current-site.com" class="cf-conditional" style="display:none;">
+
+        <select id="cfBudget">
+          <option value="" data-i18n="contact.formBudgetDefault">Approximate budget</option>
+          <option value="under500" data-i18n="contact.formBudget1">Under €500</option>
+          <option value="500-750" data-i18n="contact.formBudget2">€500 – €750</option>
+          <option value="750-1000" data-i18n="contact.formBudget3">€750 – €1,000</option>
+          <option value="1000plus" data-i18n="contact.formBudget4">€1,000+</option>
+          <option value="unsure" data-i18n="contact.formBudget5">Not sure</option>
+        </select>
+
         <textarea id="cfMessage" data-i18n-placeholder="contact.formMessage"
-          placeholder="A few words about your project"></textarea>
-        <button type="submit" class="btn-primary contact-cta"><span data-i18n="contact.cta">Request a free
-            consultation</span> <i data-lucide="arrow-right" width="14" height="14"></i></button>
+          placeholder="A few words about your project" required></textarea>
+
+        <div class="cf-field-group">
+          <span class="cf-label" data-i18n="contact.formPreferenceLabel">How would you like to continue?</span>
+          <div class="cf-radio-col">
+            <label class="cf-radio"><input type="radio" name="cfPreference" value="call" checked> <span
+                data-i18n="contact.prefCall">I'd like to book a call</span></label>
+            <label class="cf-radio"><input type="radio" name="cfPreference" value="email"> <span
+                data-i18n="contact.prefEmail">I'd prefer to continue by email</span></label>
+            <label class="cf-radio"><input type="radio" name="cfPreference" value="exploring"> <span
+                data-i18n="contact.prefExploring">I'm just exploring for now</span></label>
+          </div>
+        </div>
+
+        <p class="cf-status" id="cfStatus" role="status" aria-live="polite"></p>
+
+        <button type="submit" class="btn-primary contact-cta" id="cfSubmitBtn"><span data-i18n="contact.cta">Start a
+            conversation</span> <i data-lucide="arrow-right" width="14" height="14"></i></button>
       </form>
 
       <div class="contact-facts-row">
-        <span><span class="flabel" data-i18n="contact.emailLabel">Email</span> walaa.mansouri@etu.u-paris.fr</span>
+        <span><span class="flabel" data-i18n="contact.emailLabel">Email</span> mansouriwalaa126@gmail.com</span>
         <span class="cf-dot">·</span>
         <span><span class="flabel" data-i18n="contact.locationLabel">Location</span> <span
             data-i18n="contact.locationValueInline">Paris, France</span></span>
