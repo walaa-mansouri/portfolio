@@ -1,22 +1,16 @@
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: Number(process.env.SMTP_PORT || 587),
-  secure: process.env.SMTP_SECURE === 'true',
-  auth: {
-    user: process.env.SMTP_USER || process.env.CONTACT_EMAIL,
-    pass: process.env.SMTP_PASS
-  },
-  connectionTimeout: 8000,
-  greetingTimeout: 8000,
-  socketTimeout: 8000
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-// --------------------------------------------------
-// SECURITY: Escape user-provided text before putting
-// it inside an HTML email.
-// --------------------------------------------------
+if (!process.env.RESEND_API_KEY) {
+  console.warn('WARNING: RESEND_API_KEY is not configured.');
+}
+
+if (!process.env.EMAIL_FROM) {
+  console.warn('WARNING: EMAIL_FROM is not configured.');
+}
+
+// Security: escape user-provided text before putting it into HTML
 function escapeHtml(value) {
   return String(value ?? '')
     .replace(/&/g, '&amp;')
@@ -57,9 +51,12 @@ const PREF_LABELS = {
   exploring: 'Just exploring'
 };
 
-// --------------------------------------------------
+const HERO_IMAGE =
+  'https://walaa-mansouri.github.io/portfolio/img/hero-confirm.jpg';
+
+// ==================================================
 // EMAIL #1 — Notification to Walaa
-// --------------------------------------------------
+// ==================================================
 
 async function sendOwnerNotification(inquiry) {
   const name = safeText(inquiry.name);
@@ -89,74 +86,54 @@ async function sendOwnerNotification(inquiry) {
   const message = safeMultiline(inquiry.message);
 
   const html = `
-    <!DOCTYPE html>
-    <html>
-    <body style="font-family:Arial,Helvetica,sans-serif;color:#33324a;line-height:1.6;">
+<!DOCTYPE html>
+<html>
+<body style="font-family:Arial,Helvetica,sans-serif;color:#33324a;line-height:1.6;">
 
-      <h2>New project inquiry from ${name}</h2>
+<h2>New project inquiry from ${name}</h2>
 
-      <p>
-        <strong>Business:</strong> ${business}
-      </p>
+<p><strong>Business:</strong> ${business}</p>
+<p><strong>Email:</strong> ${email}</p>
+<p><strong>Need:</strong> ${need}</p>
+<p><strong>Has a website already:</strong> ${hasSite}</p>
+<p><strong>Budget:</strong> ${budget}</p>
+<p><strong>How they want to continue:</strong> ${pref}</p>
 
-      <p>
-        <strong>Email:</strong> ${email}
-      </p>
+<p>
+<strong>Message:</strong><br>
+${message}
+</p>
 
-      <p>
-        <strong>Need:</strong> ${need}
-      </p>
+<hr>
 
-      <p>
-        <strong>Has a website already:</strong> ${hasSite}
-      </p>
+<p style="color:#888;font-size:12px;">
+Submitted via the contact form on walaamansouri.com
+</p>
 
-      <p>
-        <strong>Budget:</strong> ${budget}
-      </p>
+</body>
+</html>
+`;
 
-      <p>
-        <strong>How they want to continue:</strong> ${pref}
-      </p>
-
-      <p>
-        <strong>Message:</strong><br>
-        ${message}
-      </p>
-
-      <hr>
-
-      <p style="color:#888;font-size:12px;">
-        Submitted via the contact form on walaamansouri.com
-      </p>
-
-    </body>
-    </html>
-  `;
-
-  await transporter.sendMail({
-    from: `"Website inquiries" <${process.env.CONTACT_EMAIL}>`,
+  const { data, error } = await resend.emails.send({
+    from: process.env.EMAIL_FROM,
     to: process.env.CONTACT_EMAIL,
-
-    // This means when you press Reply, you reply directly to the client.
     replyTo: inquiry.email,
-
     subject: `New project inquiry - ${inquiry.business || inquiry.name}`,
-
     html
   });
+
+  if (error) {
+    throw new Error(
+      `Owner email failed: ${error.message || JSON.stringify(error)}`
+    );
+  }
+
+  return data;
 }
 
-// --------------------------------------------------
-// SHARED EMAIL STYLES / IMAGE
-// --------------------------------------------------
-
-const HERO_IMAGE =
-  'https://walaa-mansouri.github.io/portfolio/img/hero-confirm.jpg';
-
-// --------------------------------------------------
+// ==================================================
 // EMAIL #2 — Confirmation to client
-// --------------------------------------------------
+// ==================================================
 
 const CONFIRMATION_TEMPLATES = {
 
@@ -165,7 +142,6 @@ const CONFIRMATION_TEMPLATES = {
   // ==================================================
 
   en: (inquiry) => {
-
     const name = safeText(inquiry.name);
 
     const html = `
@@ -173,45 +149,44 @@ const CONFIRMATION_TEMPLATES = {
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thanks for reaching out - Walaa Mansouri</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thanks for reaching out - Walaa Mansouri</title>
 </head>
 
 <body style="margin:0;padding:0;background-color:#eeecf7;font-family:Arial,Helvetica,sans-serif;">
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0"
-  bgcolor="#eeecf7"
-  style="background-color:#eeecf7;">
+bgcolor="#eeecf7"
+style="background-color:#eeecf7;">
 
 <tr>
 <td style="padding:32px 16px;">
 
 <table align="center" width="600" border="0" cellpadding="0" cellspacing="0"
-  style="max-width:600px;width:100%;margin:0 auto;background-color:#ffffff;border-radius:18px;overflow:hidden;box-shadow:0 10px 40px rgba(70,50,140,0.10);">
+style="max-width:600px;width:100%;margin:0 auto;background-color:#ffffff;border-radius:18px;overflow:hidden;box-shadow:0 10px 40px rgba(70,50,140,0.10);">
 
 <!-- HERO IMAGE -->
-
 <tr>
 <td style="line-height:0;font-size:0;">
 
 <img
-  src="${HERO_IMAGE}"
-  width="600"
-  height="230"
-  alt=""
-  style="display:block;width:100%;height:auto;max-width:600px;"
+src="${HERO_IMAGE}"
+width="600"
+height="230"
+alt=""
+style="display:block;width:100%;height:auto;max-width:600px;"
 >
 
 </td>
 </tr>
 
 <!-- HEADING -->
-
 <tr>
 <td style="padding:34px 32px 8px;">
 
-<div style="color:#4633a8;font-size:26px;font-weight:700;letter-spacing:-0.01em;line-height:1.25;font-family:Georgia,serif;margin-bottom:14px;">
+<div
+style="color:#4633a8;font-size:26px;font-weight:700;letter-spacing:-0.01em;line-height:1.25;font-family:Georgia,serif;margin-bottom:14px;">
 Thank you for reaching out!
 </div>
 
@@ -227,7 +202,6 @@ Thanks for telling me about your project. I've received your message and will re
 </tr>
 
 <!-- DIVIDER -->
-
 <tr>
 <td style="padding:24px 32px 8px;">
 
@@ -237,7 +211,6 @@ Thanks for telling me about your project. I've received your message and will re
 </tr>
 
 <!-- WHAT HAPPENS NEXT -->
-
 <tr>
 <td style="padding:0 24px 8px;">
 
@@ -245,9 +218,10 @@ Thanks for telling me about your project. I've received your message and will re
 style="background:linear-gradient(135deg,#f3effe,#faf8ff,#eef0fc);border-radius:14px;">
 
 <tr>
-<td style="padding:26px 26px;">
+<td style="padding:26px;">
 
-<div style="color:#4633a8;font-size:16px;font-weight:700;font-family:Georgia,serif;margin-bottom:16px;">
+<div
+style="color:#4633a8;font-size:16px;font-weight:700;font-family:Georgia,serif;margin-bottom:16px;">
 What happens next
 </div>
 
@@ -296,7 +270,6 @@ If it's a good fit, we'll set up a short call or continue by email, whichever yo
 </tr>
 
 <!-- CTA -->
-
 <tr>
 <td style="padding:32px 32px 8px;text-align:center;">
 
@@ -306,8 +279,7 @@ Prefer to talk it through directly? Just reply to this email, or book a time tha
 
 <a
 href="${process.env.WHATSAPP_URL}"
-style="display:inline-block;background:linear-gradient(135deg,#e879f9,#a78bfa,#818cf8);color:#ffffff;text-decoration:none;font-size:14px;font-weight:700;padding:13px 30px;border-radius:999px;"
->
+style="display:inline-block;background:linear-gradient(135deg,#e879f9,#a78bfa,#818cf8);color:#ffffff;text-decoration:none;font-size:14px;font-weight:700;padding:13px 30px;border-radius:999px;">
 Book a call &#8594;
 </a>
 
@@ -315,7 +287,6 @@ Book a call &#8594;
 </tr>
 
 <!-- FOOTER -->
-
 <tr>
 <td style="padding:36px 32px 34px;">
 
@@ -341,8 +312,7 @@ FR · EN · AR
 <div style="font-size:12.5px;color:#8a8896;margin-top:10px;">
 <a
 href="mailto:mansouriwalaa126@gmail.com"
-style="color:#7c6fd4;text-decoration:none;"
->
+style="color:#7c6fd4;text-decoration:none;">
 mansouriwalaa126@gmail.com
 </a>
 </div>
@@ -377,7 +347,6 @@ mansouriwalaa126@gmail.com
   // ==================================================
 
   fr: (inquiry) => {
-
     const name = safeText(inquiry.name);
 
     const html = `
@@ -393,7 +362,6 @@ mansouriwalaa126@gmail.com
 <body style="margin:0;padding:0;background-color:#eeecf7;font-family:Arial,Helvetica,sans-serif;">
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0"
-bgcolor="#eeecf7"
 style="background-color:#eeecf7;">
 
 <tr>
@@ -410,9 +378,7 @@ src="${HERO_IMAGE}"
 width="600"
 height="230"
 alt=""
-style="display:block;width:100%;height:auto;max-width:600px;"
->
-
+style="display:block;width:100%;height:auto;max-width:600px;">
 </td>
 </tr>
 
@@ -500,8 +466,7 @@ Vous préférez en discuter directement&nbsp;? Répondez simplement à cet email
 
 <a
 href="${process.env.WHATSAPP_URL}"
-style="display:inline-block;background:linear-gradient(135deg,#e879f9,#a78bfa,#818cf8);color:#ffffff;text-decoration:none;font-size:14px;font-weight:700;padding:13px 30px;border-radius:999px;"
->
+style="display:inline-block;background:linear-gradient(135deg,#e879f9,#a78bfa,#818cf8);color:#ffffff;text-decoration:none;font-size:14px;font-weight:700;padding:13px 30px;border-radius:999px;">
 Réserver un appel &#8594;
 </a>
 
@@ -557,7 +522,6 @@ mansouriwalaa126@gmail.com
   // ==================================================
 
   ar: (inquiry) => {
-
     const name = safeText(inquiry.name);
 
     const html = `
@@ -574,7 +538,6 @@ mansouriwalaa126@gmail.com
 style="margin:0;padding:0;background-color:#eeecf7;font-family:Tahoma,Arial,sans-serif;">
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0"
-bgcolor="#eeecf7"
 style="background-color:#eeecf7;">
 
 <tr>
@@ -592,9 +555,7 @@ src="${HERO_IMAGE}"
 width="600"
 height="230"
 alt=""
-style="display:block;width:100%;height:auto;max-width:600px;"
->
-
+style="display:block;width:100%;height:auto;max-width:600px;">
 </td>
 </tr>
 
@@ -688,8 +649,7 @@ style="color:#a259e6;font-weight:700;font-size:13px;padding:6px 0;">
 
 <a
 href="${process.env.WHATSAPP_URL}"
-style="display:inline-block;background:linear-gradient(135deg,#e879f9,#a78bfa,#818cf8);color:#ffffff;text-decoration:none;font-size:14px;font-weight:700;padding:13px 30px;border-radius:999px;"
->
+style="display:inline-block;background:linear-gradient(135deg,#e879f9,#a78bfa,#818cf8);color:#ffffff;text-decoration:none;font-size:14px;font-weight:700;padding:13px 30px;border-radius:999px;">
 احجز مكالمة &#8592;
 </a>
 
@@ -716,8 +676,7 @@ FR · EN · AR
 <div style="font-size:12.5px;color:#8a8896;margin-top:10px;">
 <a
 href="mailto:mansouriwalaa126@gmail.com"
-style="color:#7c6fd4;text-decoration:none;"
->
+style="color:#7c6fd4;text-decoration:none;">
 mansouriwalaa126@gmail.com
 </a>
 </div>
@@ -743,24 +702,32 @@ mansouriwalaa126@gmail.com
   }
 };
 
-// --------------------------------------------------
+// ==================================================
 // SEND CLIENT CONFIRMATION
-// --------------------------------------------------
+// ==================================================
 
 async function sendClientConfirmation(inquiry) {
-
   const build =
     CONFIRMATION_TEMPLATES[inquiry.lang] ||
     CONFIRMATION_TEMPLATES.en;
 
   const { subject, html } = build(inquiry);
 
-  await transporter.sendMail({
-    from: `"Walaa Mansouri" <${process.env.CONTACT_EMAIL}>`,
+  const { data, error } = await resend.emails.send({
+    from: process.env.EMAIL_FROM,
     to: inquiry.email,
+    replyTo: process.env.CONTACT_EMAIL,
     subject,
     html
   });
+
+  if (error) {
+    throw new Error(
+      `Client confirmation failed: ${error.message || JSON.stringify(error)}`
+    );
+  }
+
+  return data;
 }
 
 module.exports = {
