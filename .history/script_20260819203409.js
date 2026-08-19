@@ -691,7 +691,7 @@ paintThemeIcon();
 // UPDATE THIS after you deploy the backend (see backend/README.md, section 7).
 // Example once deployed: 'https://your-backend.onrender.com'
 const API_BASE_URL =
-  window.API_BASE_URL || 'https://freelance-i1qx.onrender.com';
+  window.API_BASE_URL || 'http://localhost:3000';
 const contactForm = document.getElementById('contactForm');
 const cfHasSiteRadios = document.querySelectorAll('input[name="cfHasSite"]');
 const cfWebsiteUrl = document.getElementById('cfWebsiteUrl');
