@@ -690,8 +690,8 @@ paintThemeIcon();
 /* ================= CONTACT FORM (submits to backend API, which stores it + sends emails) ================= */
 // UPDATE THIS after you deploy the backend (see backend/README.md, section 7).
 // Example once deployed: 'https://your-backend.onrender.com'
-const API_BASE_URL = window.CF_API_BASE_URL || 'http://localhost:3000';
-
+const API_BASE_URL =
+  window.API_BASE_URL || 'http://localhost:3000';
 const contactForm = document.getElementById('contactForm');
 const cfHasSiteRadios = document.querySelectorAll('input[name="cfHasSite"]');
 const cfWebsiteUrl = document.getElementById('cfWebsiteUrl');

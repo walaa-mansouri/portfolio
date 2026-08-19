@@ -1,3 +1,6 @@
 .env
+node_modules/
 inquiries.db
+inquiries.db-shm
+inquiries.db-wal
 node_modules/

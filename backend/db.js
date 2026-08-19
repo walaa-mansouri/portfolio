@@ -1,36 +1,65 @@
-const Database = require('better-sqlite3');
-const path = require('path');
+const { Pool } = require('pg');
 
-const db = new Database(path.join(__dirname, 'inquiries.db'));
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
 
-db.pragma('journal_mode = WAL');
-
-db.exec(`
-  CREATE TABLE IF NOT EXISTS inquiries (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    created_at TEXT NOT NULL DEFAULT (datetime('now')),
-    name TEXT NOT NULL,
-    email TEXT NOT NULL,
-    business TEXT NOT NULL,
-    need TEXT NOT NULL,
-    has_site TEXT NOT NULL DEFAULT 'no',
-    website_url TEXT,
-    budget TEXT,
-    message TEXT NOT NULL,
-    preference TEXT NOT NULL DEFAULT 'email',
-    lang TEXT NOT NULL DEFAULT 'en',
-    status TEXT NOT NULL DEFAULT 'new'
+// Insert a new inquiry
+async function insertInquiry(inquiry) {
+  const result = await pool.query(
+    `
+    INSERT INTO inquiries
+      (name, email, business, need, has_site, website_url, budget, message, preference, lang, status)
+    VALUES
+      ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, 'new')
+    RETURNING id
+    `,
+    [
+      inquiry.name,
+      inquiry.email,
+      inquiry.business,
+      inquiry.need,
+      inquiry.hasSite,
+      inquiry.websiteUrl,
+      inquiry.budget,
+      inquiry.message,
+      inquiry.preference,
+      inquiry.lang
+    ]
   );
-`);
 
-const insertInquiry = db.prepare(`
-  INSERT INTO inquiries
-    (name, email, business, need, has_site, website_url, budget, message, preference, lang, status)
-  VALUES
-    (@name, @email, @business, @need, @hasSite, @websiteUrl, @budget, @message, @preference, @lang, 'new')
-`);
+  return result.rows[0];
+}
 
-const listInquiries = db.prepare(`SELECT * FROM inquiries ORDER BY created_at DESC`);
-const updateStatus = db.prepare(`UPDATE inquiries SET status = ? WHERE id = ?`);
+// Get all inquiries
+async function listInquiries() {
+  const result = await pool.query(
+    `SELECT * FROM inquiries ORDER BY created_at DESC`
+  );
 
-module.exports = { db, insertInquiry, listInquiries, updateStatus };
+  return result.rows;
+}
+
+// Update inquiry status
+async function updateStatus(status, id) {
+  const result = await pool.query(
+    `
+    UPDATE inquiries
+    SET status = $1
+    WHERE id = $2
+    `,
+    [status, id]
+  );
+
+  return result.rowCount;
+}
+
+module.exports = {
+  pool,
+  insertInquiry,
+  listInquiries,
+  updateStatus
+};
