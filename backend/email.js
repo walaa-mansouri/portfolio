@@ -44,20 +44,20 @@ function getTransporter() {
     return null;
   }
 
+
   transporter = nodemailer.createTransport({
     host: SMTP_HOST,
-    port: Number(SMTP_PORT) || 587,
+    port: Number(SMTP_PORT) || 2525,
     secure: SMTP_SECURE === 'true',
-    requireTLS: Number(SMTP_PORT) === 587,
+    requireTLS: false,
     auth: {
       user: SMTP_USER,
       pass: SMTP_PASS,
     },
-    connectionTimeout: 10000,
-    greetingTimeout: 10000,
-    socketTimeout: 15000,
+    connectionTimeout: 20000,
+    greetingTimeout: 20000,
+    socketTimeout: 30000,
   });
-
   return transporter;
 }
 async function verifyEmailConnection() {
