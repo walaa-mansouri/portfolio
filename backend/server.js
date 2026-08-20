@@ -1,6 +1,6 @@
 require('dotenv').config();
-
 const express = require('express');
+const { notifyNewInquiry } = require('./email');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 
@@ -10,13 +10,10 @@ const {
   updateStatus
 } = require('./db');
 
-const {
-  sendOwnerNotification,
-  sendClientConfirmation
-} = require('./email');
+
 
 const app = express();
-
+app.set('trust proxy', 1);
 /* =========================================================
    BASIC CONFIGURATION
 ========================================================= */
@@ -255,19 +252,7 @@ app.post('/api/inquiries', formLimiter, async (req, res) => {
        SEND EMAILS IN BACKGROUND
     ----------------------------------------------------- */
 
-    Promise.allSettled([
-      sendOwnerNotification(inquiry),
-      sendClientConfirmation(inquiry)
-    ]).then(results => {
-      results.forEach(result => {
-        if (result.status === 'rejected') {
-          console.error(
-            'Email sending failed:',
-            result.reason
-          );
-        }
-      });
-    });
+    notifyNewInquiry(inquiry);
 
   } catch (err) {
     console.error('Error saving inquiry:', err);
@@ -314,6 +299,7 @@ app.get(
   '/api/inquiries',
   adminLimiter,
   requireAdminKey,
+
   async (req, res) => {
     try {
       const inquiries = await listInquiries();

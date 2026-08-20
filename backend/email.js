@@ -1,6 +1,5 @@
 const nodemailer = require('nodemailer');
 
-const nodemailer = require('nodemailer');
 
 const {
   SMTP_HOST,
