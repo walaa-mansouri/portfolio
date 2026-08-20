@@ -1,13 +1,70 @@
-const { Resend } = require('resend');
+const nodemailer = require('nodemailer');
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const nodemailer = require('nodemailer');
 
-if (!process.env.RESEND_API_KEY) {
-  console.warn('WARNING: RESEND_API_KEY is not configured.');
+const {
+  SMTP_HOST,
+  SMTP_PORT,
+  SMTP_SECURE,
+  SMTP_USER,
+  SMTP_PASS,
+  EMAIL_FROM,
+  CONTACT_EMAIL,
+} = process.env;
+
+if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS) {
+  console.error('Missing SMTP environment variables.');
 }
 
-if (!process.env.EMAIL_FROM) {
+if (!EMAIL_FROM) {
+  console.error('Missing EMAIL_FROM environment variable.');
+}
+
+if (!CONTACT_EMAIL) {
+  console.error('Missing CONTACT_EMAIL environment variable.');
+}
+
+const transporter = nodemailer.createTransport({
+  host: SMTP_HOST,
+  port: Number(SMTP_PORT),
+  secure: SMTP_SECURE === 'true',
+  auth: {
+    user: SMTP_USER,
+    pass: SMTP_PASS,
+  },
+  connectionTimeout: 15000,
+  greetingTimeout: 15000,
+  socketTimeout: 15000,
+});
+let transporter = null;
+
+function getTransporter() {
+  if (transporter) return transporter;
+
+  if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
+    console.warn('WARNING: SMTP_HOST/SMTP_USER/SMTP_PASS not configured — email sending disabled.');
+    return null;
+  }
+
+  transporter = nodemailer.createTransport({
+    host: SMTP_HOST,
+    port: Number(SMTP_PORT) || 587,
+    secure: SMTP_SECURE === 'true', // false for port 587 (STARTTLS)
+    requireTLS: true,
+    auth: { user: SMTP_USER, pass: SMTP_PASS },
+    connectionTimeout: 10000,
+    greetingTimeout: 10000,
+    socketTimeout: 15000,
+  });
+
+  return transporter;
+}
+
+if (!EMAIL_FROM) {
   console.warn('WARNING: EMAIL_FROM is not configured.');
+}
+if (!CONTACT_EMAIL) {
+  console.warn('WARNING: CONTACT_EMAIL is not configured.');
 }
 
 // Security: escape user-provided text before putting it into HTML
@@ -114,21 +171,16 @@ Submitted via the contact form on walaamansouri.com
 </html>
 `;
 
-  const { data, error } = await resend.emails.send({
-    from: process.env.EMAIL_FROM,
-    to: process.env.CONTACT_EMAIL,
+  const t = getTransporter();
+  if (!t) throw new Error('Owner email failed: SMTP not configured');
+
+  return t.sendMail({
+    from: EMAIL_FROM,
+    to: CONTACT_EMAIL,
     replyTo: inquiry.email,
     subject: `New project inquiry - ${inquiry.business || inquiry.name}`,
     html
   });
-
-  if (error) {
-    throw new Error(
-      `Owner email failed: ${error.message || JSON.stringify(error)}`
-    );
-  }
-
-  return data;
 }
 
 // ==================================================
@@ -713,24 +765,45 @@ async function sendClientConfirmation(inquiry) {
 
   const { subject, html } = build(inquiry);
 
-  const { data, error } = await resend.emails.send({
-    from: process.env.EMAIL_FROM,
+  const t = getTransporter();
+  if (!t) throw new Error('Client confirmation failed: SMTP not configured');
+
+  return t.sendMail({
+    from: EMAIL_FROM,
     to: inquiry.email,
-    replyTo: process.env.CONTACT_EMAIL,
+    replyTo: CONTACT_EMAIL,
     subject,
     html
   });
+}
 
-  if (error) {
-    throw new Error(
-      `Client confirmation failed: ${error.message || JSON.stringify(error)}`
-    );
-  }
+// ==================================================
+// NON-BLOCKING WRAPPER — call this from your route.
+// Never throws: a failed email must never fail the
+// form submission or the DB insert.
+// ==================================================
 
-  return data;
+async function notifyNewInquiry(inquiry) {
+  const results = await Promise.allSettled([
+    sendOwnerNotification(inquiry),
+    inquiry.email ? sendClientConfirmation(inquiry) : Promise.resolve(null),
+  ]);
+
+  results.forEach((r, i) => {
+    if (r.status === 'rejected') {
+      const label = i === 0 ? 'owner notification' : 'client confirmation';
+      console.error(`[email] ${label} failed:`, r.reason?.message || r.reason);
+    }
+  });
+
+  return {
+    ownerSent: results[0].status === 'fulfilled',
+    clientSent: results[1].status === 'fulfilled',
+  };
 }
 
 module.exports = {
   sendOwnerNotification,
-  sendClientConfirmation
+  sendClientConfirmation,
+  notifyNewInquiry
 };
