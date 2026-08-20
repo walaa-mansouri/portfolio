@@ -23,18 +23,7 @@ if (!CONTACT_EMAIL) {
   console.error('Missing CONTACT_EMAIL environment variable.');
 }
 
-const transporter = nodemailer.createTransport({
-  host: SMTP_HOST,
-  port: Number(SMTP_PORT),
-  secure: SMTP_SECURE === 'true',
-  auth: {
-    user: SMTP_USER,
-    pass: SMTP_PASS,
-  },
-  connectionTimeout: 15000,
-  greetingTimeout: 15000,
-  socketTimeout: 15000,
-});
+
 let transporter = null;
 
 function getTransporter() {
