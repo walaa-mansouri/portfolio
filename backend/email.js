@@ -1,6 +1,5 @@
 const nodemailer = require('nodemailer');
 
-
 const {
   SMTP_HOST,
   SMTP_PORT,
@@ -11,18 +10,27 @@ const {
   CONTACT_EMAIL,
 } = process.env;
 
+console.log('[email] SMTP configuration:', {
+  host: SMTP_HOST || '(missing)',
+  port: SMTP_PORT || '(missing)',
+  secure: SMTP_SECURE || '(missing)',
+  user: SMTP_USER ? '(set)' : '(missing)',
+  pass: SMTP_PASS ? '(set)' : '(missing)',
+  from: EMAIL_FROM || '(missing)',
+  contact: CONTACT_EMAIL || '(missing)',
+});
+
 if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS) {
-  console.error('Missing SMTP environment variables.');
+  console.error('[email] Missing SMTP environment variables.');
 }
 
 if (!EMAIL_FROM) {
-  console.error('Missing EMAIL_FROM environment variable.');
+  console.error('[email] Missing EMAIL_FROM environment variable.');
 }
 
 if (!CONTACT_EMAIL) {
-  console.error('Missing CONTACT_EMAIL environment variable.');
+  console.error('[email] Missing CONTACT_EMAIL environment variable.');
 }
-
 
 let transporter = null;
 
@@ -30,16 +38,21 @@ function getTransporter() {
   if (transporter) return transporter;
 
   if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
-    console.warn('WARNING: SMTP_HOST/SMTP_USER/SMTP_PASS not configured — email sending disabled.');
+    console.warn(
+      '[email] SMTP not configured — email sending disabled.'
+    );
     return null;
   }
 
   transporter = nodemailer.createTransport({
     host: SMTP_HOST,
     port: Number(SMTP_PORT) || 587,
-    secure: SMTP_SECURE === 'true', // false for port 587 (STARTTLS)
-    requireTLS: true,
-    auth: { user: SMTP_USER, pass: SMTP_PASS },
+    secure: SMTP_SECURE === 'true',
+    requireTLS: Number(SMTP_PORT) === 587,
+    auth: {
+      user: SMTP_USER,
+      pass: SMTP_PASS,
+    },
     connectionTimeout: 10000,
     greetingTimeout: 10000,
     socketTimeout: 15000,
@@ -47,14 +60,23 @@ function getTransporter() {
 
   return transporter;
 }
+async function verifyEmailConnection() {
+  const t = getTransporter();
 
-if (!EMAIL_FROM) {
-  console.warn('WARNING: EMAIL_FROM is not configured.');
-}
-if (!CONTACT_EMAIL) {
-  console.warn('WARNING: CONTACT_EMAIL is not configured.');
+  if (!t) {
+    console.error('[email] Cannot verify SMTP: transporter unavailable.');
+    return;
+  }
+
+  try {
+    await t.verify();
+    console.log('[email] SMTP connection successful.');
+  } catch (error) {
+    console.error('[email] SMTP connection FAILED:', error.message);
+  }
 }
 
+verifyEmailConnection();
 // Security: escape user-provided text before putting it into HTML
 function escapeHtml(value) {
   return String(value ?? '')
