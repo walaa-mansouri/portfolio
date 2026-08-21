@@ -1,4 +1,5 @@
 require('dotenv').config();
+
 const express = require('express');
 const { notifyNewInquiry } = require('./email');
 const cors = require('cors');
@@ -10,33 +11,46 @@ const {
   updateStatus
 } = require('./db');
 
-
-
 const app = express();
+
 app.set('trust proxy', 1);
-/* =========================================================
-   BASIC CONFIGURATION
-========================================================= */
-
 app.disable('x-powered-by');
-
-app.use(express.json({
-  limit: '20kb'
-}));
 
 /* =========================================================
    CORS
 ========================================================= */
 
-const allowedOrigins = (process.env.ALLOWED_ORIGINS || '')
-  .split(',')
-  .map(origin => origin.trim())
-  .filter(Boolean);
+// Your frontend domains
+const allowedOrigins = [
+  'https://walaamansouri.com',
+  'https://www.walaamansouri.com',
+  'https://walaa-mansouri.netlify.app',
 
-app.use(cors({
-  origin: (origin, callback) => {
+  // Local development
+  'http://localhost:3000',
+  'http://localhost:5173'
+];
+
+// Also allow additional origins from Render environment variables
+if (process.env.ALLOWED_ORIGINS) {
+  const extraOrigins = process.env.ALLOWED_ORIGINS
+    .split(',')
+    .map(origin => origin.trim())
+    .filter(Boolean);
+
+  extraOrigins.forEach(origin => {
+    if (!allowedOrigins.includes(origin)) {
+      allowedOrigins.push(origin);
+    }
+  });
+}
+
+console.log('[CORS] Allowed origins:', allowedOrigins);
+
+const corsOptions = {
+  origin: function (origin, callback) {
     // Allow requests without an Origin header
-    // (for example, health checks/server-to-server requests).
+    // (health checks, Postman, server-to-server requests, etc.)
     if (!origin) {
       return callback(null, true);
     }
@@ -45,10 +59,32 @@ app.use(cors({
       return callback(null, true);
     }
 
+    console.warn('[CORS] Blocked origin:', origin);
+
     return callback(new Error('Not allowed by CORS'));
   },
-  methods: ['GET', 'POST', 'PATCH'],
-  allowedHeaders: ['Content-Type', 'x-admin-key']
+
+  methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'],
+
+  allowedHeaders: [
+    'Content-Type',
+    'Authorization',
+    'x-admin-key'
+  ],
+
+  credentials: false
+};
+
+// IMPORTANT:
+// This must be before your routes.
+app.use(cors(corsOptions));
+
+/* =========================================================
+   BODY PARSING
+========================================================= */
+
+app.use(express.json({
+  limit: '20kb'
 }));
 
 /* =========================================================
@@ -61,6 +97,7 @@ const formLimiter = rateLimit({
   max: 10,
   standardHeaders: true,
   legacyHeaders: false,
+
   message: {
     error: 'Too many requests. Please try again later.'
   }
@@ -72,6 +109,7 @@ const adminLimiter = rateLimit({
   max: 30,
   standardHeaders: true,
   legacyHeaders: false,
+
   message: {
     error: 'Too many requests. Please try again later.'
   }
@@ -132,7 +170,9 @@ app.post('/api/inquiries', formLimiter, async (req, res) => {
     if (body.companyWebsite) {
       // Pretend the submission succeeded.
       // Do not store it or send emails.
-      return res.status(200).json({ ok: true });
+      return res.status(200).json({
+        ok: true
+      });
     }
 
     /* -----------------------------------------------------
@@ -252,12 +292,16 @@ app.post('/api/inquiries', formLimiter, async (req, res) => {
        SEND EMAILS IN BACKGROUND
     ----------------------------------------------------- */
 
-    notifyNewInquiry(inquiry);
+    notifyNewInquiry(inquiry).catch(err => {
+      console.error(
+        '[email] Background notification error:',
+        err?.message || err
+      );
+    });
 
   } catch (err) {
     console.error('Error saving inquiry:', err);
 
-    // If the response hasn't already been sent.
     if (!res.headersSent) {
       return res.status(500).json({
         error: 'Server error.'
@@ -299,12 +343,12 @@ app.get(
   '/api/inquiries',
   adminLimiter,
   requireAdminKey,
-
   async (req, res) => {
     try {
       const inquiries = await listInquiries();
 
       return res.json(inquiries);
+
     } catch (err) {
       console.error(
         'Error fetching inquiries:',
@@ -399,10 +443,20 @@ app.get('/health', (req, res) => {
 ========================================================= */
 
 app.use((err, req, res, next) => {
-  console.error('Unhandled server error:', err);
+  console.error(
+    'Unhandled server error:',
+    err
+  );
 
   if (res.headersSent) {
     return next(err);
+  }
+
+  // Handle CORS errors cleanly
+  if (err.message === 'Not allowed by CORS') {
+    return res.status(403).json({
+      error: 'CORS origin not allowed.'
+    });
   }
 
   res.status(500).json({
@@ -416,7 +470,8 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 3000;
 
-
 app.listen(PORT, () => {
-  console.log(`Backend listening on port ${PORT}`);
+  console.log(
+    `Backend listening on port ${PORT}`
+  );
 });
