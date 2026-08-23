@@ -7,17 +7,28 @@
   <title id="pageTitle">Web Design &amp; Website Development in Paris | Walaa Mansouri</title>
   <meta id="pageDesc" name="description"
     content="Professional, fast and multilingual websites for small businesses and independent professionals in Paris. Free consultation.">
+  <link rel="canonical" href="https://walaamansouri.com/">
   <meta property="og:title" content="Web Design &amp; Website Development in Paris | Walaa Mansouri">
   <meta property="og:description"
     content="Professional, fast and multilingual websites for small businesses and independent professionals in Paris.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://walaamansouri.com/">
+  <meta property="og:image" content="https://walaamansouri.com/img/hero-illustration.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Web Design &amp; Website Development in Paris | Walaa Mansouri">
+  <meta name="twitter:description"
+    content="Professional, fast and multilingual websites for small businesses and independent professionals in Paris.">
+  <meta name="twitter:image" content="https://walaamansouri.com/img/hero-illustration.png">
   <meta name="robots" content="index, follow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="img/hero-illustration.png">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/svg+xml" href="img/logo.svg">
   <link
     href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap"
     rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
 
 </head>
 
@@ -120,11 +131,12 @@
         <button class="btn-primary" onclick="scrollToId('contact')"><span data-i18n="hero.cta1">Let's build your
             site</span> <i data-lucide="arrow-right" width="14" height="14"></i></button>
         <!-- TEMP: using personal Gmail until a domain email exists. Update both spots below when you switch. -->
-        <a class="btn-ghost" href="mailto:mansouriwalaa126@gmail.com"><i data-lucide="mail" width="14"
-            height="14"></i> <span data-i18n="hero.cta2">Get a quote</span></a>
+        <a class="btn-ghost" href="mailto:mansouriwalaa126@gmail.com"><i data-lucide="mail" width="14" height="14"></i>
+          <span data-i18n="hero.cta2">Get a quote</span></a>
       </div>
     </div>
-    <img class="hero-illustration" src="img/hero-illustration.png" alt="Illustrated portrait of Walaa Mansouri">
+    <img class="hero-illustration" src="img/hero-illustration.png" alt="Illustrated portrait of Walaa Mansouri"
+      fetchpriority="high" decoding="async">
     <div class="scroll-cue">
       <span data-i18n="hero.scroll">Scroll</span>
       <div class="scroll-line"></div>
@@ -192,18 +204,19 @@
 
       <!-- Research - sits next to About, kept as a small credibility note -->
       <div class="research-compact reveal" id="research">
-        <div class="glass" style="padding:28px;height:100%;display:flex;flex-direction:column;justify-content:space-between;gap:18px;">
+        <div class="glass"
+          style="padding:28px;height:100%;display:flex;flex-direction:column;justify-content:space-between;gap:18px;">
           <div class="rc-top">
             <div class="gallery-wrap rc-gallery">
               <button class="gallery-arrow gallery-prev" onclick="scrollGallery(this,-1)" aria-label="Previous"><i
                   data-lucide="chevron-left" width="16" height="16"></i></button>
               <div class="gallery-track">
                 <img class="gallery-img" src="img/research-1.jpg" alt="RSA key generation illustration"
-                  data-group="research" onclick="openLightbox(this)">
+                  data-group="research" onclick="openLightbox(this)" loading="lazy" decoding="async">
                 <img class="gallery-img" src="img/research-2.jpg" alt="Modular arithmetic illustration"
-                  data-group="research" onclick="openLightbox(this)">
+                  data-group="research" onclick="openLightbox(this)" loading="lazy" decoding="async">
                 <img class="gallery-img" src="img/research-3.jpg" alt="Security analysis and attacks illustration"
-                  data-group="research" onclick="openLightbox(this)">
+                  data-group="research" onclick="openLightbox(this)" loading="lazy" decoding="async">
               </div>
               <button class="gallery-arrow gallery-next" onclick="scrollGallery(this,1)" aria-label="Next"><i
                   data-lucide="chevron-right" width="16" height="16"></i></button>
@@ -318,11 +331,11 @@
                 data-lucide="chevron-left" width="16" height="16"></i></button>
             <div class="gallery-track">
               <img class="gallery-img" src="img/project-1.PNG" alt="Mirasens homepage mockup" data-group="projects"
-                onclick="openLightbox(this)">
+                onclick="openLightbox(this)" loading="lazy" decoding="async">
               <img class="gallery-img" src="img/project-2.PNG" alt="Mirasens Gemini AI chatbot widget"
-                data-group="projects" onclick="openLightbox(this)">
+                data-group="projects" onclick="openLightbox(this)" loading="lazy" decoding="async">
               <img class="gallery-img" src="img/project-3.PNG" alt="Mirasens responsive mobile layout"
-                data-group="projects" onclick="openLightbox(this)">
+                data-group="projects" onclick="openLightbox(this)" loading="lazy" decoding="async">
             </div>
             <button class="gallery-arrow gallery-next" onclick="scrollGallery(this,1)" aria-label="Next"><i
                 data-lucide="chevron-right" width="16" height="16"></i></button>
@@ -377,8 +390,7 @@
 
         <div class="cf-row">
           <input type="text" id="cfName" data-i18n-placeholder="contact.formName" placeholder="Your name" required>
-          <input type="email" id="cfEmail" data-i18n-placeholder="contact.formEmail" placeholder="Your email"
-            required>
+          <input type="email" id="cfEmail" data-i18n-placeholder="contact.formEmail" placeholder="Your email" required>
         </div>
 
         <input type="text" id="cfBusiness" data-i18n-placeholder="contact.formBusiness"
@@ -538,7 +550,7 @@
     <span data-i18n="footer.line2">Websites for local businesses · Paris</span>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 
 </body>
 
