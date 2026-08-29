@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page introuvable | Walaa Mansouri</title>
+  <meta name="description" content="Cette page n'existe pas ou plus.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap"
+    rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <style>
+    .nf-wrap {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .nf-card {
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+      padding: 48px 36px;
+    }
+
+    .nf-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 88px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: -2px;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #818cf8, #e879f9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nf-title {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .nf-body {
+      margin-bottom: 28px;
+    }
+
+    .nf-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      color: inherit;
+      text-decoration: none;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body class="dark">
+  <div class="nf-wrap">
+    <div class="glass tilt nf-card reveal visible">
+      <div class="eyebrow" style="margin-bottom:8px;">Erreur 404</div>
+      <div class="nf-code">404</div>
+      <p class="fdisplay nf-title">Cette page n'existe pas.</p>
+      <p class="muted nf-body">Le lien est peut-être cassé, ou la page a été déplacée. Retournez à l'accueil pour
+        continuer votre navigation.</p>
+      <div class="nf-actions">
+        <a class="btn-primary" href="/">
+          <span>Retour à l'accueil</span> <i data-lucide="arrow-right" width="14" height="14"></i>
+        </a>
+        <a class="btn-ghost" href="/#contact">
+          <span>Me contacter</span> <i data-lucide="arrow-up-right" width="14" height="14"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <script>lucide.createIcons();</script>
+</body>
+
+</html>
