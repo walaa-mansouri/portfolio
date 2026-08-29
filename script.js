@@ -78,26 +78,44 @@ const translations = {
     },
     packages: {
       eyebrow: "Services",
-      title: "One offer, done properly.",
-      body: "I'm starting focused: landing pages that make a strong first impression online. More formats are on the way."
+      title: "Two ways to get online.",
+      body: "A landing page that makes a strong first impression - or the same landing page with a custom CMS, so you can manage your own content. More formats are on the way."
     },
-    mainPackage: {
-      name: "Landing Page",
-      tagline: "A complete online presence, built around one clear goal - your business, distilled into one beautiful page.",
-      priceLabel: "Starting from",
-      price: "€400",
-      oldPrice: "€500",
-      badge: "Introductory offer",
-      perfectFor: ["Dentists", "Doctors", "Lawyers", "Beauty professionals", "Restaurants", "Freelancers", "Local businesses"],
-      categories: [
-        { title: "Design", items: ["Custom visual direction", "Responsive design", "Mobile optimization"] },
-        { title: "Content structure", items: ["Hero section", "Services", "About", "Benefits", "Testimonials", "FAQ", "Contact CTA"] },
-        { title: "Technical", items: ["Fast loading", "SEO basics", "Contact form", "Domain connection", "Deployment"] },
-        { title: "After launch", items: ["2 rounds of revisions", "7 days of post-launch support"] }
-      ],
-      customNote: "Need something more specific? Tell me about your project and I'll give you a custom quote.",
-      cta: "Discuss your project"
-    },
+    packageList: [
+      {
+        name: "Landing Page",
+        tagline: "A complete online presence, built around one clear goal - your business, distilled into one beautiful page.",
+        priceLabel: "Starting from",
+        price: "€400",
+        oldPrice: "€500",
+        badge: "Introductory offer",
+        perfectFor: ["Dentists", "Doctors", "Lawyers", "Beauty professionals", "Restaurants", "Freelancers", "Local businesses"],
+        categories: [
+          { title: "Design", items: ["Custom visual direction", "Responsive design", "Mobile optimization"] },
+          { title: "Content structure", items: ["Hero section", "Services", "About", "Benefits", "Testimonials", "FAQ", "Contact CTA"] },
+          { title: "Technical", items: ["Fast loading", "SEO basics", "Contact form", "Domain connection", "Deployment"] },
+          { title: "After launch", items: ["2 rounds of revisions", "7 days of post-launch support"] }
+        ],
+        customNote: "Need something more specific? Tell me about your project and I'll give you a custom quote.",
+        cta: "Discuss your project"
+      },
+      {
+        name: "Landing Page + CMS",
+        tagline: "Everything in the Landing Page package, plus a custom admin panel - update your own content, prices and hours anytime, no code needed.",
+        priceLabel: "Starting from",
+        price: "€800",
+        badge: "Includes custom CMS",
+        perfectFor: ["Restaurants", "Boutiques", "Salons", "Local businesses", "Anyone who updates content often"],
+        categories: [
+          { title: "Design", items: ["Custom visual direction", "Responsive design", "Mobile optimization"] },
+          { title: "Content structure", items: ["Hero section", "Services / menu", "About", "Benefits", "Testimonials", "FAQ", "Contact CTA"] },
+          { title: "Technical", items: ["Fast loading", "SEO basics", "Contact form", "Domain connection", "Deployment", "Custom CMS / admin panel", "Editable content, prices & hours", "Secure login"] },
+          { title: "After launch", items: ["2 rounds of revisions", "7 days of post-launch support", "Training session on using your CMS"] }
+        ],
+        customNote: "Need something more specific? Tell me about your project and I'll give you a custom quote.",
+        cta: "Discuss your project"
+      }
+    ],
     comingSoonLabel: "Coming soon",
     comingSoon: ["Business Websites", "Booking Systems", "Multilingual Websites"],
     process: { eyebrow: "How it works" },
@@ -109,6 +127,7 @@ const translations = {
     ],
     exp: { eyebrow: "Experience" },
     experience: [
+      { role: "Technical & Digital Marketing Manager", org: "Hannachi Couture", period: "Since January 2026", points: ["Overseeing the company's website and technical operations.", "Running digital marketing campaigns and content across social channels.", "Bridging technical execution and marketing strategy for the brand."] },
       { role: "Web Dev Intern", org: "Sirius Net", period: "Summer 2025", points: ["Responsive multilingual site - design to production.", "Gemini AI chatbot integrated, shipped to real users.", "Clean code reviewed and merged by senior team."] },
       { role: "Tutor", org: "Independent", period: "Ongoing", points: ["Programming & math tutoring.", "Complex ideas made practical and clear.", "Trust built through structured guidance."] },
     ],
@@ -132,6 +151,21 @@ const translations = {
         tag2: "AI Assistant",
         tag3: "SEO-ready",
         cta: "Visit mirasens.com"
+      },
+      p2: {
+        eyebrow: "Projects · Client work",
+        title: "Le Pacha - Restaurant Website & Custom CMS",
+        body: "A real one-page website built for a real client - Le Pacha, a Turkish restaurant in Villejuif - with SEO, a reservation call-to-action, and a custom admin panel so the owner can update the menu and opening hours themselves.",
+        challengeLabel: "The challenge",
+        challengeBody: "The owner needed a professional site to be found on Google locally and showcase the menu, but couldn't afford a developer every time a dish or price changed.",
+        approachLabel: "My approach",
+        approachBody: "Designed and built a responsive one-page site (hero, menu highlights, gallery, hours, contact) optimized for local SEO, then built a custom CMS/admin panel from scratch so the client can add, edit or remove menu items, prices and categories, and update opening hours, with no coding needed.",
+        resultLabel: "The result",
+        resultBody: "Delivered end-to-end as an independent freelance project, live in production and used daily by a real restaurant owner.",
+        tag1: "Freelance Client Project · 2026",
+        tag2: "Custom CMS / Admin Panel",
+        tag3: "Local SEO · Responsive Design",
+        cta: "Visit lepacha.netlify.app"
       }
     },
     researchModal: {
@@ -237,26 +271,44 @@ const translations = {
     },
     packages: {
       eyebrow: "Services",
-      title: "Une offre, bien faite.",
-      body: "Je démarre avec un seul objectif : des pages d'atterrissage qui font une forte première impression en ligne. D'autres formules arrivent bientôt."
+      title: "Deux façons d'être en ligne.",
+      body: "Une page d'atterrissage qui fait une forte première impression - ou la même page accompagnée d'un CMS sur mesure pour gérer votre propre contenu. D'autres formules arrivent bientôt."
     },
-    mainPackage: {
-      name: "Page d'atterrissage",
-      tagline: "Une présence en ligne complète, construite autour d'un objectif clair - votre entreprise, distillée en une seule et belle page.",
-      priceLabel: "À partir de",
-      price: "400 €",
-      oldPrice: "500 €",
-      badge: "Offre de lancement",
-      perfectFor: ["Dentistes", "Médecins", "Avocats", "Professionnels de la beauté", "Restaurants", "Freelances", "Commerces locaux"],
-      categories: [
-        { title: "Design", items: ["Direction visuelle sur mesure", "Design responsive", "Optimisation mobile"] },
-        { title: "Structure du contenu", items: ["Section héro", "Services", "À propos", "Avantages", "Témoignages", "FAQ", "Appel à l'action"] },
-        { title: "Technique", items: ["Chargement rapide", "SEO de base", "Formulaire de contact", "Connexion du domaine", "Mise en ligne"] },
-        { title: "Après le lancement", items: ["2 tours de révisions", "7 jours de support après lancement"] }
-      ],
-      customNote: "Besoin de quelque chose de plus spécifique ? Parlez-moi de votre projet et je vous ferai un devis sur mesure.",
-      cta: "Discuter de votre projet"
-    },
+    packageList: [
+      {
+        name: "Page d'atterrissage",
+        tagline: "Une présence en ligne complète, construite autour d'un objectif clair - votre entreprise, distillée en une seule et belle page.",
+        priceLabel: "À partir de",
+        price: "400 €",
+        oldPrice: "500 €",
+        badge: "Offre de lancement",
+        perfectFor: ["Dentistes", "Médecins", "Avocats", "Professionnels de la beauté", "Restaurants", "Freelances", "Commerces locaux"],
+        categories: [
+          { title: "Design", items: ["Direction visuelle sur mesure", "Design responsive", "Optimisation mobile"] },
+          { title: "Structure du contenu", items: ["Section héro", "Services", "À propos", "Avantages", "Témoignages", "FAQ", "Appel à l'action"] },
+          { title: "Technique", items: ["Chargement rapide", "SEO de base", "Formulaire de contact", "Connexion du domaine", "Mise en ligne"] },
+          { title: "Après le lancement", items: ["2 tours de révisions", "7 jours de support après lancement"] }
+        ],
+        customNote: "Besoin de quelque chose de plus spécifique ? Parlez-moi de votre projet et je vous ferai un devis sur mesure.",
+        cta: "Discuter de votre projet"
+      },
+      {
+        name: "Page d'atterrissage + CMS",
+        tagline: "Tout ce qui est inclus dans la Page d'atterrissage, plus un panneau d'administration sur mesure - modifiez vous-même votre contenu, vos prix et vos horaires à tout moment, sans code.",
+        priceLabel: "À partir de",
+        price: "800 €",
+        badge: "Inclut un CMS sur mesure",
+        perfectFor: ["Restaurants", "Boutiques", "Salons", "Commerces locaux", "Toute activité qui met à jour son contenu souvent"],
+        categories: [
+          { title: "Design", items: ["Direction visuelle sur mesure", "Design responsive", "Optimisation mobile"] },
+          { title: "Structure du contenu", items: ["Section héro", "Services / menu", "À propos", "Avantages", "Témoignages", "FAQ", "Appel à l'action"] },
+          { title: "Technique", items: ["Chargement rapide", "SEO de base", "Formulaire de contact", "Connexion du domaine", "Mise en ligne", "CMS / panneau d'administration sur mesure", "Contenu, prix & horaires modifiables", "Connexion sécurisée"] },
+          { title: "Après le lancement", items: ["2 tours de révisions", "7 jours de support après lancement", "Session de formation à l'utilisation du CMS"] }
+        ],
+        customNote: "Besoin de quelque chose de plus spécifique ? Parlez-moi de votre projet et je vous ferai un devis sur mesure.",
+        cta: "Discuter de votre projet"
+      }
+    ],
     comingSoonLabel: "Bientôt disponible",
     comingSoon: ["Sites vitrines", "Systèmes de réservation", "Sites multilingues"],
     process: { eyebrow: "Comment ça marche" },
@@ -268,6 +320,7 @@ const translations = {
     ],
     exp: { eyebrow: "Expérience" },
     experience: [
+      { role: "Responsable Technique et Marketing Digital", org: "Hannachi Couture", period: "Depuis janvier 2026", points: ["Supervision du site web et des aspects techniques de l'entreprise.", "Pilotage des campagnes de marketing digital et du contenu sur les réseaux sociaux.", "Lien entre exécution technique et stratégie marketing pour la marque."] },
       { role: "Stagiaire Dev Web", org: "Sirius Net", period: "Été 2025", points: ["Site multilingue responsive - de la conception à la production.", "Chatbot IA Gemini intégré, livré à de vrais utilisateurs.", "Code propre relu et validé par l'équipe senior."] },
       { role: "Professeure particulière", org: "Indépendant", period: "En cours", points: ["Cours de programmation et de mathématiques.", "Des idées complexes rendues concrètes et claires.", "Une confiance construite par un accompagnement structuré."] },
     ],
@@ -291,6 +344,21 @@ const translations = {
         tag2: "Assistant IA",
         tag3: "Prêt pour le SEO",
         cta: "Voir mirasens.com"
+      },
+      p2: {
+        eyebrow: "Projets · Client réel",
+        title: "Le Pacha - Site web restaurant & CMS sur mesure",
+        body: "Un vrai site one-page réalisé pour un vrai client - Le Pacha, restaurant turc à Villejuif - avec SEO, un call-to-action réservation, et un panneau d'administration sur mesure permettant au propriétaire de modifier lui-même le menu et les horaires.",
+        challengeLabel: "Le défi",
+        challengeBody: "Le propriétaire avait besoin d'un site professionnel, visible sur Google localement, présentant son menu, sans avoir à payer un développeur à chaque changement de plat ou de prix.",
+        approachLabel: "Mon approche",
+        approachBody: "Conception et développement d'un site one-page responsive (hero, plats phares, galerie, horaires, contact) optimisé pour le SEO local, puis création d'un CMS/panneau d'administration sur mesure permettant au client d'ajouter, modifier ou supprimer des plats, prix et catégories, et de mettre à jour les horaires, sans aucune compétence en code.",
+        resultLabel: "Le résultat",
+        resultBody: "Livré de bout en bout en tant que projet freelance indépendant, en production et utilisé quotidiennement par un vrai restaurateur.",
+        tag1: "Projet client freelance · 2026",
+        tag2: "CMS / panneau d'administration sur mesure",
+        tag3: "SEO local · Design responsive",
+        cta: "Visiter lepacha.netlify.app"
       }
     },
     researchModal: {
@@ -396,26 +464,44 @@ const translations = {
     },
     packages: {
       eyebrow: "الخدمات",
-      title: "عرض واحد، منفَّذ بعناية.",
-      body: "أبدأ بتركيز واحد: صفحات هبوط تترك انطباعًا أول قويًا على الإنترنت. المزيد من الصيغ قادم قريبًا."
+      title: "طريقتان للتواجد على الإنترنت.",
+      body: "صفحة هبوط تترك انطباعًا أول قويًا على الإنترنت - أو نفس الصفحة مع نظام إدارة محتوى مخصص لإدارة محتواك بنفسك. المزيد من الصيغ قادم قريبًا."
     },
-    mainPackage: {
-      name: "صفحة هبوط",
-      tagline: "حضور كامل على الإنترنت، مبني حول هدف واحد واضح - نشاطك التجاري، مُختزَل في صفحة واحدة جميلة.",
-      priceLabel: "ابتداءً من",
-      price: "400 €",
-      oldPrice: "500 €",
-      badge: "عرض إطلاق",
-      perfectFor: ["أطباء الأسنان", "الأطباء", "المحامون", "خبراء التجميل", "المطاعم", "المستقلون", "الأنشطة المحلية"],
-      categories: [
-        { title: "التصميم", items: ["توجيه بصري مخصص", "تصميم متجاوب", "تحسين للهاتف"] },
-        { title: "بنية المحتوى", items: ["قسم رئيسي", "الخدمات", "نبذة", "المزايا", "الشهادات", "الأسئلة الشائعة", "دعوة للتواصل"] },
-        { title: "الجانب التقني", items: ["تحميل سريع", "أساسيات SEO", "نموذج تواصل", "ربط النطاق", "النشر"] },
-        { title: "بعد الإطلاق", items: ["جولتا تعديل", "7 أيام دعم بعد الإطلاق"] }
-      ],
-      customNote: "تحتاج شيئًا أكثر تحديدًا؟ أخبرني عن مشروعك وسأعطيك عرض سعر مخصصًا.",
-      cta: "ناقش مشروعك"
-    },
+    packageList: [
+      {
+        name: "صفحة هبوط",
+        tagline: "حضور كامل على الإنترنت، مبني حول هدف واحد واضح - نشاطك التجاري، مُختزَل في صفحة واحدة جميلة.",
+        priceLabel: "ابتداءً من",
+        price: "400 €",
+        oldPrice: "500 €",
+        badge: "عرض إطلاق",
+        perfectFor: ["أطباء الأسنان", "الأطباء", "المحامون", "خبراء التجميل", "المطاعم", "المستقلون", "الأنشطة المحلية"],
+        categories: [
+          { title: "التصميم", items: ["توجيه بصري مخصص", "تصميم متجاوب", "تحسين للهاتف"] },
+          { title: "بنية المحتوى", items: ["قسم رئيسي", "الخدمات", "نبذة", "المزايا", "الشهادات", "الأسئلة الشائعة", "دعوة للتواصل"] },
+          { title: "الجانب التقني", items: ["تحميل سريع", "أساسيات SEO", "نموذج تواصل", "ربط النطاق", "النشر"] },
+          { title: "بعد الإطلاق", items: ["جولتا تعديل", "7 أيام دعم بعد الإطلاق"] }
+        ],
+        customNote: "تحتاج شيئًا أكثر تحديدًا؟ أخبرني عن مشروعك وسأعطيك عرض سعر مخصصًا.",
+        cta: "ناقش مشروعك"
+      },
+      {
+        name: "صفحة هبوط + نظام إدارة محتوى",
+        tagline: "كل ما تتضمنه باقة صفحة الهبوط، بالإضافة إلى لوحة تحكم مخصصة - عدّلي محتواك وأسعارك وساعات عملك بنفسك في أي وقت، دون أي برمجة.",
+        priceLabel: "ابتداءً من",
+        price: "800 €",
+        badge: "يشمل نظام إدارة محتوى مخصص",
+        perfectFor: ["المطاعم", "المتاجر", "الصالونات", "الأنشطة المحلية", "أي نشاط يحدّث محتواه باستمرار"],
+        categories: [
+          { title: "التصميم", items: ["توجيه بصري مخصص", "تصميم متجاوب", "تحسين للهاتف"] },
+          { title: "بنية المحتوى", items: ["قسم رئيسي", "الخدمات / القائمة", "نبذة", "المزايا", "الشهادات", "الأسئلة الشائعة", "دعوة للتواصل"] },
+          { title: "الجانب التقني", items: ["تحميل سريع", "أساسيات SEO", "نموذج تواصل", "ربط النطاق", "النشر", "نظام إدارة محتوى / لوحة تحكم مخصصة", "محتوى وأسعار وساعات عمل قابلة للتعديل", "تسجيل دخول آمن"] },
+          { title: "بعد الإطلاق", items: ["جولتا تعديل", "7 أيام دعم بعد الإطلاق", "جلسة تدريب على استخدام نظام إدارة المحتوى"] }
+        ],
+        customNote: "تحتاج شيئًا أكثر تحديدًا؟ أخبرني عن مشروعك وسأعطيك عرض سعر مخصصًا.",
+        cta: "ناقش مشروعك"
+      }
+    ],
     comingSoonLabel: "قريبًا",
     comingSoon: ["مواقع تجارية", "أنظمة حجز", "مواقع متعددة اللغات"],
     process: { eyebrow: "كيف نعمل" },
@@ -427,6 +513,7 @@ const translations = {
     ],
     exp: { eyebrow: "الخبرة" },
     experience: [
+      { role: "مسؤولة تقنية وتسويق رقمي", org: "Hannachi Couture", period: "منذ يناير 2026", points: ["الإشراف على الموقع الإلكتروني والجوانب التقنية للشركة.", "إدارة حملات التسويق الرقمي والمحتوى عبر منصات التواصل الاجتماعي.", "الربط بين التنفيذ التقني والاستراتيجية التسويقية للعلامة التجارية."] },
       { role: "متدربة تطوير ويب", org: "Sirius Net", period: "صيف 2025", points: ["موقع متجاوب متعدد اللغات - من التصميم إلى الإنتاج.", "دمج روبوت محادثة Gemini، وتم إطلاقه لمستخدمين حقيقيين.", "كود نظيف تمت مراجعته واعتماده من فريق أول."] },
       { role: "مدرّسة خصوصية", org: "عمل حر", period: "مستمر", points: ["دروس في البرمجة والرياضيات.", "أفكار معقدة تصبح عملية وواضحة.", "بناء الثقة من خلال توجيه منظم."] },
     ],
@@ -450,6 +537,21 @@ const translations = {
         tag2: "مساعد ذكاء اصطناعي",
         tag3: "جاهز لتحسين محركات البحث",
         cta: "زيارة mirasens.com"
+      },
+      p2: {
+        eyebrow: "المشاريع · عمل حقيقي مع عميل",
+        title: "لو باشا - موقع مطعم مع نظام إدارة محتوى مخصص",
+        body: "موقع حقيقي من صفحة واحدة صُمم لعميل حقيقي - مطعم لو باشا التركي في فيليجويف - مع تحسين لمحركات البحث SEO، وزر دعوة للحجز، ولوحة تحكم مخصصة تتيح لصاحب المطعم تعديل القائمة وساعات العمل بنفسه.",
+        challengeLabel: "التحدي",
+        challengeBody: "كان صاحب المطعم بحاجة إلى موقع احترافي يظهر في نتائج البحث المحلية على جوجل ويعرض القائمة، دون أن يضطر لدفع تكلفة مطوّر في كل مرة يتغير فيها طبق أو سعر.",
+        approachLabel: "طريقة العمل",
+        approachBody: "صممت وطورت موقعًا من صفحة واحدة متجاوبًا (قسم رئيسي، أطباق مميزة، معرض صور، ساعات العمل، تواصل) مع تحسين لمحركات البحث المحلية، ثم بنيت لوحة تحكم/نظام إدارة محتوى مخصصًا من الصفر يتيح للعميل إضافة وتعديل وحذف أطباق القائمة والأسعار والفئات، وتحديث ساعات العمل، دون أي حاجة للبرمجة.",
+        resultLabel: "النتيجة",
+        resultBody: "تم تسليم المشروع بالكامل كعمل مستقل، وهو الآن قيد التشغيل الفعلي ويستخدمه صاحب مطعم حقيقي يوميًا.",
+        tag1: "مشروع عميل مستقل · 2026",
+        tag2: "نظام إدارة محتوى / لوحة تحكم مخصصة",
+        tag3: "SEO محلي · تصميم متجاوب",
+        cta: "زيارة lepacha.netlify.app"
       }
     },
     researchModal: {
@@ -519,6 +621,12 @@ const translations = {
     },
     footer: { line1: "© 2026 ولاء منصوري", line2: "مطوّرة ويب Full-Stack · باريس" }
   }
+
+
+
+
+
+
 };
 
 function getPath(obj, path) {
@@ -556,13 +664,12 @@ function renderAboutBackground(lang) {
   lucide.createIcons();
 }
 
-/* ---- Single Landing Page offer ---- */
+/* ---- Landing Page offers (one or more packages) ---- */
 const mainPackageEl = document.getElementById('mainPackage');
 function renderMainPackage(lang) {
   const t = translations[lang];
-  const p = t.mainPackage;
-  mainPackageEl.innerHTML = `
-    <div class="landing-package reveal visible" id="services">
+  mainPackageEl.innerHTML = `<div id="services"></div>` + t.packageList.map(p => `
+    <div class="landing-package reveal visible">
       <div class="glass tilt" style="padding:32px;height:100%;">
         <div class="lp-top">
           <div>
@@ -593,7 +700,7 @@ function renderMainPackage(lang) {
           </button>
         </div>
       </div>
-    </div>`;
+    </div>`).join('');
   lucide.createIcons();
 }
 
