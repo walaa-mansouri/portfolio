@@ -758,6 +758,11 @@ function applyTranslations(lang) {
     const val = getPath(translations[lang], key);
     if (val !== undefined) el.setAttribute('placeholder', val);
   });
+  document.querySelectorAll('[data-i18n-aria-label]').forEach(el => {
+    const key = el.getAttribute('data-i18n-aria-label');
+    const val = getPath(translations[lang], key);
+    if (val !== undefined) el.setAttribute('aria-label', val);
+  });
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
 
   const meta = translations[lang].meta;
@@ -877,8 +882,6 @@ function onScroll() {
   if (window.scrollY > 40) siteNav.classList.add('scrolled');
   else siteNav.classList.remove('scrolled');
 }
-window.addEventListener('scroll', onScroll);
-onScroll();
 
 /* ================= MOBILE MENU ================= */
 const hamburgerBtn = document.getElementById('hamburgerBtn');
@@ -988,24 +991,51 @@ document.addEventListener('keydown', (e) => {
 /* ================= SCROLL PROGRESS BAR (simple, replaces dot navigation) ================= */
 const scrollTrack = document.getElementById('scrollTrack');
 const scrollFill = document.getElementById('scrollFill');
+const backToTopBtn = document.getElementById('backToTop');
+
+// Cache the scrollable height and only recompute it on resize/load, instead
+// of forcing a layout read (scrollHeight/clientHeight) on every scroll tick.
+let cachedScrollable = 0;
+function recomputeScrollable() {
+  const doc = document.documentElement;
+  cachedScrollable = doc.scrollHeight - doc.clientHeight;
+}
 
 function updateScrollBar() {
   if (!scrollFill) return;
-  const doc = document.documentElement;
-  const scrollable = doc.scrollHeight - doc.clientHeight;
-  const pct = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
-  scrollFill.style.height = Math.min(100, Math.max(0, pct)) + '%';
+  const pct = cachedScrollable > 0 ? (window.scrollY / cachedScrollable) * 100 : 0;
+  const clamped = Math.min(100, Math.max(0, pct));
+  scrollFill.style.height = clamped + '%';
+  if (scrollTrack) scrollTrack.setAttribute('aria-valuenow', Math.round(clamped));
 }
-window.addEventListener('scroll', updateScrollBar);
-updateScrollBar();
 
-const backToTopBtn = document.getElementById('backToTop');
 function updateBackToTop() {
   if (!backToTopBtn) return;
   backToTopBtn.classList.toggle('visible', window.scrollY > 500);
 }
-window.addEventListener('scroll', updateBackToTop);
-updateBackToTop();
+
+// Single rAF-throttled scroll handler: all three scroll-driven updates
+// (nav state, progress bar, back-to-top button) now read window.scrollY once
+// per animation frame and batch their DOM writes together, instead of each
+// running as its own listener and forcing the browser to re-layout three
+// times per scroll event.
+let scrollTicking = false;
+function onScrollFrame() {
+  onScroll();
+  updateScrollBar();
+  updateBackToTop();
+  scrollTicking = false;
+}
+function handleScroll() {
+  if (!scrollTicking) {
+    scrollTicking = true;
+    requestAnimationFrame(onScrollFrame);
+  }
+}
+window.addEventListener('scroll', handleScroll, { passive: true });
+window.addEventListener('resize', recomputeScrollable, { passive: true });
+recomputeScrollable();
+onScrollFrame();
 
 if (scrollTrack) {
   let isDraggingTrack = false;

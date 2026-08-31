@@ -22,12 +22,17 @@
   <meta name="robots" content="index, follow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="image" href="img/hero-illustration.png">
+  <link rel="preload" as="image" href="img/hero-illustration.webp">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap">
   <link
     href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap"
-    rel="stylesheet">
+    rel="stylesheet" media="print" onload="this.media='all';this.onload=null;">
+  <noscript><link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap"
+      rel="stylesheet"></noscript>
   <link rel="alternate" hreflang="en" href="https://walaamansouri.com/en" />
   <link rel="alternate" hreflang="fr" href="https://walaamansouri.com/fr" />
   <link rel="alternate" hreflang="ar" href="https://walaamansouri.com/ar" />
@@ -103,7 +108,9 @@
   </div>
 
   <div class="side-nav" id="sideNav">
-    <div class="scroll-hit" id="scrollTrack" aria-label="Scroll progress, drag to scroll">
+    <div class="scroll-hit" id="scrollTrack" role="scrollbar"
+      aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"
+      aria-label="Scroll progress, drag to scroll">
       <div class="scroll-track-visual">
         <div class="scroll-fill" id="scrollFill"></div>
       </div>
@@ -139,8 +146,8 @@
           <span data-i18n="hero.cta2">Get a quote</span></a>
       </div>
     </div>
-    <img class="hero-illustration" src="img/hero-illustration.png" alt="Illustrated portrait of Walaa Mansouri"
-      fetchpriority="high" decoding="async">
+    <img class="hero-illustration" src="img/hero-illustration.webp" alt="Illustrated portrait of Walaa Mansouri"
+      width="600" height="900" fetchpriority="high" decoding="async">
     <div class="scroll-cue">
       <span data-i18n="hero.scroll">Scroll</span>
       <div class="scroll-line"></div>
@@ -215,12 +222,12 @@
               <button class="gallery-arrow gallery-prev" onclick="scrollGallery(this,-1)" aria-label="Previous"><i
                   data-lucide="chevron-left" width="16" height="16"></i></button>
               <div class="gallery-track">
-                <img class="gallery-img" src="img/research-1.jpg" alt="RSA key generation illustration"
-                  data-group="research" onclick="openLightbox(this)" loading="lazy" decoding="async">
-                <img class="gallery-img" src="img/research-2.jpg" alt="Modular arithmetic illustration"
-                  data-group="research" onclick="openLightbox(this)" loading="lazy" decoding="async">
-                <img class="gallery-img" src="img/research-3.jpg" alt="Security analysis and attacks illustration"
-                  data-group="research" onclick="openLightbox(this)" loading="lazy" decoding="async">
+                <img class="gallery-img" src="img/research-1.webp" alt="RSA key generation illustration"
+                  width="960" height="540" data-group="research" onclick="openLightbox(this)" loading="lazy" decoding="async">
+                <img class="gallery-img" src="img/research-2.webp" alt="Modular arithmetic illustration"
+                  width="960" height="540" data-group="research" onclick="openLightbox(this)" loading="lazy" decoding="async">
+                <img class="gallery-img" src="img/research-3.webp" alt="Security analysis and attacks illustration"
+                  width="960" height="540" data-group="research" onclick="openLightbox(this)" loading="lazy" decoding="async">
               </div>
               <button class="gallery-arrow gallery-next" onclick="scrollGallery(this,1)" aria-label="Next"><i
                   data-lucide="chevron-right" width="16" height="16"></i></button>
@@ -333,15 +340,15 @@
           <div class="gallery-wrap">
             <button class="gallery-arrow gallery-prev" onclick="scrollGallery(this,-1)" aria-label="Previous"><i
                 data-lucide="chevron-left" width="16" height="16"></i></button>
-            <div class="gallery-track"> <img class="gallery-img" src="img/project-4.PNG"
-                alt="Mirasens Un site web professionnel bilingue" data-group="projects" onclick="openLightbox(this)"
+            <div class="gallery-track"> <img class="gallery-img" src="img/project-4.webp"
+                alt="Mirasens Un site web professionnel bilingue" width="1400" height="933" data-group="projects" onclick="openLightbox(this)"
                 loading="lazy" decoding="async">
-              <img class="gallery-img" src="img/project-1.PNG" alt="Mirasens homepage mockup" data-group="projects"
+              <img class="gallery-img" src="img/project-1.webp" alt="Mirasens homepage mockup" width="1400" height="671" data-group="projects"
                 onclick="openLightbox(this)" loading="lazy" decoding="async">
-              <img class="gallery-img" src="img/project-2.PNG" alt="Mirasens Gemini AI chatbot widget"
-                data-group="projects" onclick="openLightbox(this)" loading="lazy" decoding="async">
-              <img class="gallery-img" src="img/project-3.PNG" alt="Mirasens responsive mobile layout"
-                data-group="projects" onclick="openLightbox(this)" loading="lazy" decoding="async">
+              <img class="gallery-img" src="img/project-2.webp" alt="Mirasens Gemini AI chatbot widget"
+                width="1400" height="678" data-group="projects" onclick="openLightbox(this)" loading="lazy" decoding="async">
+              <img class="gallery-img" src="img/project-3.webp" alt="Mirasens responsive mobile layout"
+                width="322" height="697" data-group="projects" onclick="openLightbox(this)" loading="lazy" decoding="async">
 
             </div>
             <button class="gallery-arrow gallery-next" onclick="scrollGallery(this,1)" aria-label="Next"><i
@@ -396,13 +403,13 @@
           <div class="gallery-wrap">
             <button class="gallery-arrow gallery-prev" onclick="scrollGallery(this,-1)" aria-label="Previous"><i
                 data-lucide="chevron-left" width="16" height="16"></i></button>
-            <div class="gallery-track"> <img class="gallery-img" src="img/pacha-1.PNG"
-                alt="Le Pacha restaurant website homepage" data-group="project-le-pacha" onclick="openLightbox(this)"
+            <div class="gallery-track"> <img class="gallery-img" src="img/pacha-1.webp"
+                alt="Le Pacha restaurant website homepage" width="1400" height="645" data-group="project-le-pacha" onclick="openLightbox(this)"
                 loading="lazy" decoding="async">
-              <img class="gallery-img" src="img/pacha-2.PNG" alt="Le Pacha menu section" data-group="project-le-pacha"
+              <img class="gallery-img" src="img/pacha-2.webp" alt="Le Pacha menu section" width="304" height="660" data-group="project-le-pacha"
                 onclick="openLightbox(this)" loading="lazy" decoding="async">
-              <img class="gallery-img" src="img/pacha-3.PNG" alt="Le Pacha custom CMS admin panel"
-                data-group="project-le-pacha" onclick="openLightbox(this)" loading="lazy" decoding="async">
+              <img class="gallery-img" src="img/pacha-3.webp" alt="Le Pacha custom CMS admin panel"
+                width="1400" height="648" data-group="project-le-pacha" onclick="openLightbox(this)" loading="lazy" decoding="async">
             </div>
             <button class="gallery-arrow gallery-next" onclick="scrollGallery(this,1)" aria-label="Next"><i
                 data-lucide="chevron-right" width="16" height="16"></i></button>
@@ -463,6 +470,7 @@
         <input type="text" id="cfBusiness" data-i18n-placeholder="contact.formBusiness"
           placeholder="Your business / what you do" required>
 
+        <label for="cfNeed" class="sr-only" data-i18n="contact.formNeedDefault">What do you need?</label>
         <select id="cfNeed" required>
           <option value="" data-i18n="contact.formNeedDefault">What do you need?</option>
           <option value="new" data-i18n="contact.formNeed1">New website</option>
@@ -486,6 +494,7 @@
         <input type="url" id="cfWebsiteUrl" data-i18n-placeholder="contact.formWebsiteUrl"
           placeholder="https://your-current-site.com" class="cf-conditional" style="display:none;">
 
+        <label for="cfBudget" class="sr-only" data-i18n="contact.formBudgetDefault">Approximate budget</label>
         <select id="cfBudget">
           <option value="" data-i18n="contact.formBudgetDefault">Approximate budget</option>
           <option value="under500" data-i18n="contact.formBudget1">Under €500</option>
