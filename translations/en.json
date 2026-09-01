@@ -1,0 +1,381 @@
+{
+  "meta": {
+    "title": "Web Design & Website Development in Paris | Walaa Mansouri",
+    "description": "Professional, fast and multilingual websites for small businesses and independent professionals in Paris. Free consultation."
+  },
+  "nav": {
+    "services": "Services",
+    "work": "Work",
+    "process": "How it works",
+    "faq": "FAQ",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "eyebrow": "Full-Stack Developer · Paris",
+    "title": "Walaa<br>Mansouri",
+    "sub": "Building fast, modern websites for real businesses.",
+    "cta1": "Let's build your site",
+    "cta2": "Get a quote",
+    "marquee": "Full-Stack Developer · Paris",
+    "scroll": "Scroll"
+  },
+  "status": {
+    "available": "Available for work",
+    "availableSub": "Open to new client projects",
+    "languages": "Languages",
+    "french": "French",
+    "english": "English",
+    "arabic": "Arabic"
+  },
+  "loc": {
+    "label": "Location",
+    "value": "Paris, France",
+    "note": "Université Paris Cité · Computer Science"
+  },
+  "about": {
+    "eyebrow": "About me",
+    "lead": "Hi, I'm Walaa. I'm a web developer based in Paris, with a background in computer science and a passion for building things that are both beautiful and technically solid.",
+    "p1": "I enjoy working at the intersection of design and development - turning an idea or a business into a polished website that feels intentional on every screen.",
+    "p2": "Alongside web development, I was selected for a supervised university research project in cryptography, where I studied RSA and real-world security. It taught me to approach technical problems with curiosity, precision and attention to detail - a mindset I bring to every website I build."
+  },
+  "aboutBackground": [
+    "Computer Science · Université Paris Cité",
+    "Web Development Internship · Sirius Net",
+    "Cryptography Research · RSA"
+  ],
+  "whyus": {
+    "item1title": "Mobile-first",
+    "item1body": "Every site is built and tested to look great and work smoothly on phones first.",
+    "item2title": "Built to be found",
+    "item2body": "Fast, structured and technically optimized with search engines in mind.",
+    "item3title": "Multilingual FR / EN / AR",
+    "item3body": "Reach customers in their own language, with each version built for its own audience.",
+    "item4title": "Direct collaboration",
+    "item4body": "You work directly with me - no account manager, no middleman."
+  },
+  "packages": {
+    "eyebrow": "Services",
+    "title": "Two ways to get online.",
+    "body": "A landing page that makes a strong first impression - or the same landing page with a custom CMS, so you can manage your own content. More formats are on the way."
+  },
+  "packageList": [
+    {
+      "name": "Landing Page",
+      "tagline": "A complete online presence, built around one clear goal - your business, distilled into one beautiful page.",
+      "priceLabel": "Starting from",
+      "price": "€400",
+      "oldPrice": "€500",
+      "badge": "Introductory offer",
+      "perfectFor": [
+        "Dentists",
+        "Doctors",
+        "Lawyers",
+        "Beauty professionals",
+        "Restaurants",
+        "Freelancers",
+        "Local businesses"
+      ],
+      "categories": [
+        {
+          "title": "Design",
+          "items": [
+            "Custom visual direction",
+            "Responsive design",
+            "Mobile optimization"
+          ]
+        },
+        {
+          "title": "Content structure",
+          "items": [
+            "Hero section",
+            "Services",
+            "About",
+            "Benefits",
+            "Testimonials",
+            "FAQ",
+            "Contact CTA"
+          ]
+        },
+        {
+          "title": "Technical",
+          "items": [
+            "Fast loading",
+            "SEO basics",
+            "Contact form",
+            "Domain connection",
+            "Deployment"
+          ]
+        },
+        {
+          "title": "After launch",
+          "items": [
+            "2 rounds of revisions",
+            "7 days of post-launch support"
+          ]
+        }
+      ],
+      "customNote": "Need something more specific? Tell me about your project and I'll give you a custom quote.",
+      "cta": "Discuss your project"
+    },
+    {
+      "name": "Landing Page + CMS",
+      "tagline": "Everything in the Landing Page package, plus a custom admin panel - update your own content, prices and hours anytime, no code needed.",
+      "priceLabel": "Starting from",
+      "price": "€800",
+      "badge": "Includes custom CMS",
+      "perfectFor": [
+        "Restaurants",
+        "Boutiques",
+        "Salons",
+        "Local businesses",
+        "Anyone who updates content often"
+      ],
+      "categories": [
+        {
+          "title": "Design",
+          "items": [
+            "Custom visual direction",
+            "Responsive design",
+            "Mobile optimization"
+          ]
+        },
+        {
+          "title": "Content structure",
+          "items": [
+            "Hero section",
+            "Services / menu",
+            "About",
+            "Benefits",
+            "Testimonials",
+            "FAQ",
+            "Contact CTA"
+          ]
+        },
+        {
+          "title": "Technical",
+          "items": [
+            "Fast loading",
+            "SEO basics",
+            "Contact form",
+            "Domain connection",
+            "Deployment",
+            "Custom CMS / admin panel",
+            "Editable content, prices & hours",
+            "Secure login"
+          ]
+        },
+        {
+          "title": "After launch",
+          "items": [
+            "2 rounds of revisions",
+            "7 days of post-launch support",
+            "Training session on using your CMS"
+          ]
+        }
+      ],
+      "customNote": "Need something more specific? Tell me about your project and I'll give you a custom quote.",
+      "cta": "Discuss your project"
+    }
+  ],
+  "comingSoonLabel": "Coming soon",
+  "comingSoon": [
+    "Business Websites",
+    "Booking Systems",
+    "Multilingual Websites"
+  ],
+  "process": {
+    "eyebrow": "How it works"
+  },
+  "processSteps": [
+    {
+      "title": "Tell me about your business",
+      "sub": "A short call or a simple form - 15–20 minutes."
+    },
+    {
+      "title": "Get your design",
+      "sub": "You receive the first version and give feedback."
+    },
+    {
+      "title": "Build & optimize",
+      "sub": "Responsive, fast, and SEO-ready."
+    },
+    {
+      "title": "Launch",
+      "sub": "Your website goes live and you get everything you need."
+    }
+  ],
+  "exp": {
+    "eyebrow": "Experience"
+  },
+  "experience": [
+    {
+      "role": "Technical & Digital Marketing Manager",
+      "org": "Hannachi Couture",
+      "period": "Since January 2026",
+      "points": [
+        "Overseeing the company's website and technical operations.",
+        "Running digital marketing campaigns and content across social channels.",
+        "Bridging technical execution and marketing strategy for the brand."
+      ]
+    },
+    {
+      "role": "Web Dev Intern",
+      "org": "Sirius Net",
+      "period": "Summer 2025",
+      "points": [
+        "Responsive multilingual site - design to production.",
+        "Gemini AI chatbot integrated, shipped to real users.",
+        "Clean code reviewed and merged by senior team."
+      ]
+    },
+    {
+      "role": "Tutor",
+      "org": "Independent",
+      "period": "Ongoing",
+      "points": [
+        "Programming & math tutoring.",
+        "Complex ideas made practical and clear.",
+        "Trust built through structured guidance."
+      ]
+    }
+  ],
+  "research": {
+    "eyebrow": "Research in cryptography",
+    "title": "Supervised research in RSA cryptography",
+    "body": "Selected for a university research project studying RSA and real-world security - part of how I learned to build things properly, not just make them look good.",
+    "view": "View project"
+  },
+  "projects": {
+    "eyebrow": "Work · Case study",
+    "p1": {
+      "title": "Mirasens - A website designed to answer visitors, not just look good",
+      "body": "A multilingual (FR/EN) production website with a live AI assistant, built to help visitors get answers without waiting on a reply from the team.",
+      "challengeLabel": "The challenge",
+      "challengeBody": "The business needed a fast, bilingual site that could answer visitor questions instantly - without a support team on standby.",
+      "approachLabel": "What I did",
+      "approachBody": "Designed and built the site, set up FR/EN structure and SEO, then integrated an AI assistant to handle real visitor questions live.",
+      "resultLabel": "The result",
+      "resultBody": "A production website launched for real users, running live at mirasens.com today.",
+      "tag1": "Multilingual FR/EN",
+      "tag2": "AI Assistant",
+      "tag3": "SEO-ready",
+      "cta": "Visit mirasens.com"
+    },
+    "p2": {
+      "eyebrow": "Projects · Client work",
+      "title": "Le Pacha - Restaurant Website & Custom CMS",
+      "body": "A real one-page website built for a real client - Le Pacha, a Turkish restaurant in Villejuif - with SEO, a reservation call-to-action, and a custom admin panel so the owner can update the menu and opening hours themselves.",
+      "challengeLabel": "The challenge",
+      "challengeBody": "The owner needed a professional site to be found on Google locally and showcase the menu, but couldn't afford a developer every time a dish or price changed.",
+      "approachLabel": "My approach",
+      "approachBody": "Designed and built a responsive one-page site (hero, menu highlights, gallery, hours, contact) optimized for local SEO, then built a custom CMS/admin panel from scratch so the client can add, edit or remove menu items, prices and categories, and update opening hours, with no coding needed.",
+      "resultLabel": "The result",
+      "resultBody": "Delivered end-to-end as an independent freelance project, live in production and used daily by a real restaurant owner.",
+      "tag1": "Freelance Client Project · 2026",
+      "tag2": "Custom CMS / Admin Panel",
+      "tag3": "Local SEO · Responsive Design",
+      "cta": "Visit lepacha.netlify.app"
+    }
+  },
+  "researchModal": {
+    "kicker": "Initiation to Research · L1 Computer Science",
+    "title": "The RSA Cryptosystem",
+    "subtitle": "Mathematical Foundations and Security Analysis",
+    "supervisorLabel": "Supervisor",
+    "recoLabel": "Recommendation",
+    "schoolLabel": "School",
+    "abstract": "This project studies the RSA cryptosystem (Rivest, Shamir, Adleman, 1978), one of the most influential public-key algorithms in the history of computer security. After introducing classical and modern cryptography - substitution and stream ciphers, symmetric AES encryption, Diffie-Hellman key exchange and hash functions - it builds the mathematical toolkit behind RSA: modular arithmetic, the extended Euclidean algorithm, Euler's totient function, Euler's theorem, the Chinese remainder theorem and fast modular exponentiation. It then details RSA end to end: key generation, encryption, decryption, digital signatures and the RSA-CRT optimization. A dedicated security analysis studies integer factorization (Pollard's rho, the quadratic sieve, the general number field sieve) and several concrete attacks - the common modulus attack, the blinding attack exploiting RSA's multiplicative homomorphism, and Bleichenbacher's attack on PKCS#1 padding, which recovers a message after roughly 10⁶ queries and once compromised SSL/TLS in practice.",
+    "planTitle": "Outline",
+    "plan1title": "Introduction to cryptography",
+    "plan1sub": "Classical ciphers · Diffie-Hellman",
+    "plan2title": "Mathematical foundations",
+    "plan2sub": "Modular arithmetic · Euler · extended Euclid",
+    "plan3title": "The RSA algorithm",
+    "plan3sub": "Key generation · Encryption · Signature",
+    "plan4title": "Security analysis &amp; attacks",
+    "plan4sub": "Factorization · Common modulus · Bleichenbacher",
+    "plan5title": "Conclusion &amp; perspectives",
+    "plan5sub": "RSA vs. post-quantum · Dropped in TLS 1.3",
+    "downloadExpose": "Download the Exposé (PDF)",
+    "downloadRapport": "Download the Rapport (PDF)"
+  },
+  "faq": {
+    "eyebrow": "FAQ"
+  },
+  "faqItems": [
+    {
+      "q": "How much does a website cost?",
+      "a": "It depends on scope - see the packages above for what's included in each. Tell me about your business and I'll reply with a free, no-obligation quote."
+    },
+    {
+      "q": "How long does it take?",
+      "a": "Most landing pages and business websites take a few weeks from our first call to launch, depending on how quickly content and feedback come back."
+    },
+    {
+      "q": "Do you provide hosting?",
+      "a": "I can guide you through hosting and domain setup, or handle it for you as part of the project."
+    },
+    {
+      "q": "Can you improve my existing website?",
+      "a": "Yes - send me your current site and I'll suggest concrete improvements, or rebuild it from scratch if that's a better fit."
+    },
+    {
+      "q": "Can you make it multilingual?",
+      "a": "Yes. I build in French, English and Arabic, with proper structure and language tags for each - not just a text swap."
+    },
+    {
+      "q": "Can I update the content myself afterwards?",
+      "a": "Yes - I can set things up so simple text and image changes are easy for you, or handle updates for you with an ongoing maintenance option."
+    }
+  ],
+  "contact": {
+    "eyebrow": "Contact",
+    "heading": "Ready to build?",
+    "eyebrowNum": "Contact",
+    "headingLine1": "Let's talk about",
+    "headingLine2": "your website",
+    "marquee": "Let's build together",
+    "body": "Tell me about your business and what you need. I'll reply with a free consultation and a clear plan - no pressure, no jargon.",
+    "cta": "Start a conversation",
+    "formName": "Your name",
+    "formEmail": "Your email",
+    "formBusiness": "Your business / what you do",
+    "formNeedDefault": "What do you need?",
+    "formNeed1": "New website",
+    "formNeed2": "Redesign an existing site",
+    "formNeed3": "Landing page",
+    "formNeed4": "Website + booking",
+    "formNeed5": "Multilingual website",
+    "formNeed6": "Not sure yet",
+    "formHasSiteLabel": "Do you already have a website?",
+    "yes": "Yes",
+    "no": "No",
+    "formWebsiteUrl": "https://your-current-site.com",
+    "formBudgetDefault": "Approximate budget",
+    "formBudget1": "Under €500",
+    "formBudget2": "€500 – €750",
+    "formBudget3": "€750 – €1,000",
+    "formBudget4": "€1,000+",
+    "formBudget5": "Not sure",
+    "formMessage": "A few words about your project",
+    "formPreferenceLabel": "How would you like to continue?",
+    "prefCall": "I'd like to book a call",
+    "prefEmail": "I'd prefer to continue by email",
+    "prefExploring": "I'm just exploring for now",
+    "sending": "Sending...",
+    "success": "Thanks! I've received your project and will reply within 1-2 business days.",
+    "errorGeneric": "Something went wrong - please try again or email me directly.",
+    "errorFields": "Please fill in the required fields.",
+    "emailLabel": "Email",
+    "locationLabel": "Location",
+    "locationValueInline": "Paris, France",
+    "languagesLabel": "Languages",
+    "availabilityLabel": "Availability",
+    "availabilityValueInline": "Open to projects"
+  },
+  "footer": {
+    "line1": "© 2026 Walaa Mansouri",
+    "line2": "Full-Stack Web Developer · Paris"
+  }
+}

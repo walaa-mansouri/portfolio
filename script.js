@@ -1,12 +1,4 @@
-// theme toggle
 const body = document.body;
-const themeBtn = document.getElementById('themeToggle');
-function paintThemeIcon() {
-  const dark = body.classList.contains('dark');
-  themeBtn.innerHTML = dark ? '<i data-lucide="sun" width="13" height="13"></i>' : '<i data-lucide="moon" width="13" height="13"></i>';
-  lucide.createIcons();
-}
-themeBtn.addEventListener('click', () => { body.classList.toggle('dark'); paintThemeIcon(); });
 
 const NAV_OFFSET = 84;
 
@@ -773,31 +765,56 @@ function applyTranslations(lang) {
   }
 }
 
-function setLang(lang) {
-  document.documentElement.lang = lang;
-  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-  applyTranslations(lang);
+// Building the below-the-fold sections (experience, about, packages, process,
+// FAQ, etc.) is comparatively heavy DOM work and none of it is visible above
+// the fold on load, so it doesn't need to compete with the hero for the main
+// thread before first paint. requestIdleCallback runs it once the browser is
+// done with more urgent work; setTimeout is the fallback for browsers
+// (Safari) that don't support requestIdleCallback.
+const scheduleIdle = window.requestIdleCallback || function (cb) { setTimeout(cb, 0); };
+
+function renderBelowFold(lang) {
   renderExperience(lang);
   renderAboutBackground(lang);
   renderMainPackage(lang);
   renderComingSoon(lang);
   renderProcess(lang);
   renderFaq(lang);
+}
+
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  applyTranslations(lang);
+  scheduleIdle(() => renderBelowFold(lang));
   try { localStorage.setItem('wm_lang', lang); } catch (e) { }
 }
 
 document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => setLang(btn.dataset.lang));
+  btn.addEventListener('click', () => {
+    const lang = btn.dataset.lang;
+    try { localStorage.setItem('wm_lang', lang); } catch (e) { }
+    window.location.href = `/${lang}/`;
+  });
 });
 
-let initialLang = 'en';
-try {
-  const stored = localStorage.getItem('wm_lang');
-  if (stored && translations[stored]) initialLang = stored;
-} catch (e) { }
-setLang(initialLang);
+function detectLangFromPath() {
+  const seg = window.location.pathname.split('/').filter(Boolean)[0];
+  return translations[seg] ? seg : null;
+}
 
-paintThemeIcon();
+let initialLang = detectLangFromPath();
+if (!initialLang) {
+  try {
+    const stored = localStorage.getItem('wm_lang');
+    if (stored && translations[stored]) initialLang = stored;
+  } catch (e) { }
+}
+if (!initialLang) {
+  const browserLang = (navigator.language || '').slice(0, 2);
+  initialLang = translations[browserLang] ? browserLang : 'en';
+}
+setLang(initialLang);
 
 /* ================= CONTACT FORM (submits to backend API, which stores it + sends emails) ================= */
 // UPDATE THIS after you deploy the backend (see backend/README.md, section 7).
@@ -1034,8 +1051,13 @@ function handleScroll() {
 }
 window.addEventListener('scroll', handleScroll, { passive: true });
 window.addEventListener('resize', recomputeScrollable, { passive: true });
-recomputeScrollable();
-onScrollFrame();
+// Deferred to the next frame: reading scrollHeight/clientHeight here forces
+// a synchronous layout flush, and running it right after setLang()'s DOM
+// writes turned that into an expensive forced reflow blocking first paint.
+requestAnimationFrame(() => {
+  recomputeScrollable();
+  onScrollFrame();
+});
 
 if (scrollTrack) {
   let isDraggingTrack = false;
