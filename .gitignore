@@ -1,7 +1,8 @@
+node_modules/
 .env
-node_modules/
-inquiries.db
-inquiries.db-shm
-inquiries.db-wal
+.env.*
+!.env.example
+.netlify/
+dist/
 .history/
-node_modules/
+*.log

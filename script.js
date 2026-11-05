@@ -816,11 +816,8 @@ if (!initialLang) {
 }
 setLang(initialLang);
 
-/* ================= CONTACT FORM (submits to backend API, which stores it + sends emails) ================= */
-// UPDATE THIS after you deploy the backend (see backend/README.md, section 7).
-// Example once deployed: 'https://your-backend.onrender.com'
-const API_BASE_URL =
-  window.API_BASE_URL || 'https://freelance-i1qx.onrender.com';
+/* ================= CONTACT FORM (Netlify Function + Brevo, no database) ================= */
+const CONTACT_API_URL = '/.netlify/functions/contact';
 const contactForm = document.getElementById('contactForm');
 const cfHasSiteRadios = document.querySelectorAll('input[name="cfHasSite"]');
 const cfWebsiteUrl = document.getElementById('cfWebsiteUrl');
@@ -864,17 +861,23 @@ if (contactForm) {
       return;
     }
 
+    const token = document.querySelector('[name="cf-turnstile-response"]')?.value || "";
+    if (!token) {
+      statusEl.textContent = "Please complete the security verification.";
+      statusEl.className = 'cf-status error';
+      return;
+    }
     submitBtn.disabled = true;
     statusEl.textContent = t.sending;
     statusEl.className = 'cf-status';
 
     try {
-      const res = await fetch(`${API_BASE_URL}/api/inquiries`, {
+      const res = await fetch(CONTACT_API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name, email, business, need, hasSite, websiteUrl, budget, message, preference,
-          lang: activeLang
+          companyWebsite: honeypot, lang: activeLang, turnstileToken: token
         })
       });
 
@@ -888,6 +891,7 @@ if (contactForm) {
       statusEl.textContent = t.errorGeneric;
       statusEl.className = 'cf-status error';
     } finally {
+      if (window.turnstile) window.turnstile.reset();
       submitBtn.disabled = false;
     }
   });
