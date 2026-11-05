@@ -55,20 +55,6 @@ async function rateLimit(request, email) {
   }
   return true;
 }
-async function verifyTurnstile(token, request) {
-  const secret = process.env.TURNSTILE_SECRET_KEY;
-  if (!secret || typeof token !== "string" || token.length < 1 || token.length > 2048) return false;
-  const form = new URLSearchParams({secret,response:token});
-  const ip = request.headers.get("x-nf-client-connection-ip");
-  if (ip) form.set("remoteip",ip);
-  const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
-    method:"POST",body:form,signal:AbortSignal.timeout(7000)
-  });
-  if (!res.ok) return false;
-  const data = await res.json();
-  return data.success === true &&
-    (!process.env.TURNSTILE_EXPECTED_HOSTNAME || data.hostname === process.env.TURNSTILE_EXPECTED_HOSTNAME);
-}
 export default async function handler(request) {
   if (request.method !== "POST") return json({error:"Method not allowed"},405);
   const expectedOrigin = process.env.CONTACT_ALLOWED_ORIGIN;
@@ -99,12 +85,11 @@ export default async function handler(request) {
     try { if(!["https:","http:"].includes(new URL(websiteUrl).protocol)) throw Error(); }
     catch { return json({error:"Invalid website URL"},400); }
   }
-  try {
-    if (!await verifyTurnstile(body.turnstileToken, request)) {
-      return json({error:"Spam verification failed"},403);
-    }
-  } catch {
-    return json({error:"Spam verification unavailable"},503);
+  // A quick-submit heuristic. Attackers can forge this value; Redis limits remain authoritative.
+  const startedAt = Number(body.formStartedAt);
+  if (!Number.isFinite(startedAt) || startedAt <= 0 ||
+      Date.now() - startedAt < 2500 || Date.now() - startedAt > 86400000) {
+    return json({error:"Please take a moment and try again"},400);
   }
   try {
     if (!await rateLimit(request, email)) {
