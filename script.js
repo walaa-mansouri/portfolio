@@ -30,6 +30,7 @@ function scrollToId(id) {
   const top = el.getBoundingClientRect().top + window.scrollY - offset;
   animatedScrollTo(Math.max(0, top));
 }
+
 function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
 
 /* ================= TRANSLATIONS ================= */
@@ -1085,3 +1086,17 @@ if (scrollTrack) {
 
 /* Final pass: render any static Lucide icons (hero, chips, side-nav arrows, lightbox) */
 lucide.createIcons();
+
+window.scrollToId = function (id) {
+  const section = document.getElementById(id);
+
+  if (!section) {
+    console.warn("Section not found:", id);
+    return;
+  }
+
+  section.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+};
