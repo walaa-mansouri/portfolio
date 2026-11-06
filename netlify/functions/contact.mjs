@@ -111,6 +111,22 @@ async function rateLimit(request, email) {
   return result.result === 1;
 }
 
+function emailTemplate({ title, greeting, message, footer, lang = "en", details = "" }) {
+  const rtl = lang === "ar";
+  return `<!doctype html><html lang="${lang}" dir="${rtl ? "rtl" : "ltr"}"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body style="margin:0;padding:0;background:#f7f3f5;font-family:Arial,Helvetica,sans-serif;color:#29242a">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f7f3f5"><tr><td align="center" style="padding:32px 12px">
+<table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;background:#fff;border-radius:14px;overflow:hidden;border:1px solid #eee3e8">
+<tr><td style="padding:30px 32px;background:#651d38;text-align:center;color:#fff"><div style="font-size:24px;font-weight:700">Walaa Mansouri</div><div style="font-size:12px;letter-spacing:1px;color:#f3dfe8;margin-top:8px">WEB DEVELOPMENT & DIGITAL EXPERIENCES</div></td></tr>
+<tr><td style="padding:34px 32px;text-align:${rtl ? "right" : "left"}"><h1 style="font-size:24px;line-height:1.4;color:#651d38;margin:0 0 20px">${esc(title)}</h1>
+<p style="font-size:16px;line-height:1.8;margin:0 0 18px">${esc(greeting)}</p>
+<p style="font-size:15px;line-height:1.85;color:#514b50;margin:0;white-space:pre-line">${esc(message)}</p>
+${details}
+<div style="border-top:1px solid #eee7e9;margin-top:30px;padding-top:22px;font-size:14px;line-height:1.8;color:#514b50"><strong style="color:#651d38">Walaa Mansouri</strong><div>Web Developer</div></div></td></tr>
+<tr><td style="background:#faf7f8;padding:24px 30px;text-align:center"><a href="https://walaamansouri.com" style="color:#651d38;text-decoration:none;font-weight:bold;font-size:14px">walaamansouri.com</a><p style="font-size:12px;color:#847b81;margin:12px 0 0">${esc(footer)}</p></td></tr>
+</table></td></tr></table></body></html>`;
+}
+
 export default async function handler(request) {
   if (request.method !== "POST") return json({ error: "Method not allowed" }, 405);
   const expectedOrigin = process.env.CONTACT_ALLOWED_ORIGIN;
@@ -167,29 +183,67 @@ export default async function handler(request) {
     ["Budget", budget || "Not specified"], ["Preference", preference],
     ["Language", lang], ["Message", message]
   ];
-  const ownerHtml = '<h2>New portfolio inquiry</h2>' + info.map(([k, v]) => `<p><strong>${esc(k)}:</strong> ${esc(v).replace(/\n/g, "<br>")}</p>`).join("");
-  const confirmations = {
-    en: { subject: "Thank you for contacting me", text: `Hello ${name},\n\nThank you for your message. I have received your project inquiry and will get back to you soon.\n\nBest regards,\nWalaa Mansouri` },
-    fr: { subject: "Merci pour votre message", text: `Bonjour ${name},\n\nMerci pour votre message. J'ai bien reçu votre demande et je vous répondrai prochainement.\n\nCordialement,\nWalaa Mansouri` },
-    ar: { subject: "شكراً لتواصلك", text: `مرحباً ${name}،\n\nشكراً لرسالتك. لقد استلمت طلبك وسأرد عليك قريباً.\n\nمع تحياتي،\nولاء منصوري` }
-  };
   const from = { email: sender, name: process.env.BREVO_SENDER_NAME || "Walaa Mansouri" };
+  const infoRows = info.map(([label, value]) =>
+    `<tr><td style="padding:11px 12px;color:#6c6269;font-weight:bold;border-bottom:1px solid #f0e9ec;vertical-align:top;width:35%">${esc(label)}</td><td style="padding:11px 12px;color:#302830;border-bottom:1px solid #f0e9ec;white-space:pre-line;overflow-wrap:anywhere">${esc(value)}</td></tr>`
+  ).join("");
+  const ownerDetails = `<table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="margin-top:26px;border:1px solid #f0e9ec;border-collapse:collapse;font-size:14px">${infoRows}</table>`;
+  const ownerHtml = emailTemplate({
+    title: "New project inquiry",
+    greeting: "A new message has arrived through your portfolio contact form.",
+    message: "Here are the details provided by the visitor. Reply directly to this email to contact them.",
+    details: ownerDetails,
+    footer: "Portfolio contact notification",
+    lang: "en"
+  });
+
+  const confirmations = {
+    en: {
+      subject: "Thank you for reaching out!",
+      title: "Thank you for your message!",
+      greeting: `Hello ${name},`,
+      message: "Thank you for your interest in working with me.\n\nI've received your project inquiry and will review it carefully. I'll get back to you as soon as possible.",
+      footer: "This is an automatic confirmation of your inquiry."
+    },
+    fr: {
+      subject: "Merci pour votre message !",
+      title: "Votre message a bien été reçu !",
+      greeting: `Bonjour ${name},`,
+      message: "Merci pour votre intérêt et votre confiance.\n\nJ'ai bien reçu votre demande de projet. Je vais l'étudier attentivement et je vous répondrai dès que possible.",
+      footer: "Ceci est une confirmation automatique de votre demande."
+    },
+    ar: {
+      subject: "شكراً لتواصلك معي!",
+      title: "تم استلام رسالتك بنجاح!",
+      greeting: `مرحباً ${name}،`,
+      message: "شكراً لاهتمامك بالتعاون معي.\n\nلقد استلمت طلبك وسأقوم بمراجعته بعناية والرد عليك في أقرب وقت ممكن.",
+      footer: "هذه رسالة تأكيد تلقائية لاستلام طلبك."
+    }
+  };
+
   try {
-    // Notify owner first. If it fails, return an error and don't claim success.
     await sendBrevo(key, {
-      sender: from, to: [{ email: owner }],
-      replyTo: { email, name }, subject: "New project inquiry - " + business,
-      htmlContent: ownerHtml
+      sender: from,
+      to: [{ email: owner }],
+      replyTo: { email, name },
+      subject: "New project inquiry - " + business,
+      htmlContent: ownerHtml,
+      textContent: "New project inquiry\n\n" + info.map(([label, value]) => `${label}: ${value}`).join("\n")
     });
-  } catch { return json({ error: "Unable to send message" }, 502); }
+  } catch {
+    return json({ error: "Unable to send message" }, 502);
+  }
+
   try {
     const c = confirmations[lang];
     await sendBrevo(key, {
-      sender: from, to: [{ email, name }],
-      subject: c.subject, textContent: c.text
+      sender: from,
+      to: [{ email, name }],
+      subject: c.subject,
+      htmlContent: emailTemplate({ ...c, lang }),
+      textContent: `${c.title}\n\n${c.greeting}\n\n${c.message}\n\nWalaa Mansouri\nhttps://walaamansouri.com`
     });
   } catch {
-    // Owner has the message, so do not prompt a duplicate submission.
     console.error("Visitor confirmation email failed");
     return json({ ok: true, confirmationSent: false });
   }
