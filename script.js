@@ -691,7 +691,7 @@ function renderMainPackage(lang) {
         </div>
         <div class="lp-bottom-row">
           <p class="lp-custom-note">${p.customNote}</p>
-          <button class="btn-primary" onclick="scrollToId('contact')">
+          <button class="btn-primary" data-portfolio-action="contact">
             <span>${p.cta}</span> <i data-lucide="arrow-right" width="14" height="14"></i>
           </button>
         </div>
@@ -765,7 +765,7 @@ function applyTranslations(lang) {
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
 
   const meta = translations[lang].meta;
-  if (meta) {
+  if (meta && document.body.dataset.page === 'home') {
     document.title = meta.title;
     const descTag = document.getElementById('pageDesc');
     if (descTag) descTag.setAttribute('content', meta.description);

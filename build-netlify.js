@@ -5,7 +5,7 @@ const out = path.join(root, 'dist');
 fs.rmSync(out, { recursive: true, force: true });
 fs.mkdirSync(out, { recursive: true });
 const entries = ['index.html', '404.html', 'robots.txt', 'sitemap.xml',
-  'style.css', 'fonts.css', 'en', 'fr', 'ar', 'fonts', 'img', 'research'];
+  'style.css', 'fonts.css', 'language-redirect.js', 'not-found.js', 'favicon.svg', 'favicon.ico', 'favicon-32.png', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'en', 'fr', 'ar', 'fonts', 'img', 'research'];
 const htmlFiles = [];
 for (const lang of ['fr', 'en', 'ar']) {
   const walk = dir => {

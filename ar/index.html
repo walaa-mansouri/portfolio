@@ -4,17 +4,17 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title id="pageTitle">الرئيسية | Walaa Mansouri</title>
-<meta content="مواقع إلكترونية احترافية وسريعة ومتعددة اللغات للشركات الصغيرة والمهنيين المستقلين في باريس. استشارة مجانية." id="pageDesc" name="description"/>
+<title id="pageTitle">تصميم وتطوير المواقع في باريس | ولاء منصوري</title>
+<meta content="أصمّم مواقع احترافية للشركات والمتاجر، من المواقع التعريفية إلى كتالوجات المنتجات والمواقع متعددة اللغات." id="pageDesc" name="description"/>
 <link href="https://walaamansouri.com/ar/" rel="canonical"/>
-<meta content="Web Design &amp; Website Development in Paris | Walaa Mansouri" property="og:title"/>
-<meta content="Professional, fast and multilingual websites for small businesses and independent professionals in Paris." property="og:description"/>
+<meta content="تصميم وتطوير المواقع في باريس | ولاء منصوري" property="og:title"/>
+<meta content="أصمّم مواقع احترافية للشركات والمتاجر، من المواقع التعريفية إلى كتالوجات المنتجات والمواقع متعددة اللغات." property="og:description"/>
 <meta content="website" property="og:type"/>
 <meta content="https://walaamansouri.com/ar/" property="og:url"/>
 <meta content="https://walaamansouri.com/img/hero-illustration.png" property="og:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Web Design &amp; Website Development in Paris | Walaa Mansouri" name="twitter:title"/>
-<meta content="Professional, fast and multilingual websites for small businesses and independent professionals in Paris." name="twitter:description"/>
+<meta content="تصميم وتطوير المواقع في باريس | ولاء منصوري" name="twitter:title"/>
+<meta content="أصمّم مواقع احترافية للشركات والمتاجر، من المواقع التعريفية إلى كتالوجات المنتجات والمواقع متعددة اللغات." name="twitter:description"/>
 <meta content="https://walaamansouri.com/img/hero-illustration.png" name="twitter:image"/>
 <meta content="index, follow" name="robots"/>
 <meta content="light" name="color-scheme"/>
@@ -23,13 +23,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="/fonts.css" rel="stylesheet"/>
 <link href="/style.css" rel="stylesheet"/>
-<link href="/img/logo.png" rel="icon" sizes="any" type="image/png+xml"/>
+
 <link href="https://walaamansouri.com/en/" hreflang="en" rel="alternate"/>
 <link href="https://walaamansouri.com/fr/" hreflang="fr" rel="alternate"/>
 <link href="https://walaamansouri.com/ar/" hreflang="ar" rel="alternate"/>
-<link href="https://walaamansouri.com/en" hreflang="x-default" rel="alternate"/>
-<script defer="" src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-</head>
+<link href="https://walaamansouri.com/en/" hreflang="x-default" rel="alternate"/>
+<script defer="" src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.js"></script>
+<meta content="ar_AR" property="og:locale"/><link href="/favicon.svg" rel="icon" type="image/svg+xml"/><link href="/favicon.ico" rel="icon" sizes="any"/><link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/></head>
 <body data-page="home">
 <div class="orbs">
 <div class="orb orb-a"></div>
@@ -100,7 +100,7 @@
 </div>
 </div>
 </div>
-<button aria-label="Back to top" class="back-to-top" id="backToTop" onclick="scrollToTop()">
+<button aria-label="Back to top" class="back-to-top" data-portfolio-action="top" id="backToTop">
 <i data-lucide="arrow-up" height="17" width="17"></i>
 </button>
 <section class="hero-full" id="home">
@@ -227,9 +227,9 @@
 </div>
 </section>
 <!-- Research modal -->
-<div class="research-modal-overlay" id="researchOverlay" onclick="if(event.target===this) closeResearchModal()">
+<div class="research-modal-overlay" data-portfolio-action="research-overlay" id="researchOverlay">
 <div aria-labelledby="researchModalTitle" aria-modal="true" class="research-modal" role="dialog">
-<button aria-label="Close" class="research-modal-close" onclick="closeResearchModal()">×</button>
+<button aria-label="Close" class="research-modal-close" data-portfolio-action="research-close">×</button>
 <div class="research-modal-eyebrow fmono" data-i18n="researchModal.kicker">مشروع تمهيدي في البحث العلمي · السنة الأولى علوم الحاسوب</div>
 <h2 class="fdisplay research-modal-title" data-i18n="researchModal.title" id="researchModalTitle">خوارزمية التشفير RSA</h2>
 <p class="research-modal-subtitle" data-i18n="researchModal.subtitle">الأسس الرياضية وتحليل الأمان</p>
@@ -270,13 +270,13 @@
 </div>
 </div>
 <!-- Image lightbox (Projects + Research galleries) -->
-<div class="lightbox-overlay" id="lightboxOverlay" onclick="if(event.target===this) closeLightbox()">
-<button aria-label="Close" class="lightbox-close" onclick="closeLightbox()">×</button>
-<button aria-label="Previous image" class="lightbox-arrow lightbox-prev" onclick="lightboxNav(-1)">
+<div class="lightbox-overlay" data-portfolio-action="lightbox-overlay" id="lightboxOverlay">
+<button aria-label="Close" class="lightbox-close" data-portfolio-action="lightbox-close">×</button>
+<button aria-label="Previous image" class="lightbox-arrow lightbox-prev" data-portfolio-action="lightbox-prev">
 <i data-lucide="chevron-left" height="18" width="18"></i>
 </button>
-<img alt="" class="lightbox-img" id="lightboxImg" src=""/ loading="lazy" decoding="async">
-<button aria-label="Next image" class="lightbox-arrow lightbox-next" onclick="lightboxNav(1)">
+<img alt="" class="lightbox-img" decoding="async" id="lightboxImg" loading="lazy" src=""/>
+<button aria-label="Next image" class="lightbox-arrow lightbox-next" data-portfolio-action="lightbox-next">
 <i data-lucide="chevron-right" height="18" width="18"></i>
 </button>
 </div>

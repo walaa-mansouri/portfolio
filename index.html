@@ -1,38 +1,20 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Walaa Mansouri — Web Developer, Paris</title>
-  <link rel="canonical" href="https://walaamansouri.com/en/">
-  <link rel="alternate" hreflang="en" href="https://walaamansouri.com/en/" />
-  <link rel="alternate" hreflang="fr" href="https://walaamansouri.com/fr/" />
-  <link rel="alternate" hreflang="ar" href="https://walaamansouri.com/ar/" />
-  <link rel="alternate" hreflang="x-default" href="https://walaamansouri.com/en/" />
-  <link rel="icon" href="/img/logo.png" type="image/png" sizes="any">
-
-  <!-- Fallback for crawlers/browsers with JS disabled: goes straight to English -->
-  <meta http-equiv="refresh" content="0; url=/en/">
-  <script>
-    (function () {
-      var supported = ['en', 'fr', 'ar'];
-      var stored = null;
-      try { stored = localStorage.getItem('wm_lang'); } catch (e) { }
-
-      var browserLang = (navigator.language || navigator.userLanguage || 'en').slice(0, 2);
-
-      var lang = supported.indexOf(stored) !== -1
-        ? stored
-        : (supported.indexOf(browserLang) !== -1 ? browserLang : 'en');
-
-      window.location.replace('/' + lang + '/');
-    })();
-  </script>
-</head>
-
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Walaa Mansouri — Web Developer, Paris</title>
+<link href="https://walaamansouri.com/en/" rel="canonical"/>
+<link href="https://walaamansouri.com/en/" hreflang="en" rel="alternate"/>
+<link href="https://walaamansouri.com/fr/" hreflang="fr" rel="alternate">
+<link href="https://walaamansouri.com/ar/" hreflang="ar" rel="alternate"/>
+<link href="https://walaamansouri.com/en/" hreflang="x-default" rel="alternate"/>
+<!-- Fallback for crawlers/browsers with JS disabled: goes straight to English -->
+<meta content="0; url=/en/" http-equiv="refresh"/>
+<script defer="" src="/language-redirect.js"></script>
+</link><link href="/favicon.svg" rel="icon"/><link href="/apple-touch-icon.png" rel="apple-touch-icon"/><meta content="noindex, follow" name="robots"/></head>
 <body>
-  <p>Redirecting… if you're not sent automatically, <a href="/en/">click here</a>.</p>
+<p>Redirecting… if you're not sent automatically, <a href="/en/">click here</a>.</p>
 </body>
-
 </html>

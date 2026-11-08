@@ -1,18 +1,108 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://walaamansouri.com/fr/</loc></url>
-<url><loc>https://walaamansouri.com/fr/services/</loc></url>
-<url><loc>https://walaamansouri.com/fr/projects/</loc></url>
-<url><loc>https://walaamansouri.com/fr/about/</loc></url>
-<url><loc>https://walaamansouri.com/fr/contact/</loc></url>
-<url><loc>https://walaamansouri.com/en/</loc></url>
-<url><loc>https://walaamansouri.com/en/services/</loc></url>
-<url><loc>https://walaamansouri.com/en/projects/</loc></url>
-<url><loc>https://walaamansouri.com/en/about/</loc></url>
-<url><loc>https://walaamansouri.com/en/contact/</loc></url>
-<url><loc>https://walaamansouri.com/ar/</loc></url>
-<url><loc>https://walaamansouri.com/ar/services/</loc></url>
-<url><loc>https://walaamansouri.com/ar/projects/</loc></url>
-<url><loc>https://walaamansouri.com/ar/about/</loc></url>
-<url><loc>https://walaamansouri.com/ar/contact/</loc></url>
+<?xml version='1.0' encoding='utf-8'?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://walaamansouri.com/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://walaamansouri.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://walaamansouri.com/en/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://walaamansouri.com/ar/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://walaamansouri.com/en/" />
+  </url>
+  <url>
+    <loc>https://walaamansouri.com/fr/services/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://walaamansouri.com/fr/services/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://walaamansouri.com/en/services/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://walaamansouri.com/ar/services/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://walaamansouri.com/en/services/" />
+  </url>
+  <url>
+    <loc>https://walaamansouri.com/fr/projects/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://walaamansouri.com/fr/projects/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://walaamansouri.com/en/projects/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://walaamansouri.com/ar/projects/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://walaamansouri.com/en/projects/" />
+  </url>
+  <url>
+    <loc>https://walaamansouri.com/fr/about/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://walaamansouri.com/fr/about/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://walaamansouri.com/en/about/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://walaamansouri.com/ar/about/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://walaamansouri.com/en/about/" />
+  </url>
+  <url>
+    <loc>https://walaamansouri.com/fr/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://walaamansouri.com/fr/contact/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://walaamansouri.com/en/contact/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://walaamansouri.com/ar/contact/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://walaamansouri.com/en/contact/" />
+  </url>
+  <url>
+    <loc>https://walaamansouri.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://walaamansouri.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://walaamansouri.com/en/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://walaamansouri.com/ar/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://walaamansouri.com/en/" />
+  </url>
+  <url>
+    <loc>https://walaamansouri.com/en/services/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://walaamansouri.com/fr/services/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://walaamansouri.com/en/services/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://walaamansouri.com/ar/services/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://walaamansouri.com/en/services/" />
+  </url>
+  <url>
+    <loc>https://walaamansouri.com/en/projects/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://walaamansouri.com/fr/projects/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://walaamansouri.com/en/projects/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://walaamansouri.com/ar/projects/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://walaamansouri.com/en/projects/" />
+  </url>
+  <url>
+    <loc>https://walaamansouri.com/en/about/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://walaamansouri.com/fr/about/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://walaamansouri.com/en/about/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://walaamansouri.com/ar/about/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://walaamansouri.com/en/about/" />
+  </url>
+  <url>
+    <loc>https://walaamansouri.com/en/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://walaamansouri.com/fr/contact/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://walaamansouri.com/en/contact/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://walaamansouri.com/ar/contact/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://walaamansouri.com/en/contact/" />
+  </url>
+  <url>
+    <loc>https://walaamansouri.com/ar/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://walaamansouri.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://walaamansouri.com/en/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://walaamansouri.com/ar/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://walaamansouri.com/en/" />
+  </url>
+  <url>
+    <loc>https://walaamansouri.com/ar/services/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://walaamansouri.com/fr/services/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://walaamansouri.com/en/services/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://walaamansouri.com/ar/services/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://walaamansouri.com/en/services/" />
+  </url>
+  <url>
+    <loc>https://walaamansouri.com/ar/projects/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://walaamansouri.com/fr/projects/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://walaamansouri.com/en/projects/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://walaamansouri.com/ar/projects/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://walaamansouri.com/en/projects/" />
+  </url>
+  <url>
+    <loc>https://walaamansouri.com/ar/about/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://walaamansouri.com/fr/about/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://walaamansouri.com/en/about/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://walaamansouri.com/ar/about/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://walaamansouri.com/en/about/" />
+  </url>
+  <url>
+    <loc>https://walaamansouri.com/ar/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://walaamansouri.com/fr/contact/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://walaamansouri.com/en/contact/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://walaamansouri.com/ar/contact/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://walaamansouri.com/en/contact/" />
+  </url>
 </urlset>
