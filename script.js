@@ -40,14 +40,14 @@ const translations = {
       title: "Web Design & Website Development in Paris | Walaa Mansouri",
       description: "Professional, fast and multilingual websites for small businesses and independent professionals in Paris. Free consultation."
     },
-    nav: { services: "Services", work: "Work", process: "How it works", faq: "FAQ", about: "About", contact: "Contact" },
+    nav: { home: "Home", services: "Services", work: "Projects", process: "How it works", faq: "FAQ", about: "About", contact: "Contact" },
     hero: {
       eyebrow: "Full-Stack Developer · Paris",
-      title: "Walaa<br>Mansouri",
+      title: "Websites that bring your business to life.",
       sub: "Building fast, modern websites for real businesses.",
       cta1: "Let's build your site",
       cta2: "Get a quote",
-      marquee: "Full-Stack Developer · Paris",
+      marquee: "Websites that bring your business to life.",
       scroll: "Scroll"
     },
     status: { available: "Available for work", availableSub: "Open to new client projects", languages: "Languages", french: "French", english: "English", arabic: "Arabic" },
@@ -233,14 +233,14 @@ const translations = {
       title: "Création de sites internet à Paris | Walaa Mansouri",
       description: "Sites internet professionnels, rapides et multilingues pour indépendants et petites entreprises à Paris. Consultation gratuite."
     },
-    nav: { services: "Services", work: "Réalisations", process: "Comment ça marche", faq: "FAQ", about: "À propos", contact: "Contact" },
+    nav: { home: "Accueil", services: "Services", work: "Projets", process: "Comment ça marche", faq: "FAQ", about: "À propos", contact: "Contact" },
     hero: {
       eyebrow: "Développeuse Web Full-Stack · Paris",
-      title: "Walaa<br>Mansouri",
+      title: "Des sites web qui donnent vie à votre activité.",
       sub: "Des sites rapides et modernes pour de vraies entreprises.",
       cta1: "Construisons votre site",
       cta2: "Demander un devis",
-      marquee: "Développeuse Web Full-Stack · Paris",
+      marquee: "Des sites web qui donnent vie à votre activité.",
       scroll: "Défiler"
     },
     status: { available: "Disponible pour des missions", availableSub: "Ouverte à de nouveaux projets clients", languages: "Langues", french: "Français", english: "Anglais", arabic: "Arabe" },
@@ -426,23 +426,23 @@ const translations = {
       title: "تصميم وتطوير المواقع الإلكترونية في باريس | ولاء منصوري",
       description: "مواقع إلكترونية احترافية وسريعة ومتعددة اللغات للشركات الصغيرة والمهنيين المستقلين في باريس. استشارة مجانية."
     },
-    nav: { services: "الخدمات", work: "الأعمال", process: "كيف نعمل", faq: "الأسئلة الشائعة", about: "نبذة", contact: "تواصل" },
+    nav: { home: "الرئيسية", services: "الخدمات", work: "المشاريع", process: "كيف نعمل", faq: "الأسئلة الشائعة", about: "نبذة", contact: "تواصل" },
     hero: {
       eyebrow: "مطوّرة ويب Full-Stack · باريس",
-      title: "ولاء<br>منصوري",
-      sub: "مواقع سريعة وحديثة لشركات حقيقية.",
-      cta1: "لنبنِ موقعك",
+      title: "موقع يعرّف الناس بمشروعك ويترك انطباعًا يدوم.",
+      sub: "أصمّم مواقع واضحة وسريعة تساعد عملاءك على التعرف إلى خدماتك والتواصل معك.",
+      cta1: "خلّينا نبدأ مشروعك",
       cta2: "اطلب عرض سعر",
-      marquee: "مطوّرة ويب Full-Stack · باريس",
+      marquee: "موقع يعرّف الناس بمشروعك ويترك انطباعًا يدوم.",
       scroll: "مرّر"
     },
-    status: { available: "متاحة للعمل", availableSub: "منفتحة على مشاريع عملاء جدد", languages: "اللغات", french: "الفرنسية", english: "الإنجليزية", arabic: "العربية" },
-    loc: { label: "الموقع", value: "باريس، فرنسا", note: "جامعة باريس سيتيه · علوم حاسوب" },
+    status: { available: "متاحة للعمل", availableSub: "أستقبل مشاريع جديدة حاليًا", languages: "اللغات", french: "الفرنسية", english: "الإنجليزية", arabic: "العربية" },
+    loc: { label: "الموقع", value: "باريس، فرنسا", note: "جامعة باريس سيتي · علوم الحاسوب" },
     about: {
       eyebrow: "نبذة عني",
-      lead: "مرحبًا، أنا ولاء. مطوّرة ويب مقيمة في باريس، بخلفية في علوم الحاسوب وشغف ببناء أشياء جميلة ومتينة تقنيًا في آن واحد.",
-      p1: "أستمتع بالعمل عند تقاطع التصميم والتطوير - تحويل فكرة أو نشاط تجاري إلى موقع متكامل يبدو مدروسًا في كل تفصيلة.",
-      p2: "إلى جانب تطوير الويب، اختيرت لمشروع بحث جامعي مُشرَف عليه في التشفير، درست فيه RSA والأمان الواقعي. علّمني ذلك التعامل مع المشكلات التقنية بفضول ودقة واهتمام بالتفاصيل - وهي عقلية أحملها إلى كل موقع أبنيه."
+      lead: "أهلًا، أنا ولاء. مطوّرة مواقع وطالبة علوم الحاسوب في باريس. أساعد أصحاب المشاريع على تقديم أعمالهم على الإنترنت بطريقة مرتّبة وسهلة الاستخدام.",
+      p1: "أحب أن أجمع بين التصميم والبرمجة لأصنع موقعًا يناسب طبيعة كل مشروع، بدل أن أقدّم التصميم نفسه للجميع.",
+      p2: "إلى جانب عملي في تطوير المواقع، أنجزت بحثًا جامعيًا بإشراف أكاديمي حول تشفير RSA وأمنه. ساعدني هذا العمل على تعميق فهمي للتقنيات التي أستخدمها، وعلى التعامل مع المشكلات بدقة وصبر."
     },
     aboutBackground: [
       "علوم حاسوب · جامعة باريس سيتيه",
@@ -450,10 +450,10 @@ const translations = {
       "بحث في التشفير · RSA"
     ],
     whyus: {
-      item1title: "أولوية للموبايل", item1body: "كل موقع مصمّم ومختبر ليظهر بشكل رائع ويعمل بسلاسة على الهاتف أولًا.",
-      item2title: "مبني ليُكتشف بسهولة", item2body: "سريع ومنظم ومُحسَّن تقنيًا مع مراعاة محركات البحث.",
-      item3title: "متعدد اللغات FR / EN / AR", item3body: "تواصل مع عملائك بلغتهم، مع نسخة مصممة لكل جمهور.",
-      item4title: "تعاون مباشر", item4body: "تعمل معي مباشرة - بلا مسؤول حسابات وبلا وسيط."
+      item1title: "مصمّم للهاتف أولًا", item1body: "أحرص على أن يكون الموقع واضحًا وسهل الاستخدام على الهاتف، ثم على بقية الشاشات.",
+      item2title: "أساس تقني يساعد على الظهور", item2body: "أهتم بسرعة التحميل وتنظيم الصفحات والأساسيات التي تساعد محركات البحث على فهم الموقع.",
+      item3title: "متعدد اللغات FR / EN / AR", item3body: "أقدّم محتوى يناسب جمهورك بالعربية أو الفرنسية أو الإنجليزية، وليس ترجمة كلمة بكلمة.",
+      item4title: "تعاون مباشر", item4body: "تتواصل معي مباشرة من أول نقاش إلى تسليم الموقع، دون وسطاء."
     },
     packages: {
       eyebrow: "الخدمات",
@@ -463,7 +463,7 @@ const translations = {
     packageList: [
       {
         name: "صفحة هبوط",
-        tagline: "حضور كامل على الإنترنت، مبني حول هدف واحد واضح - نشاطك التجاري، مُختزَل في صفحة واحدة جميلة.",
+        tagline: "حضور كامل على الإنترنت، مبني حول هدف واحد واضح - اسم مشروعك أو مجال عملك، مُختزَل في صفحة واحدة جميلة.",
         priceLabel: "ابتداءً من",
         price: "400 €",
         oldPrice: "500 €",
@@ -480,7 +480,7 @@ const translations = {
       },
       {
         name: "صفحة هبوط + نظام إدارة محتوى",
-        tagline: "كل ما تتضمنه باقة صفحة الهبوط، بالإضافة إلى لوحة تحكم مخصصة - عدّلي محتواك وأسعارك وساعات عملك بنفسك في أي وقت، دون أي برمجة.",
+        tagline: "كل ما تتضمنه باقة صفحة الهبوط، بالإضافة إلى لوحة تحكم مخصصة - حدّث محتوى موقعك وأسعارك ومواعيدك بنفسك، دون الحاجة إلى البرمجة.",
         priceLabel: "ابتداءً من",
         price: "800 €",
         badge: "يشمل نظام إدارة محتوى مخصص",
@@ -500,9 +500,9 @@ const translations = {
     process: { eyebrow: "كيف نعمل" },
     processSteps: [
       { title: "أخبرني عن نشاطك", sub: "مكالمة قصيرة أو نموذج بسيط - 15 إلى 20 دقيقة." },
-      { title: "استلم تصميمك", sub: "تستلم النسخة الأولى وتشاركني ملاحظاتك." },
-      { title: "البناء والتحسين", sub: "متجاوب وسريع وجاهز لمحركات البحث." },
-      { title: "الإطلاق", sub: "يصبح موقعك مباشرًا وتحصل على كل ما تحتاجه." }
+      { title: "استلم تصميمك", sub: "أعرض عليك التصميم الأولي لنراجعه معًا." },
+      { title: "البناء والتحسين", sub: "أطوّر الموقع وأختبره على مختلف الشاشات." },
+      { title: "الإطلاق", sub: "يصبح موقعك الجديد مباشرًا وتحصل على كل ما تحتاجه." }
     ],
     exp: { eyebrow: "الخبرة" },
     experience: [
@@ -511,15 +511,15 @@ const translations = {
       { role: "مدرّسة خصوصية", org: "عمل حر", period: "مستمر", points: ["دروس في البرمجة والرياضيات.", "أفكار معقدة تصبح عملية وواضحة.", "بناء الثقة من خلال توجيه منظم."] },
     ],
     research: {
-      eyebrow: "بحث في التشفير", title: "بحث أكاديمي مُشرَف عليه في تشفير RSA",
-      body: "اختيرت لمشروع بحث جامعي يدرس RSA والأمان الواقعي - جزء مما علّمني بناء الأشياء بشكل صحيح، لا مجرد جعلها تبدو جميلة.",
+      eyebrow: "بحث في التشفير", title: "بحث جامعي حول تشفير RSA وأمنه",
+      body: "عملت على دراسة الأسس الرياضية لتشفير RSA وتحليل بعض الهجمات عليه، وأعددت تقريرًا وتطبيقًا عمليًا بلغة Java.",
       view: "عرض المشروع"
     },
     projects: {
       eyebrow: "الأعمال · دراسة حالة",
       p1: {
         title: "Mirasens - موقع مصمم للإجابة على الزوار، لا لمجرد الشكل الجميل",
-        body: "موقع تجاري ثنائي اللغة (فرنسي/إنجليزي) في الإنتاج مع مساعد ذكاء اصطناعي فعلي، مصمم ليحصل الزوار على إجابات دون انتظار الفريق.",
+        body: "موقع للشركة بالفرنسية والإنجليزية، مع مساعد ذكاء اصطناعي، مصمم ليحصل الزوار على إجابات دون انتظار الفريق.",
         challengeLabel: "التحدي",
         challengeBody: "احتاجت الشركة إلى موقع ثنائي اللغة سريع، قادر على الإجابة عن أسئلة الزوار فورًا - دون فريق دعم متاح باستمرار.",
         approachLabel: "ما قمت به",
@@ -534,7 +534,7 @@ const translations = {
       p2: {
         eyebrow: "المشاريع · عمل حقيقي مع عميل",
         title: "لو باشا - موقع مطعم مع نظام إدارة محتوى مخصص",
-        body: "موقع حقيقي من صفحة واحدة صُمم لعميل حقيقي - مطعم لو باشا التركي في فيليجويف - مع تحسين لمحركات البحث SEO، وزر دعوة للحجز، ولوحة تحكم مخصصة تتيح لصاحب المطعم تعديل القائمة وساعات العمل بنفسه.",
+        body: "موقع من صفحة واحدة صممته لمطعم - مطعم لو باشا التركي في فيليجويف - مع تحسين لمحركات البحث SEO، وزر دعوة للحجز، ولوحة تحكم مخصصة تتيح لصاحب المطعم تعديل القائمة وساعات العمل بنفسه.",
         challengeLabel: "التحدي",
         challengeBody: "كان صاحب المطعم بحاجة إلى موقع احترافي يظهر في نتائج البحث المحلية على جوجل ويعرض القائمة، دون أن يضطر لدفع تكلفة مطوّر في كل مرة يتغير فيها طبق أو سعر.",
         approachLabel: "طريقة العمل",
@@ -548,13 +548,13 @@ const translations = {
       }
     },
     researchModal: {
-      kicker: "المبادرة إلى البحث · السنة الأولى إعلام آلي",
-      title: "نظام التشفير RSA",
+      kicker: "مشروع تمهيدي في البحث العلمي · السنة الأولى علوم الحاسوب",
+      title: "خوارزمية التشفير RSA",
       subtitle: "الأسس الرياضية وتحليل الأمان",
       supervisorLabel: "المشرفة",
       recoLabel: "توصية",
       schoolLabel: "الجامعة",
-      abstract: "يدرس هذا المشروع نظام التشفير RSA (Rivest وShamir وAdleman، 1978)، أحد أكثر خوارزميات المفتاح العام تأثيرًا في تاريخ أمن المعلومات. بعد مقدمة عن التشفير الكلاسيكي والحديث، يبني التقرير الأدوات الرياضية اللازمة لفهم RSA: الحساب النمطي، خوارزمية إقليدس الممتدة، دالة أويلر، مبرهنة أويلر، مبرهنة الباقي الصيني والأس النمطي السريع. ثم يشرح RSA بالكامل: توليد المفاتيح، التشفير، فك التشفير، التوقيع الرقمي وتحسين RSA-CRT. ويخصص تحليلًا أمنيًا لطرق تفكيك الأعداد وعدة هجمات فعلية، من بينها هجوم Bleichenbacher الذي أثّر فعليًا على بروتوكولي SSL وTLS.",
+      abstract: "يدرس هذا المشروع خوارزمية التشفير RSA (Rivest وShamir وAdleman، 1978)، أحد أكثر خوارزميات المفتاح العام تأثيرًا في تاريخ أمن المعلومات. بعد مقدمة عن التشفير الكلاسيكي والحديث، يبني التقرير الأدوات الرياضية اللازمة لفهم RSA: الحساب النمطي، خوارزمية إقليدس الممتدة، دالة أويلر، مبرهنة أويلر، مبرهنة الباقي الصيني والأس النمطي السريع. ثم يشرح RSA بالكامل: توليد المفاتيح، التشفير، فك التشفير، التوقيع الرقمي وتحسين RSA-CRT. ويخصص تحليلًا أمنيًا لطرق تفكيك الأعداد وعدة هجمات فعلية، من بينها هجوم Bleichenbacher الذي أثّر فعليًا على بروتوكولي SSL وTLS.",
       planTitle: "خطة العرض",
       plan1title: "مقدمة في التشفير",
       plan1sub: "التشفير الكلاسيكي · Diffie-Hellman",
@@ -574,38 +574,38 @@ const translations = {
       { q: "كم تكلفة الموقع؟", a: "يعتمد ذلك على نطاق العمل - انظر الباقات أعلاه لمعرفة ما تشمله كل واحدة. أخبرني عن نشاطك وسأرد عليك بعرض سعر مجاني وغير مُلزم." },
       { q: "كم تستغرق المدة؟", a: "معظم صفحات الهبوط والمواقع التجارية تُسلَّم خلال أسابيع قليلة من أول مكالمة، حسب سرعة تجهيز المحتوى والملاحظات." },
       { q: "هل توفرين الاستضافة؟", a: "يمكنني إرشادك خلال إعداد الاستضافة والنطاق، أو تولي ذلك بنفسي ضمن المشروع." },
-      { q: "هل يمكنك تحسين موقعي الحالي؟", a: "نعم - أرسل لي موقعك الحالي وسأقترح تحسينات محددة، أو إعادة بنائه بالكامل إن كان ذلك أنسب." },
+      { q: "هل يمكنك تحسين موقعي الحالي؟", a: "نعم - أرسل لي موقعك الجديد الحالي وسأقترح تحسينات محددة، أو إعادة بنائه بالكامل إن كان ذلك أنسب." },
       { q: "هل يمكن أن يكون الموقع متعدد اللغات؟", a: "نعم. أطوّر بالفرنسية والإنجليزية والعربية، ببنية وعلامات لغة صحيحة لكل نسخة - وليس مجرد ترجمة نصوص." },
       { q: "هل أستطيع تعديل المحتوى بنفسي لاحقًا؟", a: "نعم - يمكنني إعداد الموقع بحيث تكون تعديلات النصوص والصور البسيطة سهلة عليك، أو تولي ذلك عبر باقة صيانة مستمرة." }
     ],
     contact: {
-      eyebrow: "تواصل", heading: "مستعدة للبناء؟",
+      eyebrow: "تواصل", heading: "عندك مشروع؟ خلّينا نحكي عنه.",
       eyebrowNum: "تواصل",
-      headingLine1: "لنتحدث عن",
-      headingLine2: "موقعك",
-      marquee: "لنبنِ شيئًا معًا",
-      body: "أخبرني عن نشاطك وما تحتاجه. سأرد عليك باستشارة مجانية وخطة واضحة - دون ضغط ودون مصطلحات معقدة.",
-      cta: "ابدأ محادثة",
+      headingLine1: "خلّينا نتكلم عن",
+      headingLine2: "موقعك الجديد",
+      marquee: "فكرتك تستحق موقعًا يليق بها",
+      body: "احكِ لي عن مشروعك وما الذي تحتاجه. سأساعدك على تحديد الخطوة المناسبة، وأرد عليك بوضوح ومن دون تعقيد.",
+      cta: "أرسل تفاصيل مشروعك",
       formName: "اسمك",
       formEmail: "بريدك الإلكتروني",
-      formBusiness: "نشاطك التجاري",
-      formNeedDefault: "ما الذي تحتاجه؟",
+      formBusiness: "اسم مشروعك أو مجال عملك",
+      formNeedDefault: "ما الخدمة التي تبحث عنها؟",
       formNeed1: "موقع جديد",
       formNeed2: "إعادة تصميم موقع حالي",
       formNeed3: "صفحة هبوط",
-      formNeed4: "موقع + حجز",
+      formNeed4: "موقع مع نظام حجز",
       formNeed5: "موقع متعدد اللغات",
-      formNeed6: "لست متأكدًا بعد",
-      formHasSiteLabel: "هل لديك موقع إلكتروني حاليًا؟",
+      formNeed6: "لم أحدد بعد",
+      formHasSiteLabel: "هل لديك موقع حاليًا؟",
       yes: "نعم", no: "لا",
-      formWebsiteUrl: "https://موقعك-الحالي.com",
+      formWebsiteUrl: "https://موقعك الجديد-الحالي.com",
       formBudgetDefault: "الميزانية التقريبية",
       formBudget1: "أقل من 500 €", formBudget2: "500 – 750 €", formBudget3: "750 – 1000 €",
       formBudget4: "1000 € فأكثر", formBudget5: "لست متأكدًا",
-      formMessage: "بضع كلمات عن مشروعك",
-      formPreferenceLabel: "كيف تفضل أن نتواصل؟",
-      prefCall: "أرغب في حجز مكالمة", prefEmail: "أفضّل المتابعة عبر البريد الإلكتروني",
-      prefExploring: "أستكشف الخيارات حاليًا فقط",
+      formMessage: "أخبرني باختصار عن مشروعك",
+      formPreferenceLabel: "كيف تحب أن نكمل الحديث؟",
+      prefCall: "أفضل أن نتحدث في مكالمة", prefEmail: "أفضل التواصل عبر البريد الإلكتروني",
+      prefExploring: "أريد الاستفسار فقط في الوقت الحالي",
       sending: "جارٍ الإرسال...", success: "شكرًا! استلمت مشروعك وسأرد عليك خلال 1-2 يوم عمل.",
       errorGeneric: "حدث خطأ - يرجى المحاولة مجددًا أو مراسلتي مباشرة عبر البريد الإلكتروني.",
       errorFields: "يرجى تعبئة الحقول المطلوبة.",
@@ -629,6 +629,7 @@ function getPath(obj, path) {
 /* ---- Experience ---- */
 const expList = document.getElementById('expList');
 function renderExperience(lang) {
+  if (!expList) return;
   expList.innerHTML = '';
   translations[lang].experience.forEach(exp => {
     const row = document.createElement('div');
@@ -648,6 +649,7 @@ function renderExperience(lang) {
 /* ---- About background (credibility list, kept small) ---- */
 const aboutBgList = document.getElementById('aboutBgList');
 function renderAboutBackground(lang) {
+  if (!aboutBgList) return;
   aboutBgList.innerHTML = '';
   translations[lang].aboutBackground.forEach(line => {
     const li = document.createElement('li');
@@ -660,6 +662,7 @@ function renderAboutBackground(lang) {
 /* ---- Landing Page offers (one or more packages) ---- */
 const mainPackageEl = document.getElementById('mainPackage');
 function renderMainPackage(lang) {
+  if (!mainPackageEl) return;
   const t = translations[lang];
   mainPackageEl.innerHTML = `<div id="services"></div>` + t.packageList.map(p => `
     <div class="landing-package reveal visible">
@@ -700,6 +703,7 @@ function renderMainPackage(lang) {
 /* ---- Coming soon services ---- */
 const comingSoonGrid = document.getElementById('comingSoonGrid');
 function renderComingSoon(lang) {
+  if (!comingSoonGrid) return;
   comingSoonGrid.innerHTML = '';
   translations[lang].comingSoon.forEach(item => {
     const card = document.createElement('div');
@@ -716,6 +720,7 @@ function renderComingSoon(lang) {
 /* ---- Process ---- */
 const processGrid = document.getElementById('processGrid');
 function renderProcess(lang) {
+  if (!processGrid) return;
   processGrid.innerHTML = '';
   translations[lang].processSteps.forEach((step, i) => {
     const row = document.createElement('div');
@@ -729,6 +734,7 @@ function renderProcess(lang) {
 /* ---- FAQ ---- */
 const faqList = document.getElementById('faqList');
 function renderFaq(lang) {
+  if (!faqList) return;
   faqList.innerHTML = '';
   translations[lang].faqItems.forEach((item, i) => {
     const det = document.createElement('details');
@@ -795,7 +801,8 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const lang = btn.dataset.lang;
     try { localStorage.setItem('wm_lang', lang); } catch (e) { }
-    window.location.href = `/${lang}/`;
+    const page = document.body.dataset.page || "home";
+    window.location.href = `/${lang}/${page === "home" ? "" : page + "/"}`;
   });
 });
 
@@ -895,9 +902,49 @@ if (contactForm) {
 
 /* ================= NAV SCROLL STATE ================= */
 const siteNav = document.getElementById('siteNav');
+const navigationSections = ['home', 'services', 'projects', 'about', 'contact'];
 function onScroll() {
-  if (window.scrollY > 40) siteNav.classList.add('scrolled');
-  else siteNav.classList.remove('scrolled');
+  if (!siteNav) return;
+  const page = document.body.dataset.page;
+  if (page && page !== "home") {
+    siteNav.classList.add("scrolled");
+    document.querySelectorAll("[data-section]").forEach(link => {
+      const active = link.dataset.section === page;
+      link.classList.toggle("active", active);
+      if (active) link.setAttribute("aria-current", "page");
+      else link.removeAttribute("aria-current");
+    });
+    return;
+  }
+  siteNav.classList.toggle('scrolled', window.scrollY > 40);
+  // Each navbar item represents a separate page, not a homepage section.
+  // Keep Accueil selected throughout the homepage, including at the footer.
+  document.querySelectorAll('[data-section]').forEach(link => {
+    const active = link.dataset.section === 'home';
+    link.classList.toggle('active', active);
+    if (active) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
+  });
+}
+
+/* Desktop language dropdown: accessible, closes on outside click and Escape. */
+const languageMenu = document.getElementById('languageMenu');
+const languageTrigger = document.getElementById('languageTrigger');
+if (languageMenu && languageTrigger) {
+  const closeLanguageMenu = () => {
+    languageMenu.classList.remove('open');
+    languageTrigger.setAttribute('aria-expanded', 'false');
+  };
+  languageTrigger.addEventListener('click', () => {
+    const isOpen = languageMenu.classList.toggle('open');
+    languageTrigger.setAttribute('aria-expanded', String(isOpen));
+  });
+  document.addEventListener('click', event => {
+    if (!languageMenu.contains(event.target)) closeLanguageMenu();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeLanguageMenu();
+  });
 }
 
 /* ================= MOBILE MENU ================= */
@@ -1100,3 +1147,26 @@ window.scrollToId = function (id) {
     block: "start"
   });
 };
+
+// Delegated actions replace inline HTML handlers (compatible with a strict script CSP).
+document.addEventListener('click', (event) => {
+  const el = event.target.closest('[data-portfolio-action]');
+  if (!el) return;
+  const action = el.dataset.portfolioAction;
+  if ((action === 'research-overlay' || action === 'lightbox-overlay') && event.target !== el) return;
+  const actions = {
+    top: () => scrollToTop(),
+    contact: () => scrollToId('contact'),
+    'research-open': () => openResearchModal(),
+    'research-close': () => closeResearchModal(),
+    'research-overlay': () => closeResearchModal(),
+    'lightbox-open': () => openLightbox(el),
+    'lightbox-close': () => closeLightbox(),
+    'lightbox-overlay': () => closeLightbox(),
+    'lightbox-prev': () => lightboxNav(-1),
+    'lightbox-next': () => lightboxNav(1),
+    'gallery-prev': () => scrollGallery(el, -1),
+    'gallery-next': () => scrollGallery(el, 1)
+  };
+  actions[action]?.();
+});

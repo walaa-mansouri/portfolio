@@ -3,7 +3,7 @@ const BUDGET = new Set(["", "under500", "500-750", "750-1000", "1000plus", "unsu
 const PREF = new Set(["call", "email", "exploring"]);
 const LANG = new Set(["en", "fr", "ar"]);
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const clean = (v, max) => typeof v === "string" ? v.trim().slice(0, max) : "";
+const clean = (v, max) => typeof v === "string" && v.length <= max ? v.trim() : "";
 const esc = (v) => String(v).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const json = (data, status = 200) => Response.json(data, { status, headers: { "Cache-Control": "no-store" } });
 async function sendBrevo(key, payload) {
@@ -151,7 +151,8 @@ export default async function handler(request) {
     budget = clean(body.budget, 40), preference = clean(body.preference, 40),
     lang = clean(body.lang, 10);
   if (!name || !email || !EMAIL.test(email) || !business || !message ||
-    !NEED.has(need) || !BUDGET.has(budget) || !PREF.has(preference) || !LANG.has(lang))
+    !NEED.has(need) || !BUDGET.has(budget) || !PREF.has(preference) || !LANG.has(lang) ||
+    !["yes", "no"].includes(body.hasSite))
     return json({ error: "Invalid fields" }, 400);
   if (websiteUrl) {
     try { if (!["https:", "http:"].includes(new URL(websiteUrl).protocol)) throw Error(); }

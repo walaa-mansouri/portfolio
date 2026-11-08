@@ -1,381 +1,382 @@
 {
-    "meta": {
-        "title": "Création de sites internet à Paris | Walaa Mansouri",
-        "description": "Sites internet professionnels, rapides et multilingues pour indépendants et petites entreprises à Paris. Consultation gratuite."
-    },
-    "nav": {
-        "services": "Services",
-        "work": "Réalisations",
-        "process": "Comment ça marche",
-        "faq": "FAQ",
-        "about": "À propos",
-        "contact": "Contact"
-    },
-    "hero": {
-        "eyebrow": "Développeuse Web Full-Stack · Paris",
-        "title": "Walaa<br>Mansouri",
-        "sub": "Des sites rapides et modernes pour de vraies entreprises.",
-        "cta1": "Construisons votre site",
-        "cta2": "Demander un devis",
-        "marquee": "Développeuse Web Full-Stack · Paris",
-        "scroll": "Défiler"
-    },
-    "status": {
-        "available": "Disponible pour des missions",
-        "availableSub": "Ouverte à de nouveaux projets clients",
-        "languages": "Langues",
-        "french": "Français",
-        "english": "Anglais",
-        "arabic": "Arabe"
-    },
-    "loc": {
-        "label": "Localisation",
-        "value": "Paris, France",
-        "note": "Université Paris Cité · Informatique"
-    },
-    "about": {
-        "eyebrow": "À propos de moi",
-        "lead": "Bonjour, je suis Walaa. Je suis développeuse web basée à Paris, avec une formation en informatique et une passion pour créer des choses à la fois belles et techniquement solides.",
-        "p1": "J'aime travailler à l'intersection du design et du développement - transformer une idée ou une entreprise en un site web abouti, pensé jusque dans le moindre détail.",
-        "p2": "En parallèle du développement web, j'ai été sélectionnée pour un projet de recherche universitaire encadré en cryptographie, où j'ai étudié RSA et la sécurité réelle. Cela m'a appris à aborder les problèmes techniques avec curiosité, précision et souci du détail - un état d'esprit que j'apporte à chaque site que je construis."
-    },
-    "aboutBackground": [
-        "Informatique · Université Paris Cité",
-        "Stage en développement web · Sirius Net",
-        "Recherche en cryptographie · RSA"
-    ],
-    "whyus": {
-        "item1title": "Mobile-first",
-        "item1body": "Chaque site est pensé et testé pour bien s'afficher et fonctionner d'abord sur mobile.",
-        "item2title": "Pensé pour être trouvé",
-        "item2body": "Rapide, structuré et techniquement optimisé pour les moteurs de recherche.",
-        "item3title": "Multilingue FR / EN / AR",
-        "item3body": "Touchez vos clients dans leur langue, avec une version pensée pour chaque public.",
-        "item4title": "Collaboration directe",
-        "item4body": "Vous travaillez directement avec moi - sans chargé de compte, sans intermédiaire."
-    },
-    "packages": {
-        "eyebrow": "Services",
-        "title": "Deux façons d'être en ligne.",
-        "body": "Une page d'atterrissage qui fait une forte première impression - ou la même page accompagnée d'un CMS sur mesure pour gérer votre propre contenu. D'autres formules arrivent bientôt."
-    },
-    "packageList": [
+  "meta": {
+    "title": "Création de sites internet à Paris | Walaa Mansouri",
+    "description": "Sites internet professionnels, rapides et multilingues pour indépendants et petites entreprises à Paris. Consultation gratuite."
+  },
+  "nav": {
+    "services": "Services",
+    "work": "Projets",
+    "process": "Comment ça marche",
+    "faq": "FAQ",
+    "about": "À propos",
+    "contact": "Contact",
+    "home": "Accueil"
+  },
+  "hero": {
+    "eyebrow": "Développeuse Web Full-Stack · Paris",
+    "title": "Des sites web qui donnent vie à votre activité.",
+    "sub": "Je crée des sites modernes, rapides et pensés pour inspirer confiance et transformer vos visiteurs en clients.",
+    "cta1": "Construisons votre site",
+    "cta2": "Demander un devis",
+    "marquee": "Des sites web qui donnent vie à votre activité.",
+    "scroll": "Défiler"
+  },
+  "status": {
+    "available": "Disponible pour des missions",
+    "availableSub": "Ouverte à de nouveaux projets clients",
+    "languages": "Langues",
+    "french": "Français",
+    "english": "Anglais",
+    "arabic": "Arabe"
+  },
+  "loc": {
+    "label": "Localisation",
+    "value": "Paris, France",
+    "note": "Université Paris Cité · Informatique"
+  },
+  "about": {
+    "eyebrow": "À propos de moi",
+    "lead": "Bonjour, je suis Walaa. Je suis développeuse web basée à Paris, avec une formation en informatique et une passion pour créer des choses à la fois belles et techniquement solides.",
+    "p1": "J'aime travailler à l'intersection du design et du développement - transformer une idée ou une entreprise en un site web abouti, pensé jusque dans le moindre détail.",
+    "p2": "En parallèle du développement web, j'ai été sélectionnée pour un projet de recherche universitaire encadré en cryptographie, où j'ai étudié RSA et la sécurité réelle. Cela m'a appris à aborder les problèmes techniques avec curiosité, précision et souci du détail - un état d'esprit que j'apporte à chaque site que je construis."
+  },
+  "aboutBackground": [
+    "Informatique · Université Paris Cité",
+    "Stage en développement web · Sirius Net",
+    "Recherche en cryptographie · RSA"
+  ],
+  "whyus": {
+    "item1title": "Mobile-first",
+    "item1body": "Chaque site est pensé et testé pour bien s'afficher et fonctionner d'abord sur mobile.",
+    "item2title": "Pensé pour être trouvé",
+    "item2body": "Rapide, structuré et techniquement optimisé pour les moteurs de recherche.",
+    "item3title": "Multilingue FR / EN / AR",
+    "item3body": "Touchez vos clients dans leur langue, avec une version pensée pour chaque public.",
+    "item4title": "Collaboration directe",
+    "item4body": "Vous travaillez directement avec moi - sans chargé de compte, sans intermédiaire."
+  },
+  "packages": {
+    "eyebrow": "Services",
+    "title": "Deux façons d'être en ligne.",
+    "body": "Une page d'atterrissage qui fait une forte première impression - ou la même page accompagnée d'un CMS sur mesure pour gérer votre propre contenu. D'autres formules arrivent bientôt."
+  },
+  "packageList": [
+    {
+      "name": "Page d'atterrissage",
+      "tagline": "Une présence en ligne complète, construite autour d'un objectif clair - votre entreprise, distillée en une seule et belle page.",
+      "priceLabel": "À partir de",
+      "price": "400 €",
+      "oldPrice": "500 €",
+      "badge": "Offre de lancement",
+      "perfectFor": [
+        "Dentistes",
+        "Médecins",
+        "Avocats",
+        "Professionnels de la beauté",
+        "Restaurants",
+        "Freelances",
+        "Commerces locaux"
+      ],
+      "categories": [
         {
-            "name": "Page d'atterrissage",
-            "tagline": "Une présence en ligne complète, construite autour d'un objectif clair - votre entreprise, distillée en une seule et belle page.",
-            "priceLabel": "À partir de",
-            "price": "400 €",
-            "oldPrice": "500 €",
-            "badge": "Offre de lancement",
-            "perfectFor": [
-                "Dentistes",
-                "Médecins",
-                "Avocats",
-                "Professionnels de la beauté",
-                "Restaurants",
-                "Freelances",
-                "Commerces locaux"
-            ],
-            "categories": [
-                {
-                    "title": "Design",
-                    "items": [
-                        "Direction visuelle sur mesure",
-                        "Design responsive",
-                        "Optimisation mobile"
-                    ]
-                },
-                {
-                    "title": "Structure du contenu",
-                    "items": [
-                        "Section héro",
-                        "Services",
-                        "À propos",
-                        "Avantages",
-                        "Témoignages",
-                        "FAQ",
-                        "Appel à l'action"
-                    ]
-                },
-                {
-                    "title": "Technique",
-                    "items": [
-                        "Chargement rapide",
-                        "SEO de base",
-                        "Formulaire de contact",
-                        "Connexion du domaine",
-                        "Mise en ligne"
-                    ]
-                },
-                {
-                    "title": "Après le lancement",
-                    "items": [
-                        "2 tours de révisions",
-                        "7 jours de support après lancement"
-                    ]
-                }
-            ],
-            "customNote": "Besoin de quelque chose de plus spécifique ? Parlez-moi de votre projet et je vous ferai un devis sur mesure.",
-            "cta": "Discuter de votre projet"
+          "title": "Design",
+          "items": [
+            "Direction visuelle sur mesure",
+            "Design responsive",
+            "Optimisation mobile"
+          ]
         },
         {
-            "name": "Page d'atterrissage + CMS",
-            "tagline": "Tout ce qui est inclus dans la Page d'atterrissage, plus un panneau d'administration sur mesure - modifiez vous-même votre contenu, vos prix et vos horaires à tout moment, sans code.",
-            "priceLabel": "À partir de",
-            "price": "800 €",
-            "badge": "Inclut un CMS sur mesure",
-            "perfectFor": [
-                "Restaurants",
-                "Boutiques",
-                "Salons",
-                "Commerces locaux",
-                "Toute activité qui met à jour son contenu souvent"
-            ],
-            "categories": [
-                {
-                    "title": "Design",
-                    "items": [
-                        "Direction visuelle sur mesure",
-                        "Design responsive",
-                        "Optimisation mobile"
-                    ]
-                },
-                {
-                    "title": "Structure du contenu",
-                    "items": [
-                        "Section héro",
-                        "Services / menu",
-                        "À propos",
-                        "Avantages",
-                        "Témoignages",
-                        "FAQ",
-                        "Appel à l'action"
-                    ]
-                },
-                {
-                    "title": "Technique",
-                    "items": [
-                        "Chargement rapide",
-                        "SEO de base",
-                        "Formulaire de contact",
-                        "Connexion du domaine",
-                        "Mise en ligne",
-                        "CMS / panneau d'administration sur mesure",
-                        "Contenu, prix & horaires modifiables",
-                        "Connexion sécurisée"
-                    ]
-                },
-                {
-                    "title": "Après le lancement",
-                    "items": [
-                        "2 tours de révisions",
-                        "7 jours de support après lancement",
-                        "Session de formation à l'utilisation du CMS"
-                    ]
-                }
-            ],
-            "customNote": "Besoin de quelque chose de plus spécifique ? Parlez-moi de votre projet et je vous ferai un devis sur mesure.",
-            "cta": "Discuter de votre projet"
+          "title": "Structure du contenu",
+          "items": [
+            "Section héro",
+            "Services",
+            "À propos",
+            "Avantages",
+            "Témoignages",
+            "FAQ",
+            "Appel à l'action"
+          ]
+        },
+        {
+          "title": "Technique",
+          "items": [
+            "Chargement rapide",
+            "SEO de base",
+            "Formulaire de contact",
+            "Connexion du domaine",
+            "Mise en ligne"
+          ]
+        },
+        {
+          "title": "Après le lancement",
+          "items": [
+            "2 tours de révisions",
+            "7 jours de support après lancement"
+          ]
         }
-    ],
-    "comingSoonLabel": "Bientôt disponible",
-    "comingSoon": [
-        "Sites vitrines",
-        "Systèmes de réservation",
-        "Sites multilingues"
-    ],
-    "process": {
-        "eyebrow": "Comment ça marche"
+      ],
+      "customNote": "Besoin de quelque chose de plus spécifique ? Parlez-moi de votre projet et je vous ferai un devis sur mesure.",
+      "cta": "Discuter de votre projet"
     },
-    "processSteps": [
+    {
+      "name": "Page d'atterrissage + CMS",
+      "tagline": "Tout ce qui est inclus dans la Page d'atterrissage, plus un panneau d'administration sur mesure - modifiez vous-même votre contenu, vos prix et vos horaires à tout moment, sans code.",
+      "priceLabel": "À partir de",
+      "price": "800 €",
+      "badge": "Inclut un CMS sur mesure",
+      "perfectFor": [
+        "Restaurants",
+        "Boutiques",
+        "Salons",
+        "Commerces locaux",
+        "Toute activité qui met à jour son contenu souvent"
+      ],
+      "categories": [
         {
-            "title": "Parlez-moi de votre entreprise",
-            "sub": "Un court appel ou un formulaire simple - 15 à 20 minutes."
+          "title": "Design",
+          "items": [
+            "Direction visuelle sur mesure",
+            "Design responsive",
+            "Optimisation mobile"
+          ]
         },
         {
-            "title": "Recevez votre design",
-            "sub": "Vous recevez une première version et donnez vos retours."
+          "title": "Structure du contenu",
+          "items": [
+            "Section héro",
+            "Services / menu",
+            "À propos",
+            "Avantages",
+            "Témoignages",
+            "FAQ",
+            "Appel à l'action"
+          ]
         },
         {
-            "title": "Construction & optimisation",
-            "sub": "Responsive, rapide et prêt pour le SEO."
+          "title": "Technique",
+          "items": [
+            "Chargement rapide",
+            "SEO de base",
+            "Formulaire de contact",
+            "Connexion du domaine",
+            "Mise en ligne",
+            "CMS / panneau d'administration sur mesure",
+            "Contenu, prix & horaires modifiables",
+            "Connexion sécurisée"
+          ]
         },
         {
-            "title": "Mise en ligne",
-            "sub": "Votre site est publié et vous recevez tout ce dont vous avez besoin."
+          "title": "Après le lancement",
+          "items": [
+            "2 tours de révisions",
+            "7 jours de support après lancement",
+            "Session de formation à l'utilisation du CMS"
+          ]
         }
-    ],
-    "exp": {
-        "eyebrow": "Expérience"
-    },
-    "experience": [
-        {
-            "role": "Responsable Technique et Marketing Digital",
-            "org": "Hannachi Couture",
-            "period": "Depuis janvier 2026",
-            "points": [
-                "Supervision du site web et des aspects techniques de l'entreprise.",
-                "Pilotage des campagnes de marketing digital et du contenu sur les réseaux sociaux.",
-                "Lien entre exécution technique et stratégie marketing pour la marque."
-            ]
-        },
-        {
-            "role": "Stagiaire Dev Web",
-            "org": "Sirius Net",
-            "period": "Été 2025",
-            "points": [
-                "Site multilingue responsive - de la conception à la production.",
-                "Chatbot IA Gemini intégré, livré à de vrais utilisateurs.",
-                "Code propre relu et validé par l'équipe senior."
-            ]
-        },
-        {
-            "role": "Professeure particulière",
-            "org": "Indépendant",
-            "period": "En cours",
-            "points": [
-                "Cours de programmation et de mathématiques.",
-                "Des idées complexes rendues concrètes et claires.",
-                "Une confiance construite par un accompagnement structuré."
-            ]
-        }
-    ],
-    "research": {
-        "eyebrow": "Recherche en cryptographie",
-        "title": "Recherche encadrée en cryptographie RSA",
-        "body": "Sélectionnée pour un projet de recherche universitaire étudiant RSA et la sécurité réelle - une part de ce qui m'a appris à construire les choses correctement, pas seulement à les rendre jolies.",
-        "view": "Voir le projet"
-    },
-    "projects": {
-        "eyebrow": "Réalisations · Étude de cas",
-        "p1": {
-            "title": "Mirasens - Un site pensé pour répondre aux visiteurs, pas seulement pour être joli",
-            "body": "Un site professionnel bilingue (FR/EN) en production, avec un assistant IA en direct, conçu pour que les visiteurs obtiennent des réponses sans attendre l'équipe.",
-            "challengeLabel": "Le défi",
-            "challengeBody": "L'entreprise avait besoin d'un site bilingue rapide, capable de répondre instantanément aux visiteurs - sans équipe support disponible en permanence.",
-            "approachLabel": "Ce que j'ai fait",
-            "approachBody": "Conception et développement du site, mise en place de la structure FR/EN et du SEO, puis intégration d'un assistant IA pour répondre en direct aux vrais visiteurs.",
-            "resultLabel": "Le résultat",
-            "resultBody": "Un site en production, livré à de vrais utilisateurs, toujours en ligne aujourd'hui sur mirasens.com.",
-            "tag1": "Multilingue FR/EN",
-            "tag2": "Assistant IA",
-            "tag3": "Prêt pour le SEO",
-            "cta": "Voir mirasens.com"
-        },
-        "p2": {
-            "eyebrow": "Projets · Client réel",
-            "title": "Le Pacha - Site web restaurant & CMS sur mesure",
-            "body": "Un vrai site one-page réalisé pour un vrai client - Le Pacha, restaurant turc à Villejuif - avec SEO, un call-to-action réservation, et un panneau d'administration sur mesure permettant au propriétaire de modifier lui-même le menu et les horaires.",
-            "challengeLabel": "Le défi",
-            "challengeBody": "Le propriétaire avait besoin d'un site professionnel, visible sur Google localement, présentant son menu, sans avoir à payer un développeur à chaque changement de plat ou de prix.",
-            "approachLabel": "Mon approche",
-            "approachBody": "Conception et développement d'un site one-page responsive (hero, plats phares, galerie, horaires, contact) optimisé pour le SEO local, puis création d'un CMS/panneau d'administration sur mesure permettant au client d'ajouter, modifier ou supprimer des plats, prix et catégories, et de mettre à jour les horaires, sans aucune compétence en code.",
-            "resultLabel": "Le résultat",
-            "resultBody": "Livré de bout en bout en tant que projet freelance indépendant, en production et utilisé quotidiennement par un vrai restaurateur.",
-            "tag1": "Projet client freelance · 2026",
-            "tag2": "CMS / panneau d'administration sur mesure",
-            "tag3": "SEO local · Design responsive",
-            "cta": "Visiter lepacha.netlify.app"
-        }
-    },
-    "researchModal": {
-        "kicker": "Initiation à la recherche · L1 Informatique",
-        "title": "Le Cryptosystème RSA",
-        "subtitle": "Fondements Mathématiques et Analyse de Sécurité",
-        "supervisorLabel": "Encadrante",
-        "recoLabel": "Recommandation",
-        "schoolLabel": "École",
-        "abstract": "Ce projet étudie le cryptosystème RSA (Rivest, Shamir, Adleman, 1978), l'un des algorithmes à clé publique les plus influents de l'histoire de la sécurité informatique. Après une introduction à la cryptographie classique et moderne - chiffrements par substitution et par flot, chiffrement symétrique AES, échange de clés Diffie-Hellman et fonctions de hachage - le rapport construit les outils mathématiques nécessaires à RSA : arithmétique modulaire, algorithme d'Euclide étendu, indicatrice d'Euler, théorème d'Euler, théorème des restes chinois et exponentiation modulaire rapide. Il détaille ensuite RSA de bout en bout : génération des clés, chiffrement, déchiffrement, signature numérique et optimisation RSA-CRT. Une analyse de sécurité dédiée étudie la factorisation d'entiers (ρ de Pollard, crible quadratique, crible algébrique) ainsi que plusieurs attaques concrètes - l'attaque par module commun, l'attaque par masquage exploitant l'homomorphisme multiplicatif de RSA, et l'attaque de Bleichenbacher sur le bourrage PKCS#1, qui retrouve un message après environ 10⁶ requêtes et a compromis SSL/TLS en pratique.",
-        "planTitle": "Plan de l'exposé",
-        "plan1title": "Introduction à la cryptographie",
-        "plan1sub": "Chiffrements classiques · Diffie-Hellman",
-        "plan2title": "Fondements mathématiques",
-        "plan2sub": "Arithmétique modulaire · Euler · Euclide étendu",
-        "plan3title": "L'algorithme RSA",
-        "plan3sub": "Génération des clés · Chiffrement · Signature",
-        "plan4title": "Analyse de sécurité &amp; Attaques",
-        "plan4sub": "Factorisation · Module commun · Bleichenbacher",
-        "plan5title": "Conclusion &amp; Perspectives",
-        "plan5sub": "RSA face au post-quantique · Abandon dans TLS 1.3",
-        "downloadExpose": "Télécharger l'Exposé (PDF)",
-        "downloadRapport": "Télécharger le Rapport (PDF)"
-    },
-    "faq": {
-        "eyebrow": "FAQ"
-    },
-    "faqItems": [
-        {
-            "q": "Combien coûte un site internet ?",
-            "a": "Cela dépend du périmètre - voir les formules ci-dessus pour le contenu de chacune. Parlez-moi de votre entreprise et je vous réponds avec un devis gratuit et sans engagement."
-        },
-        {
-            "q": "Combien de temps ça prend ?",
-            "a": "La plupart des pages d'atterrissage et sites vitrines sont livrés en quelques semaines à partir de notre premier échange, selon la rapidité des retours et du contenu."
-        },
-        {
-            "q": "Fournissez-vous l'hébergement ?",
-            "a": "Je peux vous accompagner pour l'hébergement et le nom de domaine, ou m'en charger directement dans le cadre du projet."
-        },
-        {
-            "q": "Pouvez-vous améliorer mon site existant ?",
-            "a": "Oui - envoyez-moi votre site actuel et je vous proposerai des améliorations concrètes, ou une refonte complète si c'est plus adapté."
-        },
-        {
-            "q": "Pouvez-vous le rendre multilingue ?",
-            "a": "Oui. Je développe en français, anglais et arabe, avec une structure et des balises de langue propres à chacune - pas une simple traduction du texte."
-        },
-        {
-            "q": "Pourrai-je modifier le contenu moi-même ensuite ?",
-            "a": "Oui - je peux organiser le site pour que les modifications simples de texte ou d'images soient faciles pour vous, ou m'en occuper via une formule de maintenance."
-        }
-    ],
-    "contact": {
-        "eyebrow": "Contact",
-        "heading": "Prêt à construire ?",
-        "eyebrowNum": "Contact",
-        "headingLine1": "Parlons de",
-        "headingLine2": "votre site",
-        "marquee": "Construisons ensemble",
-        "body": "Dites-moi ce que fait votre entreprise et ce dont vous avez besoin. Je vous réponds avec une consultation gratuite et un plan clair - sans pression, sans jargon.",
-        "cta": "Démarrer une conversation",
-        "formName": "Votre nom",
-        "formEmail": "Votre email",
-        "formBusiness": "Votre entreprise / activité",
-        "formNeedDefault": "De quoi avez-vous besoin ?",
-        "formNeed1": "Nouveau site",
-        "formNeed2": "Refonte d'un site existant",
-        "formNeed3": "Page d'atterrissage",
-        "formNeed4": "Site + réservation",
-        "formNeed5": "Site multilingue",
-        "formNeed6": "Je ne sais pas encore",
-        "formHasSiteLabel": "Avez-vous déjà un site web ?",
-        "yes": "Oui",
-        "no": "Non",
-        "formWebsiteUrl": "https://votre-site-actuel.com",
-        "formBudgetDefault": "Budget approximatif",
-        "formBudget1": "Moins de 500 €",
-        "formBudget2": "500 € – 750 €",
-        "formBudget3": "750 € – 1 000 €",
-        "formBudget4": "1 000 € et plus",
-        "formBudget5": "Je ne sais pas",
-        "formMessage": "Quelques mots sur votre projet",
-        "formPreferenceLabel": "Comment souhaitez-vous continuer ?",
-        "prefCall": "Je souhaite réserver un appel",
-        "prefEmail": "Je préfère continuer par email",
-        "prefExploring": "Je me renseigne pour l'instant",
-        "sending": "Envoi en cours...",
-        "success": "Merci ! J'ai bien reçu votre projet et je vous réponds sous 1-2 jours ouvrés.",
-        "errorGeneric": "Une erreur s'est produite - réessayez ou écrivez-moi directement par email.",
-        "errorFields": "Merci de remplir les champs obligatoires.",
-        "emailLabel": "Email",
-        "locationLabel": "Localisation",
-        "locationValueInline": "Paris, France",
-        "languagesLabel": "Langues",
-        "availabilityLabel": "Disponibilité",
-        "availabilityValueInline": "Ouverte aux projets"
-    },
-    "footer": {
-        "line1": "© 2026 Walaa Mansouri",
-        "line2": "Développeuse Web Full-Stack · Paris"
+      ],
+      "customNote": "Besoin de quelque chose de plus spécifique ? Parlez-moi de votre projet et je vous ferai un devis sur mesure.",
+      "cta": "Discuter de votre projet"
     }
+  ],
+  "comingSoonLabel": "Bientôt disponible",
+  "comingSoon": [
+    "Sites vitrines",
+    "Systèmes de réservation",
+    "Sites multilingues"
+  ],
+  "process": {
+    "eyebrow": "Comment ça marche"
+  },
+  "processSteps": [
+    {
+      "title": "Parlez-moi de votre entreprise",
+      "sub": "Un court appel ou un formulaire simple - 15 à 20 minutes."
+    },
+    {
+      "title": "Recevez votre design",
+      "sub": "Vous recevez une première version et donnez vos retours."
+    },
+    {
+      "title": "Construction & optimisation",
+      "sub": "Responsive, rapide et prêt pour le SEO."
+    },
+    {
+      "title": "Mise en ligne",
+      "sub": "Votre site est publié et vous recevez tout ce dont vous avez besoin."
+    }
+  ],
+  "exp": {
+    "eyebrow": "Expérience"
+  },
+  "experience": [
+    {
+      "role": "Responsable Technique et Marketing Digital",
+      "org": "Hannachi Couture",
+      "period": "Depuis janvier 2026",
+      "points": [
+        "Supervision du site web et des aspects techniques de l'entreprise.",
+        "Pilotage des campagnes de marketing digital et du contenu sur les réseaux sociaux.",
+        "Lien entre exécution technique et stratégie marketing pour la marque."
+      ]
+    },
+    {
+      "role": "Stagiaire Dev Web",
+      "org": "Sirius Net",
+      "period": "Été 2025",
+      "points": [
+        "Site multilingue responsive - de la conception à la production.",
+        "Chatbot IA Gemini intégré, livré à de vrais utilisateurs.",
+        "Code propre relu et validé par l'équipe senior."
+      ]
+    },
+    {
+      "role": "Professeure particulière",
+      "org": "Indépendant",
+      "period": "En cours",
+      "points": [
+        "Cours de programmation et de mathématiques.",
+        "Des idées complexes rendues concrètes et claires.",
+        "Une confiance construite par un accompagnement structuré."
+      ]
+    }
+  ],
+  "research": {
+    "eyebrow": "Recherche en cryptographie",
+    "title": "Recherche encadrée en cryptographie RSA",
+    "body": "Sélectionnée pour un projet de recherche universitaire étudiant RSA et la sécurité réelle - une part de ce qui m'a appris à construire les choses correctement, pas seulement à les rendre jolies.",
+    "view": "Voir le projet"
+  },
+  "projects": {
+    "eyebrow": "Réalisations · Étude de cas",
+    "p1": {
+      "title": "Mirasens - Un site pensé pour répondre aux visiteurs, pas seulement pour être joli",
+      "body": "Un site professionnel bilingue (FR/EN) en production, avec un assistant IA en direct, conçu pour que les visiteurs obtiennent des réponses sans attendre l'équipe.",
+      "challengeLabel": "Le défi",
+      "challengeBody": "L'entreprise avait besoin d'un site bilingue rapide, capable de répondre instantanément aux visiteurs - sans équipe support disponible en permanence.",
+      "approachLabel": "Ce que j'ai fait",
+      "approachBody": "Conception et développement du site, mise en place de la structure FR/EN et du SEO, puis intégration d'un assistant IA pour répondre en direct aux vrais visiteurs.",
+      "resultLabel": "Le résultat",
+      "resultBody": "Un site en production, livré à de vrais utilisateurs, toujours en ligne aujourd'hui sur mirasens.com.",
+      "tag1": "Multilingue FR/EN",
+      "tag2": "Assistant IA",
+      "tag3": "Prêt pour le SEO",
+      "cta": "Voir mirasens.com"
+    },
+    "p2": {
+      "eyebrow": "Projets · Client réel",
+      "title": "Le Pacha - Site web restaurant & CMS sur mesure",
+      "body": "Un vrai site one-page réalisé pour un vrai client - Le Pacha, restaurant turc à Villejuif - avec SEO, un call-to-action réservation, et un panneau d'administration sur mesure permettant au propriétaire de modifier lui-même le menu et les horaires.",
+      "challengeLabel": "Le défi",
+      "challengeBody": "Le propriétaire avait besoin d'un site professionnel, visible sur Google localement, présentant son menu, sans avoir à payer un développeur à chaque changement de plat ou de prix.",
+      "approachLabel": "Mon approche",
+      "approachBody": "Conception et développement d'un site one-page responsive (hero, plats phares, galerie, horaires, contact) optimisé pour le SEO local, puis création d'un CMS/panneau d'administration sur mesure permettant au client d'ajouter, modifier ou supprimer des plats, prix et catégories, et de mettre à jour les horaires, sans aucune compétence en code.",
+      "resultLabel": "Le résultat",
+      "resultBody": "Livré de bout en bout en tant que projet freelance indépendant, en production et utilisé quotidiennement par un vrai restaurateur.",
+      "tag1": "Projet client freelance · 2026",
+      "tag2": "CMS / panneau d'administration sur mesure",
+      "tag3": "SEO local · Design responsive",
+      "cta": "Visiter lepacha.netlify.app"
+    }
+  },
+  "researchModal": {
+    "kicker": "Initiation à la recherche · L1 Informatique",
+    "title": "Le Cryptosystème RSA",
+    "subtitle": "Fondements Mathématiques et Analyse de Sécurité",
+    "supervisorLabel": "Encadrante",
+    "recoLabel": "Recommandation",
+    "schoolLabel": "École",
+    "abstract": "Ce projet étudie le cryptosystème RSA (Rivest, Shamir, Adleman, 1978), l'un des algorithmes à clé publique les plus influents de l'histoire de la sécurité informatique. Après une introduction à la cryptographie classique et moderne - chiffrements par substitution et par flot, chiffrement symétrique AES, échange de clés Diffie-Hellman et fonctions de hachage - le rapport construit les outils mathématiques nécessaires à RSA : arithmétique modulaire, algorithme d'Euclide étendu, indicatrice d'Euler, théorème d'Euler, théorème des restes chinois et exponentiation modulaire rapide. Il détaille ensuite RSA de bout en bout : génération des clés, chiffrement, déchiffrement, signature numérique et optimisation RSA-CRT. Une analyse de sécurité dédiée étudie la factorisation d'entiers (ρ de Pollard, crible quadratique, crible algébrique) ainsi que plusieurs attaques concrètes - l'attaque par module commun, l'attaque par masquage exploitant l'homomorphisme multiplicatif de RSA, et l'attaque de Bleichenbacher sur le bourrage PKCS#1, qui retrouve un message après environ 10⁶ requêtes et a compromis SSL/TLS en pratique.",
+    "planTitle": "Plan de l'exposé",
+    "plan1title": "Introduction à la cryptographie",
+    "plan1sub": "Chiffrements classiques · Diffie-Hellman",
+    "plan2title": "Fondements mathématiques",
+    "plan2sub": "Arithmétique modulaire · Euler · Euclide étendu",
+    "plan3title": "L'algorithme RSA",
+    "plan3sub": "Génération des clés · Chiffrement · Signature",
+    "plan4title": "Analyse de sécurité &amp; Attaques",
+    "plan4sub": "Factorisation · Module commun · Bleichenbacher",
+    "plan5title": "Conclusion &amp; Perspectives",
+    "plan5sub": "RSA face au post-quantique · Abandon dans TLS 1.3",
+    "downloadExpose": "Télécharger l'Exposé (PDF)",
+    "downloadRapport": "Télécharger le Rapport (PDF)"
+  },
+  "faq": {
+    "eyebrow": "FAQ"
+  },
+  "faqItems": [
+    {
+      "q": "Combien coûte un site internet ?",
+      "a": "Cela dépend du périmètre - voir les formules ci-dessus pour le contenu de chacune. Parlez-moi de votre entreprise et je vous réponds avec un devis gratuit et sans engagement."
+    },
+    {
+      "q": "Combien de temps ça prend ?",
+      "a": "La plupart des pages d'atterrissage et sites vitrines sont livrés en quelques semaines à partir de notre premier échange, selon la rapidité des retours et du contenu."
+    },
+    {
+      "q": "Fournissez-vous l'hébergement ?",
+      "a": "Je peux vous accompagner pour l'hébergement et le nom de domaine, ou m'en charger directement dans le cadre du projet."
+    },
+    {
+      "q": "Pouvez-vous améliorer mon site existant ?",
+      "a": "Oui - envoyez-moi votre site actuel et je vous proposerai des améliorations concrètes, ou une refonte complète si c'est plus adapté."
+    },
+    {
+      "q": "Pouvez-vous le rendre multilingue ?",
+      "a": "Oui. Je développe en français, anglais et arabe, avec une structure et des balises de langue propres à chacune - pas une simple traduction du texte."
+    },
+    {
+      "q": "Pourrai-je modifier le contenu moi-même ensuite ?",
+      "a": "Oui - je peux organiser le site pour que les modifications simples de texte ou d'images soient faciles pour vous, ou m'en occuper via une formule de maintenance."
+    }
+  ],
+  "contact": {
+    "eyebrow": "Contact",
+    "heading": "Prêt à construire ?",
+    "eyebrowNum": "Contact",
+    "headingLine1": "Parlons de",
+    "headingLine2": "votre site",
+    "marquee": "Construisons ensemble",
+    "body": "Dites-moi ce que fait votre entreprise et ce dont vous avez besoin. Je vous réponds avec une consultation gratuite et un plan clair - sans pression, sans jargon.",
+    "cta": "Démarrer une conversation",
+    "formName": "Votre nom",
+    "formEmail": "Votre email",
+    "formBusiness": "Votre entreprise / activité",
+    "formNeedDefault": "De quoi avez-vous besoin ?",
+    "formNeed1": "Nouveau site",
+    "formNeed2": "Refonte d'un site existant",
+    "formNeed3": "Page d'atterrissage",
+    "formNeed4": "Site + réservation",
+    "formNeed5": "Site multilingue",
+    "formNeed6": "Je ne sais pas encore",
+    "formHasSiteLabel": "Avez-vous déjà un site web ?",
+    "yes": "Oui",
+    "no": "Non",
+    "formWebsiteUrl": "https://votre-site-actuel.com",
+    "formBudgetDefault": "Budget approximatif",
+    "formBudget1": "Moins de 500 €",
+    "formBudget2": "500 € – 750 €",
+    "formBudget3": "750 € – 1 000 €",
+    "formBudget4": "1 000 € et plus",
+    "formBudget5": "Je ne sais pas",
+    "formMessage": "Quelques mots sur votre projet",
+    "formPreferenceLabel": "Comment souhaitez-vous continuer ?",
+    "prefCall": "Je souhaite réserver un appel",
+    "prefEmail": "Je préfère continuer par email",
+    "prefExploring": "Je me renseigne pour l'instant",
+    "sending": "Envoi en cours...",
+    "success": "Merci ! J'ai bien reçu votre projet et je vous réponds sous 1-2 jours ouvrés.",
+    "errorGeneric": "Une erreur s'est produite - réessayez ou écrivez-moi directement par email.",
+    "errorFields": "Merci de remplir les champs obligatoires.",
+    "emailLabel": "Email",
+    "locationLabel": "Localisation",
+    "locationValueInline": "Paris, France",
+    "languagesLabel": "Langues",
+    "availabilityLabel": "Disponibilité",
+    "availabilityValueInline": "Ouverte aux projets"
+  },
+  "footer": {
+    "line1": "© 2026 Walaa Mansouri",
+    "line2": "Développeuse Web Full-Stack · Paris"
+  }
 }

@@ -5,19 +5,20 @@
   },
   "nav": {
     "services": "Services",
-    "work": "Work",
+    "work": "Projects",
     "process": "How it works",
     "faq": "FAQ",
     "about": "About",
-    "contact": "Contact"
+    "contact": "Contact",
+    "home": "Home"
   },
   "hero": {
     "eyebrow": "Full-Stack Developer · Paris",
-    "title": "Walaa<br>Mansouri",
-    "sub": "Building fast, modern websites for real businesses.",
+    "title": "Websites that bring your business to life.",
+    "sub": "I create modern, fast websites designed to build trust and turn visitors into customers.",
     "cta1": "Let's build your site",
     "cta2": "Get a quote",
-    "marquee": "Full-Stack Developer · Paris",
+    "marquee": "Websites that bring your business to life.",
     "scroll": "Scroll"
   },
   "status": {
