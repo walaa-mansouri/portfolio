@@ -3120,3 +3120,13 @@ body[data-page="contact"] .contact-form .cf-radio input[type="radio"] {
 html[lang="ar"] body, html[lang="ar"] body :is(h1,h2,h3,h4,h5,h6,p,span,a,button,label,input,textarea,select,option,li,small,strong,em,blockquote), html[lang="ar"] .ab-page, html[lang="ar"] .ab-page * {font-family:'Baloo Bhaijaan 2',Tahoma,Arial,sans-serif!important;}
 html[lang="ar"] body{line-height:1.75}
 html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3{line-height:1.35;letter-spacing:0!important}
+
+/* Brand-only blue/coral services; remove unnecessary multicolor styling. */
+.home-service-tone-1,.home-service-tone-3,.home-service-tone-5,.ws-card-0,.ws-card-2,.ws-card-4{--service-color:#087fb9!important;--service-wash:#eaf6fc!important;--ws-accent:#087fb9!important;--ws-pale:#eaf6fc!important}
+.home-service-tone-2,.home-service-tone-4,.home-service-tone-6,.ws-card-1,.ws-card-3,.ws-card-5{--service-color:#df6546!important;--service-wash:#fff2ed!important;--ws-accent:#df6546!important;--ws-pale:#fff2ed!important}
+.ws-services-page .ws-card{border:1px solid #e1eaf0;box-shadow:0 8px 28px rgba(14,51,75,.045)}
+.ws-services-page .ws-card::before{background:var(--ws-accent)!important}
+.ws-services-page .ws-card .ws-icon{background:var(--ws-pale);color:var(--ws-accent)}
+.ws-services-page .ws-card .ws-price strong,.ws-services-page .ws-card .ws-link{color:var(--ws-accent)!important}
+.ws-services-page .ws-guidance .ws-kicker,.ws-services-page .ws-guidance-kicker{background:none!important;box-shadow:none!important;border:0!important;border-radius:0!important;padding:0!important;color:#137eb3!important;letter-spacing:.09em!important}
+.cta-arrow-icon{display:inline-block;width:1em;height:1em;vertical-align:-.13em;flex-shrink:0;margin-inline-start:.3em;stroke-width:2}
