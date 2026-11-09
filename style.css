@@ -3130,3 +3130,11 @@ html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3{line-height:1.35;letter
 .ws-services-page .ws-card .ws-price strong,.ws-services-page .ws-card .ws-link{color:var(--ws-accent)!important}
 .ws-services-page .ws-guidance .ws-kicker,.ws-services-page .ws-guidance-kicker{background:none!important;box-shadow:none!important;border:0!important;border-radius:0!important;padding:0!important;color:#137eb3!important;letter-spacing:.09em!important}
 .cta-arrow-icon{display:inline-block;width:1em;height:1em;vertical-align:-.13em;flex-shrink:0;margin-inline-start:.3em;stroke-width:2}
+
+/* Performance: keep primary heading immediately visible on slower mobile devices. */
+@media(max-width:900px){.hero-full .hero-content h1,.hero-full .hero-content .sub,.hero-full .hero-content .hero-actions{animation:none!important;opacity:1!important;visibility:visible!important;transform:none!important}.hero-full .liquid-ether{display:none!important}.hero-full .luminous-heading::after{display:none!important}}
+
+/* Lightweight seamless video background replaces CPU/GPU-heavy fluid simulation. */
+.liquid-ether__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+@media(max-width:900px){.hero-full .liquid-ether{display:block!important;opacity:.35!important}}
+@media(prefers-reduced-motion:reduce){.liquid-ether__video{display:none!important}}

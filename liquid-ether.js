@@ -1,8 +1,8 @@
 /* LiquidEther WebGL background, adapted from the user-supplied React Bits JavaScript source for a static site. */
 (()=>{
-const PIXEL_BUDGET = 2.4e6;
-const MAX_CELLS = 140000;
-const PRESSURE_STEPS = 32;
+const PIXEL_BUDGET = 1.2e6;
+const MAX_CELLS = 50000;
+const PRESSURE_STEPS = 8;
 const PALETTE_SIZE = 256;
 
 const VERTEX = `#version 300 es
@@ -272,10 +272,10 @@ function startLiquidEther(container) {
    colors:['#0297DE','#50C6FF','#FC734D','#FFAD82'],
    paletteKey:'#0297DE,#50C6FF,#FC734D,#FFAD82',
    intensity:1.5, force:22, radius:130, persistence:0.78,
-   viscosity:0, resolution:0.48, walls:false, clickBurst:true,
+   viscosity:0, resolution:0.35, walls:false, clickBurst:true,
    autoDemo:true, autoSpeed:0.55, autoIntensity:2.6,
    autoResumeDelay:1100, intro:true, light:false,
-   background:[0,0,0,0], maxRatio:1.4
+   background:[0,0,0,0], maxRatio:1.25
  };
  const generation=0;
  let wakeRef={current:null};
@@ -523,12 +523,21 @@ function startLiquidEther(container) {
       });
     };
 
+    // Cap WebGL work to ~12 frames/second. Pointer events still wake the renderer.
+    // Crucially, do not run the expensive fluid simulation every display refresh.
+    let lastRendered = 0;
+    const MIN_FRAME_MS = 1000 / 12;
     const frame = now => {
       raf = 0;
-      if (lost) return;
+      if (lost || !visible || !pageVisible) return;
+      if (lastRendered && now - lastRendered < MIN_FRAME_MS) {
+        raf = requestAnimationFrame(frame);
+        return;
+      }
+      lastRendered = now;
       const s = settings;
       updatePalette(s);
-      const dt = clamp((now - last) / 1000 || 0, 0, 1 / 30);
+      const dt = clamp((now - last) / 1000 || 0, 0, 1 / 12);
       last = Math.max(last, now);
       const pace = Math.min(1, dt * 60);
       const idle = now - lastInput > s.autoResumeDelay && !pointer.inside;
@@ -706,6 +715,6 @@ function startLiquidEther(container) {
 
 
 }
-function init(){const hero=document.querySelector('body[data-page="home"] .liquid-ether'); if(hero) startLiquidEther(hero);}
+function init(){const hero=document.querySelector('body[data-page="home"] .liquid-ether'); if (!hero) return; if (window.matchMedia('(max-width: 900px), (pointer: coarse), (prefers-reduced-motion: reduce)').matches) {hero.style.display='none';return;} const begin=()=>startLiquidEther(hero); if('requestIdleCallback' in window) requestIdleCallback(begin,{timeout:3500}); else window.addEventListener('load',begin,{once:true});}
 if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init,{once:true}); else init();
 })();

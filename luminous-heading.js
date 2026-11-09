@@ -6,7 +6,7 @@
   const syncText = () => heading.setAttribute('data-luminous-text', heading.textContent.trim());
   syncText();
   new MutationObserver(syncText).observe(heading, {childList:true,subtree:true,characterData:true});
-  if (reduced.matches) return;
+  if (reduced.matches || window.matchMedia('(max-width: 900px), (pointer: coarse)').matches) return;
   const hero = heading.closest('.hero-full');
   let hovering = false, visible = true, frameId = 0;
   const setSpot = (x,y) => {
