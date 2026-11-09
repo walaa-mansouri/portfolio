@@ -3138,3 +3138,6 @@ html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3{line-height:1.35;letter
 .liquid-ether__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
 @media(max-width:900px){.hero-full .liquid-ether{display:block!important;opacity:.35!important}}
 @media(prefers-reduced-motion:reduce){.liquid-ether__video{display:none!important}}
+
+/* Paint LCP text immediately; defer decorative video decoding. */
+.hero-full .hero-content h1,.hero-full .hero-content .sub,.hero-full .hero-content .hero-actions{animation:none!important;opacity:1!important;visibility:visible!important;transform:none!important}

@@ -17,7 +17,7 @@ for (const lang of ['fr', 'en', 'ar']) {
   };
   walk(path.join(root, lang));
 }
-const scripts = new Set();
+const scripts = new Set(['hero-video.js']);
 for (const filename of htmlFiles) {
   const html = fs.readFileSync(filename, 'utf8');
   for (const match of html.matchAll(/<script\b[^>]*\bsrc=["']\/([\w-]+\.js)["']/g)) scripts.add(match[1]);
