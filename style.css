@@ -3141,3 +3141,45 @@ html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3{line-height:1.35;letter
 
 /* Paint LCP text immediately; defer decorative video decoding. */
 .hero-full .hero-content h1,.hero-full .hero-content .sub,.hero-full .hero-content .hero-actions{animation:none!important;opacity:1!important;visibility:visible!important;transform:none!important}
+
+/* Stable, immediate LCP paint. The video is a decorative enhancement added later. */
+.hero-full .liquid-ether{
+ background-image:url('/img/hero-video-poster.webp');
+ background-position:center;
+ background-size:cover;
+}
+.hero-full .hero-content h1{
+ opacity:1!important;
+ visibility:visible!important;
+ animation:none!important;
+ transform:none!important;
+}
+.hero-full .bg-marquee{pointer-events:none}
+
+/* Mobile: paint a stable LCP with no video decoding. Gentle GPU-composited
+   poster drift retains movement without continuous video frames. */
+@media (max-width:900px), (pointer:coarse){
+  body[data-page="home"] .hero-full .liquid-ether{
+    display:block!important;
+    opacity:.65!important;
+    overflow:hidden;
+    background-image:none!important;
+  }
+  body[data-page="home"] .hero-full .liquid-ether::before{
+    content:"";
+    position:absolute;
+    inset:-7%;
+    background:url('/img/hero-video-poster.webp') center/cover no-repeat;
+    transform:translate3d(0,0,0) scale(1.06);
+    animation:ambientMobileDrift 16s ease-in-out infinite alternate;
+    will-change:transform;
+  }
+  body[data-page="home"] .hero-full .liquid-ether__video{display:none!important}
+}
+@keyframes ambientMobileDrift{
+  from{transform:translate3d(-2%,1%,0) scale(1.08)}
+  to{transform:translate3d(2%,-1%,0) scale(1.13)}
+}
+@media(prefers-reduced-motion:reduce){
+  body[data-page="home"] .hero-full .liquid-ether::before{animation:none!important}
+}
