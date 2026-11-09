@@ -3183,3 +3183,37 @@ html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3{line-height:1.35;letter
 @media(prefers-reduced-motion:reduce){
   body[data-page="home"] .hero-full .liquid-ether::before{animation:none!important}
 }
+
+
+/* Lighthouse mobile LCP stability: prevent above-the-fold elements from
+   beginning offscreen or at opacity zero. Preserve desktop visuals. */
+@media (max-width:900px), (pointer:coarse) {
+  body[data-page="home"] .hero-full,
+  body[data-page="home"] .navbar,
+  body[data-page="home"] .hero-full .hero-content,
+  body[data-page="home"] .hero-full .hero-content *,
+  body[data-page="home"] .hero-full .scroll-cue,
+  body[data-page="home"] .hero-full .scroll-line {
+    animation:none!important;
+    transition:none!important;
+    opacity:1!important;
+    visibility:visible!important;
+  }
+  body[data-page="home"] .hero-full,
+  body[data-page="home"] .navbar {
+    transform:none!important;
+  }
+  body[data-page="home"] .hero-full .grad-text {
+    background-size:100% 100%!important;
+    background-position:50% 50%!important;
+  }
+  body[data-page="home"] .hero-full .liquid-ether::before {
+    animation:none!important;
+    will-change:auto!important;
+    transform:none!important;
+    inset:0!important;
+  }
+  body[data-page="home"] .hero-full .luminous-heading::after {
+    display:none!important;
+  }
+}
